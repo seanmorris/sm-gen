@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', event => {
 
 	const button = document.getElementById('burgerButton');
 
-	button.addEventListener('click', event => {
+	button && button.addEventListener('click', event => {
 		const newValue = (button.getAttribute('data-open') === 'false' || button.getAttribute('data-open') === '');
 		button.setAttribute('data-open', newValue);
 		newValue
