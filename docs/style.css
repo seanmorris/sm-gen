@@ -44,7 +44,7 @@ nav.main, nav.table-of-contents {
 	flex-grow: 1;
 }
 
-nav {
+nav.main {
 	white-space: nowrap;
 }
 
