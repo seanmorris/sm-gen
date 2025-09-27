@@ -14,7 +14,7 @@ PHP=${PHP:-"php"}
 PANDOC=${PANDOC:-"pandoc"}
 YQ=${YQ:-"yq"}
 
-BASE_URL=${BASE_URL:-"http://example.com"}
+BASE_URL=${BASE_URL:-""}
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 PHP_FLAGS='-d display_errors=stderr -d include_path="'${SCRIPT_DIR}/helpers'"'
@@ -132,6 +132,7 @@ find "${PAGES_DIR}" -type f -print0 | while IFS= read -r -d $'\0' PAGE_FILE; do 
 	TMP_FILE=/tmp/$( uuid ).html
 
 	# Build the final template
+	BASE_URL=${BASE_URL}\
 	PAGES_DIR=${PAGES_DIR}\
 	JAVASCRIPTS=${JAVASCRIPTS}\
 	INLINE_JAVASCRIPTS=${INLINE_JAVASCRIPTS}\
