@@ -43,7 +43,7 @@ document.addEventListener('click', event => {
 		{
 			const url = new URL(href, location);
 
-			if((url.origin !== window.location.origin)
+			if(url.origin !== window.location.origin)
 			{
 				window.open(href);
 				event.preventDefault();
