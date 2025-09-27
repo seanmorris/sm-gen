@@ -32,6 +32,7 @@ $if(canonical)$
 	<link rel="canonical" href="$canonical$" />
 $endif$
 	<meta name="title" content="$if(pagetitle)$${pagetitle}$else$${title}$endif$">
+	<link rel="icon" type="image/x-icon" href="<?=getenv('BASE_URL');?>/favicon.ico">
 	<link rel="sitemap" href="/sitemap.xml" />
 	<style>
 		$styles.html()$
