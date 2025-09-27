@@ -1,0 +1,60 @@
+.active_link {
+	font-weight: bold;
+}
+
+body {
+	box-sizing: border-box;
+	min-height: 100vh;
+	padding: 1rem;
+	margin: auto;
+
+	display: flex;
+	flex-direction: column;
+	max-width: 74rem;
+}
+
+footer {
+	margin-top: auto;
+}
+
+.page-rule, .page-content, nav.table-of-contents {
+	margin-left: 1rem;
+}
+
+nav.main, nav.table-of-contents {
+	font-size: 0.8rem;
+}
+
+.page-rule {
+	margin-right: 1rem;
+}
+
+.page-rule, .page-content {
+	display: flex;
+	flex-direction: row;
+}
+
+.page-content, article {
+	flex-grow: 1;
+}
+
+nav {
+	min-width: 8rem;
+}
+
+nav ul {
+	list-style: none;
+	padding-left: 1rem;
+}
+
+nav > ul {
+	padding-left: 0;
+}
+
+footer {
+	text-align: center;
+}
+
+footer span.author:not(:last-of-type)::after {
+	content: ", ";
+}

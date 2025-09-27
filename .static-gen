@@ -1,0 +1,14 @@
+STATIC_DIR=${STATIC_DIR:-"./static"}
+
+STYLES=$( cat <<-END
+	/style.css
+END )
+
+# HIGHLIGHT_STYLE=
+# HIGHLIGHT_STYLE=pygments;
+# HIGHLIGHT_STYLE=tango;
+# HIGHLIGHT_STYLE=espresso;
+# HIGHLIGHT_STYLE=kate;
+# HIGHLIGHT_STYLE=monochrome;
+# HIGHLIGHT_STYLE=breezedark;
+# HIGHLIGHT_STYLE=haddock;
