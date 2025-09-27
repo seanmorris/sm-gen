@@ -55,7 +55,7 @@ $endif$
 	<section class = "heading">
 		<div class = "page-rule">
 			<nav>
-				<a href = "/">
+				<a href = "./">
 					Home
 				</a>
 			</nav>
