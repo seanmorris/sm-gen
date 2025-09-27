@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>/nested/index.html</loc>
+		<loc>https://seanmorris.github.io/static-gen//nested/index.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>/faq.html</loc>
+		<loc>https://seanmorris.github.io/static-gen//faq.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>/index.html</loc>
+		<loc>https://seanmorris.github.io/static-gen//index.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>/customization.html</loc>
+		<loc>https://seanmorris.github.io/static-gen//customization.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>/configuration.html</loc>
+		<loc>https://seanmorris.github.io/static-gen//configuration.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>/deployment.html</loc>
+		<loc>https://seanmorris.github.io/static-gen//deployment.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>/project-structure.html</loc>
+		<loc>https://seanmorris.github.io/static-gen//project-structure.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>/advanced-usage.html</loc>
+		<loc>https://seanmorris.github.io/static-gen//advanced-usage.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>/other-page.html</loc>
+		<loc>https://seanmorris.github.io/static-gen//other-page.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>/getting-started.html</loc>
+		<loc>https://seanmorris.github.io/static-gen//getting-started.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>

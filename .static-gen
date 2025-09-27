@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# BASE_URL=${BASE_URL:-"https://seanmorris.github.io/static-gen/"}
+BASE_URL=${BASE_URL:-"https://seanmorris.github.io/static-gen/"}
 
 STATIC_DIR=${STATIC_DIR:-"./static"}
 
