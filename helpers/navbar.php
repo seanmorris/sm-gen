@@ -92,7 +92,7 @@ function makeNavBar($path, $rootPath = NULL)
 		$linkPath = preg_replace('/\.\w+$/', '.html', substr($pathname, strlen($rootPath)));
 
 		?><li>
-			<a href = "<?=$linkPath;?>" <?= getenv('CURRENT_PAGE') === $linkPath ? 'class="active_link"' : ''; ?>>
+			<a href = "<?=$linkPath;?>" <?= getenv('CURRENT_PAGE') === $linkPath ? 'class="active-link"' : ''; ?>>
 				<?=$title?>
 			</a>
 		</li><?php
