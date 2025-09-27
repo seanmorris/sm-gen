@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-BASE_URL=${BASE_URL:-"https://seanmorris.github.io/static-gen/"}
+# BASE_URL=${BASE_URL:-"http://localhost:8083"}
+BASE_URL=${BASE_URL:-"https://seanmorris.github.io/static-gen"}
 
 STATIC_DIR=${STATIC_DIR:-"./static"}
 
 STYLES=$( cat <<-END
-	./style.css
+	${BASE_URL}/style.css
 END )
 
 JAVASCRIPTS=$( cat <<-END

@@ -28,9 +28,6 @@ $endif$
 $if(description-meta)$
 	<meta name="description" content="$description-meta$" />
 $endif$
-	<?php if(getEnv('BASE_URL')): ?>
-	<base href="<?=getEnv('BASE_URL');?>">
-	<?php endif; ?>
 $if(canonical)$
 	<link rel="canonical" href="$canonical$" />
 $endif$
