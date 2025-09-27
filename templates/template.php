@@ -50,6 +50,12 @@ $endfor$
 $if(math)$
 	$math$
 $endif$
+<?php if(getEnv('JAVASCRIPTS')) foreach(explode(PHP_EOL, getEnv('JAVASCRIPTS')) as $javascript):?>
+	<script src = "<?=$javascript;?>"></script>
+<?php endforeach; ?>
+<?php if(getEnv('INLINE_JAVASCRIPTS')) foreach(explode(PHP_EOL, getEnv('INLINE_JAVASCRIPTS')) as $javascriptFile):?>
+	<script><?=file_get_contents($javascriptFile);?></script>
+<?php endforeach; ?>
 </head>
 <body>
 	<section class = "heading">
@@ -91,5 +97,11 @@ $endif$
 		<p>&copy; 2024 - <?=date('Y');?> $for(author)$ <span class = "author">$author.name$</span> $endfor$</p>
 		$endif$
 	</footer>
-</body>
+<?php if(getEnv('BODY_JAVASCRIPTS')) foreach(explode(PHP_EOL, getEnv('BODY_JAVASCRIPTS')) as $javascript):?>
+	<script src = "<?=$javascript;?>"></script>
+<?php endforeach; ?>
+<?php if(getEnv('INLINE_BODY_JAVASCRIPTS')) foreach(explode(PHP_EOL, getEnv('INLINE_BODY_JAVASCRIPTS')) as $javascriptFile):?>
+	<script><?=file_get_contents($javascriptFile);?></script>
+<?php endforeach; ?>
+	</body>
 </html>

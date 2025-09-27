@@ -8,6 +8,10 @@ STYLES=$( cat <<-END
 	./style.css
 END )
 
+JAVASCRIPTS=$( cat <<-END
+	/main.js
+END )
+
 # HIGHLIGHT_STYLE=
 # HIGHLIGHT_STYLE=pygments;
 # HIGHLIGHT_STYLE=tango;

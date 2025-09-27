@@ -72,3 +72,29 @@ pre {
 	padding: 1rem;
 	line-height: 1.1rem;
 }
+
+code > span.highlight {
+	background-color: #234;
+}
+
+.flickering {
+	animation: flicker 50ms linear infinite;
+}
+
+@keyframes flicker {
+	0% { opacity: 0; }
+	100% { opacity: 0.75; }
+}
+
+section.below-fold nav {
+	position: sticky;
+	align-self: flex-start;
+	height: auto;
+	max-height: 100vh;
+	top: 10px;
+
+}
+
+nav.table-of-contents {
+	min-width: 12rem;
+}
