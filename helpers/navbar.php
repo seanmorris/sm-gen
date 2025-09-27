@@ -89,7 +89,7 @@ function makeNavBar($path, $rootPath = NULL)
 		$frontmatter = $entry->frontmatter;
 
 		$title = $frontmatter['title'] ?? ucwords(preg_replace(['/\.md$/', '/-/'], ['',  ' '], $filename));
-		$linkPath = preg_replace('/\.\w+$/', '.html', substr($pathname, strlen($rootPath)));
+		$linkPath = '.' . preg_replace('/\.\w+$/', '.html', substr($pathname, strlen($rootPath)));
 
 		?><li>
 			<a href = "<?=$linkPath;?>" <?= getenv('CURRENT_PAGE') === $linkPath ? 'class="active-link"' : ''; ?>>
