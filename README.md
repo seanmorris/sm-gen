@@ -48,5 +48,6 @@ Full documentation is authored in Markdown under `pages/`:
 - `pages/advanced-usage.md` — Advanced Usage (templates, partials, i18n)
 - `pages/deployment.md` — Deployment (GitHub Pages, CI)
 - `pages/faq.md` — FAQ & Troubleshooting
+- `pages/examples/index.md` — Examples (sample CSS & JavaScript)
 
 Run `./build.sh` to regenerate the HTML in `docs/`. You can customize behavior via `.static-gen`, environment variables, and pre/post hooks.

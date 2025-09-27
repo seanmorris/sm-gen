@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html lang = "en">
 <head>
-			<title>Configuration</title>
+			<title>Basic Usage Example</title>
 			<meta charset="utf-8" />
 	<meta name="viewport" content="width=800, user-scalable=yes" />
-	<meta name="title" content="Configuration">
+	<meta name="title" content="Basic Usage Example">
 	<link rel="icon" type="image/x-icon" href="https://seanmorris.github.io/static-gen/favicon.ico">
 	<link rel="sitemap" href="/sitemap.xml" />
 	<style>
@@ -99,7 +99,7 @@
 							<nav class = "main"><ul><details open>
 			<summary>Examples</summary>
 			<ul><li>
-			<a href = "https://seanmorris.github.io/static-gen/examples/basic-usage.html" >
+			<a href = "https://seanmorris.github.io/static-gen/examples/basic-usage.html" class="active-link">
 				Basic Usage Example			</a>
 		</li></ul>		</details><li>
 			<a href = "https://seanmorris.github.io/static-gen/index.html" >
@@ -108,7 +108,7 @@
 			<a href = "https://seanmorris.github.io/static-gen/getting-started.html" >
 				Getting Started			</a>
 		</li><li>
-			<a href = "https://seanmorris.github.io/static-gen/configuration.html" class="active-link">
+			<a href = "https://seanmorris.github.io/static-gen/configuration.html" >
 				Configuration			</a>
 		</li><li>
 			<a href = "https://seanmorris.github.io/static-gen/project-structure.html" >
@@ -131,59 +131,43 @@
 		</li></ul></nav>
 						<div class = "page-content">
 				<article >
-								<h1 id="configuration">Configuration</h1>
-        <p>You can configure the generator via environment variables,
-        <code>.static-gen</code>, and pre/post hooks.</p>
-        <blockquote>
-        <p><strong>Note:</strong> <code>build.sh</code> looks for
-        <code>pages/</code>, <code>templates/</code>,
-        <code>static/</code>, and <code>.static-gen</code> in your
-        current working directory (where you invoke the script). All
-        paths and hooks can be customized via environment variables or a
-        <code>.static-gen</code> file placed alongside the script.</p>
-        </blockquote>
-        <h2 id="environment-variables">Environment Variables</h2>
-        <ul>
-        <li><code>OUTPUT_DIR</code> — output directory (default
-        <code>./docs</code>)</li>
-        <li><code>TEMPLATE_DIR</code> — template files directory
-        (default <code>./templates</code>)</li>
-        <li><code>STATIC_DIR</code> — static assets directory (default
-        <code>./static</code>)</li>
-        <li><code>PAGES_DIR</code> — source pages directory (default
-        <code>./pages</code>)</li>
-        <li>Other variables: <code>PHP</code>, <code>PANDOC</code>,
-        <code>YQ</code>, <code>BASE_URL</code>,
-        <code>TITLE_PREFIX</code>, <code>HIGHLIGHT_STYLE</code>,
-        etc.</li>
-        </ul>
-        <h2 id="static-gen-overrides"><code>.static-gen</code>
-        Overrides</h2>
-        <p>Create a <code>.static-gen</code> file at the root to
-        override default variables (e.g., custom CSS or asset
-        directory).</p>
-        <p>Example:</p>
+								<h1 id="basic-usage-example">Basic Usage Example</h1>
+        <p>This example walks through a minimal setup of the static-site
+        generator in a new project directory.</p>
+        <h2 id="setup">Setup</h2>
+        <p>Create a project folder and a <code>pages/</code>
+        subdirectory:</p>
         <div class="sourceCode" id="cb1"><pre
-        class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">STYLES</span><span class="op">=</span><span class="va">$(</span><span class="fu">cat</span> <span class="op">&lt;&lt;-END</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">    /my-theme.css</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">END)</span></span></code></pre></div>
-        <h2 id="hooks">Hooks</h2>
-        <ul>
-        <li><code>before-build.sh</code> — script to run before the main
-        build.</li>
-        <li><code>after-build.sh</code> — script to run after the build
-        completes.</li>
-        </ul>
+        class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> my-site</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> my-site</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> pages</span></code></pre></div>
+        <h2 id="create-your-first-page">Create your first page</h2>
+        <p>Add <code>pages/index.md</code> with front-matter and
+        Markdown content:</p>
+        <div class="sourceCode" id="cb2"><pre
+        class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Hello, Static Site!</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Hello, Static Site!</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>This is your first page generated by the static site generator.</span></code></pre></div>
+        <h2 id="build-the-site">Build the site</h2>
+        <p>Run the build script (from your project root):</p>
+        <div class="sourceCode" id="cb3"><pre
+        class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">build.sh</span></span></code></pre></div>
+        <p>Open <code>docs/index.html</code> in your browser to view the
+        generated page.</p>
 				</article>
 								<nav class = "table-of-contents">
 					<span class = "wide-only">on this page:</span>
 					<ul>
-     <li><a href="#configuration">Configuration</a>
+     <li><a href="#basic-usage-example">Basic Usage Example</a>
      <ul>
-     <li><a href="#environment-variables">Environment Variables</a></li>
-     <li><a href="#static-gen-overrides"><code>.static-gen</code>
-     Overrides</a></li>
-     <li><a href="#hooks">Hooks</a></li>
+     <li><a href="#setup">Setup</a></li>
+     <li><a href="#create-your-first-page">Create your first
+     page</a></li>
+     <li><a href="#build-the-site">Build the site</a></li>
      </ul></li>
      </ul>
 					<span class = "wide-only"><a href = "#">top</a></span>

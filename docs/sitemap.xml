@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>https://seanmorris.github.io/static-gen/nested/index.html</loc>
+		<loc>https://seanmorris.github.io/static-gen/examples/basic-usage.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
@@ -49,13 +49,13 @@
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>https://seanmorris.github.io/static-gen/other-page.html</loc>
+		<loc>https://seanmorris.github.io/static-gen/getting-started.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>https://seanmorris.github.io/static-gen/getting-started.html</loc>
+		<loc>https://seanmorris.github.io/static-gen/LICENSE.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
