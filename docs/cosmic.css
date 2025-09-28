@@ -7,7 +7,7 @@
 	--acc-mint:   #61FFC5;  /* minty teal */
 }
 
-:root.theme-cosmic.dark {
+:root {
 	/* Core palette */
 	--bg-0: #0A0E20;   /* deep space navy */
 	--bg-1: #1F0740;   /* cosmic plum */
@@ -38,7 +38,7 @@
 	--danger:  #FF516D;
 }
 
-:root.theme-cosmic.light {
+:root.light {
 	--bg-0: #F7F8FF;
 	--bg-1: #ECEBFF;
 	--bg-2: #EAF7FF;
