@@ -42,9 +42,6 @@ $endif$
 <?php if(file_exists('static/logo.svg')): ?>
 	<link rel="preload" href="<?=getenv('BASE_URL');?>/logo.svg" as="image" type="image/svg">
 <?php endif; ?>
-<?php if(file_exists('static/bg.svg')): ?>
-	<link rel="preload" href="<?=getenv('BASE_URL');?>/bg.svg" as="image" type="image/svg">
-<?php endif; ?>
 	<style>
 		$styles.html()$
 	</style>
