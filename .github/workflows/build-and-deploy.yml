@@ -32,6 +32,9 @@ jobs:
         env:
           YQ_VERSION: v4.47.2
 
+      - name: Clear files
+        run: rm -rf ./docs/*
+
       - name: Build site
         run: ./build.sh
 
