@@ -1,20 +1,10 @@
-<svg preserveAspectRatio="xMidYMid slice" version="1.1" viewBox="0 0 3840 2160" xmlns="http://www.w3.org/2000/svg">
+<svg preserveAspectRatio="xMidYMid slice" version="1.1" viewBox="0 0 3840 2160" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<defs>
 		<linearGradient id="j" y2="1">
 			<stop stop-color="#0a0e20" offset="0"/>
 			<stop stop-color="#1f0740" offset=".55"/>
 			<stop stop-color="#020d1b" offset="1"/>
 		</linearGradient>
-		<radialGradient id="i">
-			<stop stop-color="rgba(0,208,255,1)" offset="0"/>
-			<stop stop-color="rgba(0,208,255,0.3)" offset=".55"/>
-			<stop stop-color="rgba(28,11,56,0)" offset="1"/>
-		</radialGradient>
-		<radialGradient id="d">
-			<stop stop-color="rgba(120,73,255,1)" offset="0"/>
-			<stop stop-color="rgba(120,73,255,0.3)" offset=".55"/>
-			<stop stop-color="rgba(12,17,38,0)" offset="1"/>
-		</radialGradient>
 		<radialGradient id="h">
 			<stop stop-color="rgba(255,200,87,1)" offset="0"/>
 			<stop stop-color="rgba(255,200,87,0.3)" offset=".55"/>
@@ -24,11 +14,6 @@
 			<stop stop-color="rgba(255,92,146,1)" offset="0"/>
 			<stop stop-color="rgba(255,92,146,0.3)" offset=".55"/>
 			<stop stop-color="rgba(44,6,72,0)" offset="1"/>
-		</radialGradient>
-		<radialGradient id="g">
-			<stop stop-color="rgba(255,92,146,1)" offset="0"/>
-			<stop stop-color="rgba(255,92,146,0.3)" offset=".55"/>
-			<stop stop-color="rgba(5,24,43,0)" offset="1"/>
 		</radialGradient>
 		<radialGradient id="f">
 			<stop stop-color="rgba(120,73,255,1)" offset="0"/>
@@ -42,7 +27,7 @@
 				<feFuncA tableValues="0 0.04" type="table"/>
 			</feComponentTransfer>
 		</filter>
-		<filter id="a" x="-.030487" y="-.030487" width="1.061" height="1.061">
+		<filter id="a" x="-.023543" y="-.023543" width="1.0471" height="1.0471">
 			<feGaussianBlur result="blur" stdDeviation="24"/>
 			<feBlend in="SourceGraphic" in2="blur" mode="screen"/>
 		</filter>
@@ -51,16 +36,20 @@
 			<stop stop-color="#fff" stop-opacity=".7" offset=".2"/>
 			<stop stop-color="#fff" stop-opacity="0" offset="1"/>
 		</linearGradient>
+		<radialGradient id="i" cx="2989.4" cy="120.63" r="1521.2" gradientTransform="translate(0)" gradientUnits="userSpaceOnUse" xlink:href="#c"/>
+		<radialGradient id="g" cx="3596.9" cy="1770.7" r="1580.6" gradientTransform="translate(-3.5156e-6)" gradientUnits="userSpaceOnUse" xlink:href="#c"/>
+		<radialGradient id="d" cx="2329.6" cy="1783.2" r="1297.9" gradientTransform="translate(3.366e-7)" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgba(120,73,255,1)" offset="0"/>
+			<stop stop-color="rgba(120,73,255,0.3)" offset=".55"/>
+			<stop stop-color="rgba(12,17,38,0)" offset="1"/>
+		</radialGradient>
 	</defs>
 	<rect width="100%" height="100%" fill="url(#j)"/>
-	<circle cx="2401.9" cy="156.62" r="944.67" fill="url(#i)" filter="url(#a)" opacity=".621"/>
-	<circle cx="3275.4" cy="277.01" r="1080" fill="url(#d)" filter="url(#a)" opacity=".552"/>
 	<circle cx="283.71" cy="494.54" r="1290.1" fill="url(#h)" filter="url(#a)" opacity=".586"/>
-	<circle cx="2989.4" cy="120.63" r="1433.8" fill="url(#c)" filter="url(#a)" opacity=".436"/>
-	<circle cx="2830.6" cy="306.7" r="1041.3" fill="url(#g)" filter="url(#a)" opacity=".673"/>
+	<circle cx="2892.4" cy="700.99" r="1433.8" fill="url(#i)" filter="url(#a)" opacity=".436"/>
 	<circle cx="2714" cy="1150.4" r="1588" fill="url(#f)" filter="url(#a)" opacity=".682"/>
-	<circle cx="2329.6" cy="1783.2" r="1223.3" fill="url(#d)" filter="url(#a)" opacity=".659"/>
-	<circle cx="3596.9" cy="1770.7" r="1489.8" fill="url(#c)" filter="url(#a)" opacity=".684"/>
+	<circle cx="2396.8" cy="1341.4" r="1223.3" fill="url(#d)" filter="url(#a)" opacity=".659"/>
+	<circle cx="3141.8" cy="1622.5" r="1489.8" fill="url(#g)" filter="url(#a)" opacity=".684"/>
 	<circle cx="624.59" cy="767.38" r=".99" fill="rgba(255,255,255,0.8210921880751307)"/>
 	<circle cx="2339.1" cy="369.66" r="1.17" fill="rgba(200,255,245,0.49804149625715705)"/>
 	<circle cx="1036.6" cy="1998.8" r="1.04" fill="rgba(255,210,245,0.5317691043821614)"/>
