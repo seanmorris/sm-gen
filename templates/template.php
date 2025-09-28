@@ -60,7 +60,7 @@ $endif$
 		<div class = "page-rule">
 			<nav>
 				<a class = "logo" href = "<?=getEnv('BASE_URL');?>">
-					<img src = "/logo.svg" class = "logo-image">
+					<img src = "<?=getEnv('BASE_URL');?>/logo.svg" class = "logo-image">
 					<span class = "col">
 						<span class = "logo-text">
 							SMGen
