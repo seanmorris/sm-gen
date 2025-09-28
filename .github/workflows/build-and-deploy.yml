@@ -18,9 +18,21 @@ jobs:
         run: |
           echo "The deployed URL is: ${{ env.BASE_URL }}"
 
-      - uses: actions/checkout@v2
-      - run: sudo apt-get update && sudo apt-get install -y pandoc yq php-cli
-      - run: ./build.sh
-      - uses: peaceiris/actions-gh-pages@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y pandoc yq php-cli
+
+      - name: Build site
+        run: ./build.sh
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        id: deploy
         with:
           publish_dir: ./docs
+
+      - name: Show GitHub Pages URL
+        run: |
+          echo "GitHub Pages URL: ${{ steps.deploy.outputs.page_url }}"
