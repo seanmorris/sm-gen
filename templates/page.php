@@ -37,7 +37,7 @@ $if(canonical)$
 	<link rel="canonical" href="$canonical$" />
 $endif$
 	<meta name="title" content="$if(pagetitle)$${pagetitle}$else$${title}$endif$">
-	<link rel="icon" type="image/x-icon" href="<?=getenv('BASE_URL');?>/favicon.ico">
+	<link rel="icon" type="image/png" href="<?=getenv('BASE_URL');?>/icon-16.png">
 	<link rel="sitemap" href="/sitemap.xml" />
 <?php if(file_exists('static/logo.svg')): ?>
 	<link rel="preload" href="<?=getenv('BASE_URL');?>/logo.svg" as="image" type="image/svg">
