@@ -116,9 +116,6 @@
 			<a href = "http://localhost:8083/configuration.html" >
 				Configuration			</a>
 		</li><li>
-			<a href = "http://localhost:8083/project-structure.html" >
-				Project Structure			</a>
-		</li><li>
 			<a href = "http://localhost:8083/customization.html" >
 				Customization			</a>
 		</li><li>
@@ -161,7 +158,8 @@
         <div class="sourceCode" id="cb2"><pre
         class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> my-project/</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> my-project/</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">smgen</span> init</span></code></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">smgen</span> init</span></code></pre></div>
         <p>Then open <code>.smgen-rc</code> and configure your
         details:</p>
         <div class="sourceCode" id="cb3"><pre
@@ -182,10 +180,12 @@
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>This is my first page content.</span></code></pre></div>
         <p>Save it as <code>pages/index.md</code> (or any path under
         <code>pages/</code>)</p>
-        <p>Build the project and serve it:</p>
+        <p>Build the project:</p>
         <div class="sourceCode" id="cb5"><pre
-        class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">smgen</span> build</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">smgen</span> serve</span></code></pre></div>
+        class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">smgen</span> build</span></code></pre></div>
+        <p>And kick off the dev server:</p>
+        <div class="sourceCode" id="cb6"><pre
+        class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">smgen</span> serve</span></code></pre></div>
         <p>Open a browser and go to <a
         href="http://localhost:8000/">http://localhost:8000/</a>, you
         should see the project running.</p>

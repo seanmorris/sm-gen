@@ -15,7 +15,21 @@ You can configure the generator via environment variables, `.smgen-rc`, and pre/
 - `TEMPLATE_DIR` — template files directory (default `./templates`)
 - `STATIC_DIR` — static assets directory (default `./static`)
 - `PAGES_DIR` — source pages directory (default `./pages`)
-- Other variables: `PHP`, `PANDOC`, `YQ`, `BASE_URL`, `TITLE_PREFIX`, `HIGHLIGHT_STYLE`, etc.
+- `PHP` — PHP executable (default `php`)
+- `PANDOC` — Pandoc executable (default `pandoc`)
+- `YQ` — `yq` executable (default `yq`)
+- `BASE_URL` — base URL for generated site (default empty)
+- `PRODUCT_NAME` — product/site name (default empty)
+- `ORGANIZATION` — organization name (default empty)
+- `TAGLINE` — product tagline (default empty)
+- `STYLES` — newline-separated list of CSS files to include (via `<link>`)
+- `INLINE_STYLES` — newline-separated list of CSS files to inline in `<style>` tags
+- `JAVASCRIPTS` — newline-separated list of JS files to include (via `<script src>`)
+- `INLINE_JAVASCRIPTS` — newline-separated list of JS files to inline in `<script>` tags in `<head>`
+- `BODY_JAVASCRIPTS` — newline-separated list of JS files to include before `</body>`
+- `INLINE_BODY_JAVASCRIPTS` — newline-separated list of JS files to inline before `</body>`
+- `TITLE_PREFIX` — prefix for page titles
+- `HIGHLIGHT_STYLE` — Pandoc syntax highlighting theme (default `zenburn`)
 
 ## .smgen-rc Overrides
 

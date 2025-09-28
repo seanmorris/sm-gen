@@ -32,6 +32,7 @@ Create a directory for your project, & run `smgen init` to set up the folder str
 ```bash
 mkdir my-project/
 cd my-project/
+
 smgen init
 ```
 
@@ -59,10 +60,15 @@ This is my first page content.
 
 Save it as `pages/index.md` (or any path under `pages/`)
 
-Build the project and serve it:
+Build the project:
 
 ```bash
 smgen build
+```
+
+And kick off the dev server:
+
+```bash
 smgen serve
 ```
 

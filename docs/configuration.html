@@ -115,9 +115,6 @@
 			<a href = "http://localhost:8083/configuration.html" class="active-link">
 				Configuration			</a>
 		</li><li>
-			<a href = "http://localhost:8083/project-structure.html" >
-				Project Structure			</a>
-		</li><li>
 			<a href = "http://localhost:8083/customization.html" >
 				Customization			</a>
 		</li><li>
@@ -153,10 +150,36 @@
         <code>./static</code>)</li>
         <li><code>PAGES_DIR</code> — source pages directory (default
         <code>./pages</code>)</li>
-        <li>Other variables: <code>PHP</code>, <code>PANDOC</code>,
-        <code>YQ</code>, <code>BASE_URL</code>,
-        <code>TITLE_PREFIX</code>, <code>HIGHLIGHT_STYLE</code>,
-        etc.</li>
+        <li><code>PHP</code> — PHP executable (default
+        <code>php</code>)</li>
+        <li><code>PANDOC</code> — Pandoc executable (default
+        <code>pandoc</code>)</li>
+        <li><code>YQ</code> — <code>yq</code> executable (default
+        <code>yq</code>)</li>
+        <li><code>BASE_URL</code> — base URL for generated site (default
+        empty)</li>
+        <li><code>PRODUCT_NAME</code> — product/site name (default
+        empty)</li>
+        <li><code>ORGANIZATION</code> — organization name (default
+        empty)</li>
+        <li><code>TAGLINE</code> — product tagline (default empty)</li>
+        <li><code>STYLES</code> — newline-separated list of CSS files to
+        include (via <code>&lt;link&gt;</code>)</li>
+        <li><code>INLINE_STYLES</code> — newline-separated list of CSS
+        files to inline in <code>&lt;style&gt;</code> tags</li>
+        <li><code>JAVASCRIPTS</code> — newline-separated list of JS
+        files to include (via <code>&lt;script src&gt;</code>)</li>
+        <li><code>INLINE_JAVASCRIPTS</code> — newline-separated list of
+        JS files to inline in <code>&lt;script&gt;</code> tags in
+        <code>&lt;head&gt;</code></li>
+        <li><code>BODY_JAVASCRIPTS</code> — newline-separated list of JS
+        files to include before <code>&lt;/body&gt;</code></li>
+        <li><code>INLINE_BODY_JAVASCRIPTS</code> — newline-separated
+        list of JS files to inline before
+        <code>&lt;/body&gt;</code></li>
+        <li><code>TITLE_PREFIX</code> — prefix for page titles</li>
+        <li><code>HIGHLIGHT_STYLE</code> — Pandoc syntax highlighting
+        theme (default <code>zenburn</code>)</li>
         </ul>
         <h2 id="smgen-rc-overrides">.smgen-rc Overrides</h2>
         <p>Create a <code>.smgen-rc</code> file at the root to override
