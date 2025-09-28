@@ -13,7 +13,7 @@
 	--bg-1: #1F0740;   /* cosmic plum */
 	--bg-2: #020D1B;   /* near-black blue */
 
-	--background: var(--bg-0) url('./bg.svg') no-repeat center / cover fixed;
+	--background: var(--bg-0) url('./bg-lite.svg') no-repeat center / cover fixed;
 
 	--fg-0: #EAF2FF;   /* primary text on dark */
 	--fg-1: #B9C7FF;   /* secondary text */
@@ -43,7 +43,7 @@
 	--bg-1: #ECEBFF;
 	--bg-2: #EAF7FF;
 
-	--background: var(--bg-0) url('./bg.svg') no-repeat center / cover fixed;
+	--background: var(--bg-0) url('./bg-lite.svg') no-repeat center / cover fixed;
 
 	--fg-0: #1B1730;
 	--fg-1: #3C3860;
