@@ -1,0 +1,26 @@
+name: Build and Deploy
+
+on: push
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get GitHub Pages URL
+        id: get_pages_url
+        run: echo "BASE_URL=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.html_url')" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Use the pages domain in a step
+        run: |
+          echo "The deployed URL is: ${{ env.BASE_URL }}"
+
+          - uses: actions/checkout@v2
+      - run: sudo apt-get update && sudo apt-get install -y pandoc yq php-cli
+      - run: ./build.sh
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./docs
