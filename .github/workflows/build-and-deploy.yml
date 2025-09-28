@@ -34,12 +34,16 @@ jobs:
       - name: Build site
         run: ./build.sh
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        id: deploy
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+      - name: Commit & push any if changes are found
+        run:  |
+          test -n "$(git status -s)" \
+            && git \
+              -c "user.name=workflow-bot" \
+              -c "user.email=workflow-bot@example.com" \
+              commit -nam 'Building site.' \
+            && git push \
+            || true
+
 
       - name: Show GitHub Pages URL
         run: |
