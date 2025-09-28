@@ -160,3 +160,18 @@ a.logo .tagline-text {
 a.logo span {
 	flex-grow: 0;
 }
+
+div.sourceCode {
+	position:relative;
+	overflow-x: auto;
+}
+
+pre.sourceCode {
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+code {
+	font-size: 1rem;
+}

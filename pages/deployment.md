@@ -41,7 +41,13 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y pandoc yq php-cli
+        run: sudo apt-get update && sudo apt-get install -y pandoc php-cli
+
+      - name: Install yq (Go binary)
+        run: |
+          YQ_VERSION=v4.39.4
+          wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64
+          chmod +x /usr/local/bin/yq
 
       - name: Build site
         run: ./build.sh

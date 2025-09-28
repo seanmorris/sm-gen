@@ -5,7 +5,7 @@
 			<meta charset="utf-8" />
 	<meta name="viewport" content="width=800, user-scalable=yes" />
 	<meta name="title" content="Deployment">
-	<link rel="icon" type="image/x-icon" href="https://seanmorris.github.io/sm-gen//favicon.ico">
+	<link rel="icon" type="image/x-icon" href="http://localhost:8083/favicon.ico">
 	<link rel="sitemap" href="/sitemap.xml" />
 	<style>
 		code{white-space: pre-wrap;}
@@ -78,18 +78,18 @@
   code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
   .display.math{display: block; text-align: center; margin: 0.5rem auto;}
 	</style>
-	<link rel="stylesheet" href="https://seanmorris.github.io/sm-gen//style.css" />
-	<link rel="stylesheet" href="https://seanmorris.github.io/sm-gen//cosmic.css" />
+	<link rel="stylesheet" href="http://localhost:8083/style.css" />
+	<link rel="stylesheet" href="http://localhost:8083/cosmic.css" />
 	<style>
 	</style>
-	<script src = "https://seanmorris.github.io/sm-gen//main.js"></script>
+	<script src = "http://localhost:8083/main.js"></script>
 </head>
 <body>
 	<section class = "heading">
 		<div class = "page-rule">
 			<nav>
-				<a class = "logo" href = "https://seanmorris.github.io/sm-gen/">
-					<img src = "https://seanmorris.github.io/sm-gen//logo.svg" class = "logo-image">
+				<a class = "logo" href = "http://localhost:8083">
+					<img src = "http://localhost:8083/logo.svg" class = "logo-image">
 					<span class = "col">
 						<span class = "logo-text">
 							SMGen
@@ -106,34 +106,34 @@
 							<nav class = "main"><ul><details open>
 			<summary>Examples</summary>
 			<ul><li>
-			<a href = "https://seanmorris.github.io/sm-gen//examples/basic-usage.html" >
+			<a href = "http://localhost:8083/examples/basic-usage.html" >
 				Basic Usage Example			</a>
 		</li></ul>		</details><li>
-			<a href = "https://seanmorris.github.io/sm-gen//index.html" >
+			<a href = "http://localhost:8083/index.html" >
 				Introduction			</a>
 		</li><li>
-			<a href = "https://seanmorris.github.io/sm-gen//getting-started.html" >
+			<a href = "http://localhost:8083/getting-started.html" >
 				Getting Started			</a>
 		</li><li>
-			<a href = "https://seanmorris.github.io/sm-gen//configuration.html" >
+			<a href = "http://localhost:8083/configuration.html" >
 				Configuration			</a>
 		</li><li>
-			<a href = "https://seanmorris.github.io/sm-gen//project-structure.html" >
+			<a href = "http://localhost:8083/project-structure.html" >
 				Project Structure			</a>
 		</li><li>
-			<a href = "https://seanmorris.github.io/sm-gen//customization.html" >
+			<a href = "http://localhost:8083/customization.html" >
 				Customization			</a>
 		</li><li>
-			<a href = "https://seanmorris.github.io/sm-gen//advanced-usage.html" >
+			<a href = "http://localhost:8083/advanced-usage.html" >
 				Advanced Usage			</a>
 		</li><li>
-			<a href = "https://seanmorris.github.io/sm-gen//deployment.html" class="active-link">
+			<a href = "http://localhost:8083/deployment.html" class="active-link">
 				Deployment			</a>
 		</li><li>
-			<a href = "https://seanmorris.github.io/sm-gen//faq.html" >
+			<a href = "http://localhost:8083/faq.html" >
 				FAQ & Troubleshooting			</a>
 		</li><li>
-			<a href = "https://seanmorris.github.io/sm-gen//LICENSE.html" >
+			<a href = "http://localhost:8083/LICENSE.html" >
 				LICENSE			</a>
 		</li></ul></nav>
 						<div class = "page-content">
@@ -160,12 +160,39 @@
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build</span><span class="kw">:</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v2</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">run</span><span class="kw">:</span><span class="at"> sudo apt-get update &amp;&amp; sudo apt-get install -y pandoc yq php-cli</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">run</span><span class="kw">:</span><span class="at"> ./build.sh</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> peaceiris/actions-gh-pages@v3</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">publish_dir</span><span class="kw">:</span><span class="at"> ./docs</span></span></code></pre></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Get GitHub Pages URL</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">id</span><span class="kw">:</span><span class="at"> get_pages_url</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> echo &quot;BASE_URL=$(gh api \&quot;repos/$GITHUB_REPOSITORY/pages\&quot; --jq &#39;.html_url&#39;)&quot; &gt;&gt; $GITHUB_ENV</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">env</span><span class="kw">:</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">GITHUB_TOKEN</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Use the pages domain in a step</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>          echo &quot;The deployed URL is: ${{ env.BASE_URL }}&quot;</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout repository</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v2</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install dependencies</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> sudo apt-get update &amp;&amp; sudo apt-get install -y pandoc php-cli</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install yq (Go binary)</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>          YQ_VERSION=v4.39.4</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>          wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>          chmod +x /usr/local/bin/yq</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build site</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> ./build.sh</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Deploy to GitHub Pages</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> peaceiris/actions-gh-pages@v3</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">id</span><span class="kw">:</span><span class="at"> deploy</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">publish_dir</span><span class="kw">:</span><span class="at"> ./docs</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Show GitHub Pages URL</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> echo &quot;GitHub Pages URL: ${{ steps.deploy.outputs.page_url }}&quot;</span></span></code></pre></div>
 				</article>
 								<nav class = "table-of-contents">
 					<span class = "wide-only">on this page:</span>

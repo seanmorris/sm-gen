@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# BASE_URL=${BASE_URL:-"http://localhost:8083"}
-BASE_URL=${BASE_URL:-"https://seanmorris.github.io/sm-gen/"}
+BASE_URL=${BASE_URL:-"http://localhost:8083"}
+# BASE_URL=${BASE_URL:-"https://seanmorris.github.io/sm-gen"}
 
 STATIC_DIR=${STATIC_DIR:-"./static"}
 

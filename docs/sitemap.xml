@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>https://seanmorris.github.io/sm-gen//examples/basic-usage.html</loc>
+		<loc>http://localhost:8083/examples/basic-usage.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>https://seanmorris.github.io/sm-gen//faq.html</loc>
+		<loc>http://localhost:8083/faq.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>https://seanmorris.github.io/sm-gen//index.html</loc>
+		<loc>http://localhost:8083/index.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>https://seanmorris.github.io/sm-gen//customization.html</loc>
+		<loc>http://localhost:8083/customization.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>https://seanmorris.github.io/sm-gen//configuration.html</loc>
+		<loc>http://localhost:8083/configuration.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>https://seanmorris.github.io/sm-gen//deployment.html</loc>
+		<loc>http://localhost:8083/deployment.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>https://seanmorris.github.io/sm-gen//project-structure.html</loc>
+		<loc>http://localhost:8083/project-structure.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>https://seanmorris.github.io/sm-gen//advanced-usage.html</loc>
+		<loc>http://localhost:8083/advanced-usage.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>https://seanmorris.github.io/sm-gen//getting-started.html</loc>
+		<loc>http://localhost:8083/getting-started.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>https://seanmorris.github.io/sm-gen//LICENSE.html</loc>
+		<loc>http://localhost:8083/LICENSE.html</loc>
 		<lastmod>2025-09-27</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
