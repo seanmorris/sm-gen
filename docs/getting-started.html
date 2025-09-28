@@ -86,21 +86,20 @@
 </head>
 <body>
 	<section class = "heading">
-		<div class = "page-rule">
-			<nav>
-				<a class = "logo" href = "http://localhost:8083">
-					<img src = "http://localhost:8083/logo.svg" class = "logo-image">
-					<span class = "col">
-						<span class = "logo-text">
-							SMGen
-						</span>
-						<span class = "tagline-text">Static Markup Generator</span>
-					</span>
-				</a>
-			</nav>
-					</div>
-	</section>
-	<hr />
+	<div class = "page-rule">
+		<nav>
+			<a class = "logo" href = "http://localhost:8083">
+								<img src = "http://localhost:8083/logo.svg" class = "logo-image">
+								<span class = "col">
+					<span class = "logo-text">
+						SMGen					</span>
+					<span class = "tagline-text">Static Markup Generator</span>
+				</span>
+			</a>
+		</nav>
+			</div>
+</section>
+<hr />
 	<section class = "below-fold">
 		<div class = "page-rule">
 							<nav class = "main"><ul><details open>
@@ -161,12 +160,12 @@
         <li>Optionally, integrate this generator into your own project
         directory: copy or symlink <code>build.sh</code>,
         <code>templates/</code>, <code>static/</code>,
-        <code>helpers/</code>, and <code>.static-gen</code> into your
-        site root. Then invoke the build script (<code>./build.sh</code>
-        or <code>/path/to/build.sh</code>) from that directory; it will
+        <code>helpers/</code>, and <code>.smgen-rc</code> into your site
+        root. Then invoke the build script (<code>./build.sh</code> or
+        <code>/path/to/build.sh</code>) from that directory; it will
         look for <code>pages/</code>, <code>templates/</code>,
-        <code>static/</code>, and <code>.static-gen</code> in your
-        current working directory.</li>
+        <code>static/</code>, and <code>.smgen-rc</code> in your current
+        working directory.</li>
         </ul>
         <h2 id="first-build">First build</h2>
         <p>Run the build script to generate your site (from the root of
@@ -198,13 +197,12 @@
         <p>You can serve the <code>docs/</code> directory with a simple
         HTTP server. For example:</p>
         <div class="sourceCode" id="cb5"><pre
-        class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> docs</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> http.server 8000</span></code></pre></div>
+        class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">php</span> <span class="at">-S</span> localhost:8000 <span class="at">-t</span> docs/</span></code></pre></div>
         <p>Then open <a href="http://localhost:8000"
         class="uri">http://localhost:8000</a> in your browser.</p>
         <h2 id="next-steps">Next steps</h2>
         <ul>
-        <li>Customize site styling via <code>.static-gen</code> or by
+        <li>Customize site styling via <code>.smgen-rc</code> or by
         editing <code>static/</code> CSS/JS.</li>
         <li>Modify templates under <code>templates/</code> or override
         via page front-matter (<code>template: ...</code>).</li>
@@ -232,8 +230,7 @@
 							</div>
 		</div>
 	</section>
-
 	<footer class="footer">
-			</footer>
+	&copy; 2025 Sean Morris</footer>
 	</body>
 </html>

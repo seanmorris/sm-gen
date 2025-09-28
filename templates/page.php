@@ -1,7 +1,12 @@
 <?php
 $frontmatter = yaml_parse(`yq --front-matter=extract $argv[1] 2>/dev/null || echo ""`) ?? [];
+
+$headerTemplate = $frontmatter['header'] ?? 'templates/header.php';
+$footerTemplate = $frontmatter['footer'] ?? 'templates/footer.php';
+
 $leftBarLink = $frontmatter['leftBarLink'] ?? TRUE;
 $leftBarShow = $frontmatter['leftBarShow'] ?? TRUE;
+
 ?><!DOCTYPE HTML>
 <html lang = "en">
 <head>
@@ -56,23 +61,7 @@ $endif$
 <?php endforeach; ?>
 </head>
 <body>
-	<section class = "heading">
-		<div class = "page-rule">
-			<nav>
-				<a class = "logo" href = "<?=getEnv('BASE_URL');?>">
-					<img src = "<?=getEnv('BASE_URL');?>/logo.svg" class = "logo-image">
-					<span class = "col">
-						<span class = "logo-text">
-							SMGen
-						</span>
-						<span class = "tagline-text">Static Markup Generator</span>
-					</span>
-				</a>
-			</nav>
-			<?=$heroHtml??'';?>
-		</div>
-	</section>
-	<hr />
+	<?php include $headerTemplate; ?>
 	<section class = "below-fold">
 		<div class = "page-rule">
 			<?php if($leftBarShow ?? true): ?>
@@ -95,12 +84,7 @@ $endif$
 			</div>
 		</div>
 	</section>
-
-	<footer class="footer">
-		$if(author/last)$
-		<p>&copy; 2024 - <?=date('Y');?> $for(author)$ <span class = "author">$author.name$</span> $endfor$</p>
-		$endif$
-	</footer>
+	<?php include $footerTemplate; ?>
 <?php if(getEnv('BODY_JAVASCRIPTS')) foreach(explode(PHP_EOL, getEnv('BODY_JAVASCRIPTS')) as $javascript):?>
 	<script src = "<?=$javascript;?>"></script>
 <?php endforeach; ?>

@@ -5,9 +5,9 @@ weight: 2
 
 # Configuration
 
-You can configure the generator via environment variables, `.static-gen`, and pre/post hooks.
+You can configure the generator via environment variables, `.smgen-rc`, and pre/post hooks.
 
-> **Note:** `build.sh` looks for `pages/`, `templates/`, `static/`, and `.static-gen` in your current working directory (where you invoke the script). All paths and hooks can be customized via environment variables or a `.static-gen` file placed alongside the script.
+> **Note:** `build.sh` looks for `pages/`, `templates/`, `static/`, and `.smgen-rc` in your current working directory (where you invoke the script). All paths and hooks can be customized via environment variables or a `.smgen-rc` file placed alongside the script.
 
 ## Environment Variables
 
@@ -17,16 +17,17 @@ You can configure the generator via environment variables, `.static-gen`, and pr
 - `PAGES_DIR` — source pages directory (default `./pages`)
 - Other variables: `PHP`, `PANDOC`, `YQ`, `BASE_URL`, `TITLE_PREFIX`, `HIGHLIGHT_STYLE`, etc.
 
-## `.static-gen` Overrides
+## `.smgen-rc` Overrides
 
-Create a `.static-gen` file at the root to override default variables (e.g., custom CSS or asset directory).
+Create a `.smgen-rc` file at the root to override default variables (e.g., custom CSS or asset directory).
 
 Example:
 
 ```bash
 STYLES=$(cat <<-END
     /my-theme.css
-END)
+END
+)
 ```
 
 ## Hooks

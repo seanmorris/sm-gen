@@ -44,7 +44,6 @@ footer {
 }
 
 div.sourceCode pre, div.sourceCode pre > code {
-    width: 100%;
     display: block;
 }
 
@@ -154,7 +153,7 @@ a.logo:hover {
 }
 
 a.logo img.logo-image {
-	width: 7rem;
+	width: 6rem;
 	margin: auto;
 	margin-right: 1rem;
 }
@@ -163,8 +162,8 @@ a.logo .logo-text {
 	font-family: var(--logo-font);
 	font-weight: 700;
 	font-style: normal;
-	font-size: 4.2rem;
-	line-height: 3.8rem;
+	font-size: 3.2rem;
+	line-height: 3rem;
 	color: white;
 }
 
@@ -188,4 +187,9 @@ pre.sourceCode {
 
 code {
 	font-size: 1rem;
+}
+
+.col {
+	display: flex;
+	flex-direction: column;
 }

@@ -13,6 +13,6 @@ This repository is organized as follows:
 - **helpers/** — PHP helper scripts (navigation bar, sitemap).
 - **static/** — static assets (CSS, JavaScript, images).
 - **docs/** — generated output directory.
-- **.static-gen** — optional configuration overrides.
+- **.smgen-rc** — optional configuration overrides.
 - **DRAFT.md** — checklist for the documentation pages.
 - **.editorconfig** — formatting rules.

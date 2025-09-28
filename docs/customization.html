@@ -86,21 +86,20 @@
 </head>
 <body>
 	<section class = "heading">
-		<div class = "page-rule">
-			<nav>
-				<a class = "logo" href = "http://localhost:8083">
-					<img src = "http://localhost:8083/logo.svg" class = "logo-image">
-					<span class = "col">
-						<span class = "logo-text">
-							SMGen
-						</span>
-						<span class = "tagline-text">Static Markup Generator</span>
-					</span>
-				</a>
-			</nav>
-					</div>
-	</section>
-	<hr />
+	<div class = "page-rule">
+		<nav>
+			<a class = "logo" href = "http://localhost:8083">
+								<img src = "http://localhost:8083/logo.svg" class = "logo-image">
+								<span class = "col">
+					<span class = "logo-text">
+						SMGen					</span>
+					<span class = "tagline-text">Static Markup Generator</span>
+				</span>
+			</a>
+		</nav>
+			</div>
+</section>
+<hr />
 	<section class = "below-fold">
 		<div class = "page-rule">
 							<nav class = "main"><ul><details open>
@@ -142,7 +141,7 @@
         <p>Customize your site appearance and behavior:</p>
         <h2 id="themes-css-and-js-injection">Themes, CSS, and JS
         Injection</h2>
-        <p>Use front-matter or <code>.static-gen</code> to add custom
+        <p>Use front-matter or <code>.smgen-rc</code> to add custom
         styles and scripts. For example, if you have files under
         <code>static/</code>:</p>
         <div class="sourceCode" id="cb1"><pre
@@ -154,7 +153,7 @@
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">margin</span>: <span class="bu">auto</span><span class="op">;</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">.active_link</span> {</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">.active-link</span> {</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">color</span>: <span class="cn">#d33</span><span class="op">;</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-decoration</span>: <span class="dv">underline</span><span class="op">;</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
@@ -169,15 +168,17 @@
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
         <p>Then inject them into your build via
-        <code>.static-gen</code>:</p>
+        <code>.smgen-rc</code>:</p>
         <div class="sourceCode" id="cb3"><pre
         class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">STYLES</span><span class="op">=</span><span class="va">$(</span><span class="fu">cat</span> <span class="op">&lt;&lt;-END</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="st">    /example.css</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">END )</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">JAVASCRIPTS=</span><span class="va">$(</span><span class="fu">cat</span> <span class="op">&lt;&lt;-END</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="st">    /example.js</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="st">END )</span></span></code></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">END</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="va">)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="va">JAVASCRIPTS</span><span class="op">=</span><span class="va">$(</span><span class="fu">cat</span> <span class="op">&lt;&lt;-END</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="st">    /example.js</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">END</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="va">)</span></span></code></pre></div>
         <p>These will insert
         <code>&lt;link rel="stylesheet" href="/example.css"&gt;</code>
         in the header and
@@ -189,11 +190,13 @@
         <div class="sourceCode" id="cb4"><pre
         class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">INLINE_STYLES</span><span class="op">=</span><span class="va">$(</span><span class="fu">cat</span> <span class="op">&lt;&lt;-END</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="st">    /inline.css</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="st">END )</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">INLINE_JAVASCRIPTS=</span><span class="va">$(</span><span class="fu">cat</span> <span class="op">&lt;&lt;-END</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">    /inline.js</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">END )</span></span></code></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">END</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="va">)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="va">INLINE_JAVASCRIPTS</span><span class="op">=</span><span class="va">$(</span><span class="fu">cat</span> <span class="op">&lt;&lt;-END</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">    /inline.js</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="op">END</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="va">)</span></span></code></pre></div>
         <p>With these set, the contents of <code>/inline.css</code> will
         be embedded inside a <code>&lt;style&gt;</code> tag in the
         <code>&lt;head&gt;</code>, and <code>/inline.js</code> contents
@@ -204,9 +207,9 @@
         file extension:</p>
         <ol type="1">
         <li>Front-matter field <code>template</code>.</li>
-        <li>Default <code>templates/template.php</code>.</li>
+        <li>Default <code>templates/page.php</code>.</li>
         <li>Extension-specific
-        <code>templates/&lt;ext&gt;-template.php</code> or
+        <code>templates/&lt;ext&gt;-page.php</code> or
         <code>.html</code>.</li>
         </ol>
         <h2 id="navigation-customization">Navigation Customization</h2>
@@ -268,8 +271,7 @@
 							</div>
 		</div>
 	</section>
-
 	<footer class="footer">
-			</footer>
+	&copy; 2025 Sean Morris</footer>
 	</body>
 </html>

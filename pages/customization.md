@@ -9,7 +9,7 @@ Customize your site appearance and behavior:
 
 ## Themes, CSS, and JS Injection
 
-Use front-matter or `.static-gen` to add custom styles and scripts. For example, if you have files under `static/`:
+Use front-matter or `.smgen-rc` to add custom styles and scripts. For example, if you have files under `static/`:
 
 ```css
 /* static/example.css */
@@ -20,7 +20,7 @@ body {
     margin: auto;
 }
 
-.active_link {
+.active-link {
     color: #d33;
     text-decoration: underline;
 }
@@ -38,16 +38,18 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
-Then inject them into your build via `.static-gen`:
+Then inject them into your build via `.smgen-rc`:
 
 ```bash
 STYLES=$(cat <<-END
     /example.css
-END )
+END
+)
 
 JAVASCRIPTS=$(cat <<-END
     /example.js
-END )
+END
+)
 ```
 
 These will insert `<link rel="stylesheet" href="/example.css">` in the header and `<script src="/example.js"></script>` before `</body>`.
@@ -57,11 +59,13 @@ To inline files directly in the HTML (rather than referencing them), use the `IN
 ```bash
 INLINE_STYLES=$(cat <<-END
     /inline.css
-END )
+END
+)
 
 INLINE_JAVASCRIPTS=$(cat <<-END
     /inline.js
-END )
+END
+)
 ```
 
 With these set, the contents of `/inline.css` will be embedded inside a `<style>` tag in the `<head>`, and `/inline.js` contents will be embedded inside a `<script>` tag before `</body>`.
@@ -71,8 +75,8 @@ With these set, the contents of `/inline.css` will be embedded inside a `<style>
 The build script selects templates based on front-matter or file extension:
 
 1. Front-matter field `template`.
-2. Default `templates/template.php`.
-3. Extension-specific `templates/<ext>-template.php` or `.html`.
+2. Default `templates/page.php`.
+3. Extension-specific `templates/<ext>-page.php` or `.html`.
 
 ## Navigation Customization
 

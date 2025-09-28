@@ -25,7 +25,7 @@ Check that your YAML block is enclosed between `---` markers at the top of the f
 
 ### Q: Custom CSS/JS not loading?
 
-Verify your `STYLES` or `JAVASCRIPTS` variables and correct paths in `.static-gen`.
+Verify your `STYLES` or `JAVASCRIPTS` variables and correct paths in `.smgen-rc`.
 
 ### Other Tips
 

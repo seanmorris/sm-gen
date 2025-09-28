@@ -25,7 +25,7 @@ Before you begin, ensure you have the following installed:
 
 2. Verify dependencies are available (PHP, yq, pandoc).
 
-- Optionally, integrate this generator into your own project directory: copy or symlink `build.sh`, `templates/`, `static/`, `helpers/`, and `.static-gen` into your site root. Then invoke the build script (`./build.sh` or `/path/to/build.sh`) from that directory; it will look for `pages/`, `templates/`, `static/`, and `.static-gen` in your current working directory.
+- Optionally, integrate this generator into your own project directory: copy or symlink `build.sh`, `templates/`, `static/`, `helpers/`, and `.smgen-rc` into your site root. Then invoke the build script (`./build.sh` or `/path/to/build.sh`) from that directory; it will look for `pages/`, `templates/`, `static/`, and `.smgen-rc` in your current working directory.
 
 ## First build
 
@@ -66,14 +66,13 @@ This regenerates `docs/index.html` with your new content.
 You can serve the `docs/` directory with a simple HTTP server. For example:
 
 ```bash
-cd docs
-python3 -m http.server 8000
+php -S localhost:8000 -t docs/
 ```
 
 Then open <http://localhost:8000> in your browser.
 
 ## Next steps
 
-- Customize site styling via `.static-gen` or by editing `static/` CSS/JS.
+- Customize site styling via `.smgen-rc` or by editing `static/` CSS/JS.
 - Modify templates under `templates/` or override via page front-matter (`template: ...`).
 - Use front-matter fields (`weight`, `leftBarShow`, `TOC`, etc.) to control navigation and layout.

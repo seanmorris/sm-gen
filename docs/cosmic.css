@@ -114,8 +114,3 @@ button:hover, .btn:hover { box-shadow: 0 0 0 3px var(--ring); transform: transla
 .input:focus {
 	box-shadow: 0 0 0 3px var(--ring); border-color: transparent;
 }
-
-.col {
-	display: flex;
-	flex-direction: column;
-}

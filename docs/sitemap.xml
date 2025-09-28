@@ -2,61 +2,61 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>http://localhost:8083/examples/basic-usage.html</loc>
-		<lastmod>2025-09-27</lastmod>
+		<lastmod>2025-09-28</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
 		<loc>http://localhost:8083/faq.html</loc>
-		<lastmod>2025-09-27</lastmod>
+		<lastmod>2025-09-28</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
 		<loc>http://localhost:8083/index.html</loc>
-		<lastmod>2025-09-27</lastmod>
+		<lastmod>2025-09-28</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
 		<loc>http://localhost:8083/customization.html</loc>
-		<lastmod>2025-09-27</lastmod>
+		<lastmod>2025-09-28</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
 		<loc>http://localhost:8083/configuration.html</loc>
-		<lastmod>2025-09-27</lastmod>
+		<lastmod>2025-09-28</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
 		<loc>http://localhost:8083/deployment.html</loc>
-		<lastmod>2025-09-27</lastmod>
+		<lastmod>2025-09-28</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
 		<loc>http://localhost:8083/project-structure.html</loc>
-		<lastmod>2025-09-27</lastmod>
+		<lastmod>2025-09-28</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
 		<loc>http://localhost:8083/advanced-usage.html</loc>
-		<lastmod>2025-09-27</lastmod>
+		<lastmod>2025-09-28</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
 		<loc>http://localhost:8083/getting-started.html</loc>
-		<lastmod>2025-09-27</lastmod>
+		<lastmod>2025-09-28</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
 		<loc>http://localhost:8083/LICENSE.html</loc>
-		<lastmod>2025-09-27</lastmod>
+		<lastmod>2025-09-28</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>

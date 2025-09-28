@@ -11,23 +11,49 @@ Bash-driven static-site generator. Converts Markdown files into a fully template
 - **Pandoc** (Markdown to HTML converter)
 - **uuid** (UUID generator)
 
+```bash
+apt install php php-yaml bash pandoc uuid
+
+YQ_VERSION=v4.47.2
+wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64
+chmod +x /usr/local/bin/yq
+```
+
 ## Install
 
 To install `smgen` (the static site generator) system-wide and set up an update path, run:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/seanmorris/smgen/main/docs/install.sh | sudo bash
+curl -fsSL https://seanmorris.github.io/smgen/install.sh | sudo bash
 ```
 
 This command clones the repository into `/usr/share/smgen`, creates a `smgen` symlink in `/usr/local/bin`, and can be used to update `smgen` by re-running this script.
+
+## Syntax Highlighting
+
+You can set the syntax highlighting theme using the `HIGHLIGHT_STYLE` variable in .smgen-rc:
+
+```bash
+HIGHLIGHT_STYLE=zenburn
+```
+
+The following options are available:
+
+* pygments
+* tango
+* espresso
+* kate
+* monochrome
+* breezedark
+* haddock
+* zenburn
 
 ## Preview Locally
 
 Serve the generated site for preview:
 
 ```bash
-cd docs
-python3 -m http.server 8000
+php -S localhost:8000 -t docs/
 ```
 
 Open <http://localhost:8000> in your browser to view the site.
@@ -46,4 +72,4 @@ Full documentation is authored in Markdown under `pages/`:
 - `pages/faq.md` — FAQ & Troubleshooting
 - `pages/examples/index.md` — Examples (sample CSS & JavaScript)
 
-Run `./build.sh` to regenerate the HTML in `docs/`. You can customize behavior via `.static-gen`, environment variables, and pre/post hooks.
+Run `./build.sh` to regenerate the HTML in `docs/`. You can customize behavior via `.smgen-rc`, environment variables, and pre/post hooks.

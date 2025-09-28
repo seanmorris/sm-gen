@@ -86,21 +86,20 @@
 </head>
 <body>
 	<section class = "heading">
-		<div class = "page-rule">
-			<nav>
-				<a class = "logo" href = "http://localhost:8083">
-					<img src = "http://localhost:8083/logo.svg" class = "logo-image">
-					<span class = "col">
-						<span class = "logo-text">
-							SMGen
-						</span>
-						<span class = "tagline-text">Static Markup Generator</span>
-					</span>
-				</a>
-			</nav>
-					</div>
-	</section>
-	<hr />
+	<div class = "page-rule">
+		<nav>
+			<a class = "logo" href = "http://localhost:8083">
+								<img src = "http://localhost:8083/logo.svg" class = "logo-image">
+								<span class = "col">
+					<span class = "logo-text">
+						SMGen					</span>
+					<span class = "tagline-text">Static Markup Generator</span>
+				</span>
+			</a>
+		</nav>
+			</div>
+</section>
+<hr />
 	<section class = "below-fold">
 		<div class = "page-rule">
 							<nav class = "main"><ul><details open>
@@ -148,8 +147,8 @@
         <code>$for(css)$…</code>) and PHP code. To create a custom
         template:</p>
         <ol type="1">
-        <li><p>Copy the default <code>templates/template.php</code> to a
-        new file (e.g. <code>templates/my-template.php</code>).</p></li>
+        <li><p>Copy the default <code>templates/page.php</code> to a new
+        file (e.g. <code>templates/my-page.php</code>).</p></li>
         <li><p>Modify the HTML and Pandoc placeholders as
         needed.</p></li>
         <li><p>In your page’s YAML front-matter, set the
@@ -157,7 +156,7 @@
         <div class="sourceCode" id="cb1"><pre
         class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Custom Template Example</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">template:</span><span class="co"> templates/my-template.php</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">template:</span><span class="co"> templates/my-page.php</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># My Page Heading</span></span>
@@ -165,13 +164,13 @@
         </ol>
         <p>Pandoc will use your custom template when rendering that
         page. You can also create extension-specific templates named
-        <code>&lt;ext&gt;-template.php</code> (or <code>.html</code>) in
-        the <code>templates/</code> directory and the build script will
-        pick them up automatically.</p>
+        <code>&lt;ext&gt;-page.php</code> (or <code>.html</code>) in the
+        <code>templates/</code> directory and the build script will pick
+        them up automatically.</p>
         <p>Below is a minimal example:</p>
         <div class="sourceCode" id="cb2"><pre
         class="sourceCode php"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// templates/my-template.php</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// templates/my-page.php</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">?&gt;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;!</span><span class="cn">DOCTYPE</span> html<span class="op">&gt;</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>html<span class="op">&gt;</span></span>
@@ -192,7 +191,7 @@
         Extension</h2>
         <p>Place extension-specific templates:</p>
         <ul>
-        <li><code>templates/md-template.php</code></li>
+        <li><code>templates/md-page.php</code></li>
         <li><code>templates/html-template.html</code></li>
         </ul>
         <h2 id="html-partial-includes">HTML Partial Includes</h2>
@@ -221,8 +220,7 @@
 							</div>
 		</div>
 	</section>
-
 	<footer class="footer">
-			</footer>
+	&copy; 2025 Sean Morris</footer>
 	</body>
 </html>
