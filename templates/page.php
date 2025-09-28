@@ -1,8 +1,8 @@
 <?php
 $frontmatter = yaml_parse(`yq --front-matter=extract $argv[1] 2>/dev/null || echo ""`) ?? [];
 
-$headerTemplate = $frontmatter['header'] ?? 'templates/header.php';
-$footerTemplate = $frontmatter['footer'] ?? 'templates/footer.php';
+$headerTemplate = $frontmatter['header'] ?? getEnv('HEADER') ?? 'templates/header.php';
+$footerTemplate = $frontmatter['footer'] ?? getEnv('FOOTER') ?? 'templates/footer.php';
 
 $leftBarLink = $frontmatter['leftBarLink'] ?? TRUE;
 $leftBarShow = $frontmatter['leftBarShow'] ?? TRUE;

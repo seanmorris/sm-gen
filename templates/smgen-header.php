@@ -1,0 +1,27 @@
+<section class = "heading">
+	<div class = "page-rule">
+		<nav>
+			<a class = "logo" href = "<?=getEnv('BASE_URL');?>">
+				<?php if(file_exists('static/logo.svg')): ?>
+				<img src = "<?=getEnv('BASE_URL');?>/logo.svg" class = "logo-image">
+				<?php endif; ?>
+				<span class = "col">
+					<span class = "logo-text">
+						<?=getEnv('PRODUCT_NAME') ?: 'Product Name';?>
+					</span>
+					<?php if(getEnv('TAGLINE')): ?>
+					<span class = "tagline-text"><?=getEnv('TAGLINE') ?: 'Tagline';?></span>
+					<?php endif; ?>
+				</span>
+			</a>
+		</nav>
+		<div class = "header-fill">
+			<div class = "links">
+				<a title = "github" href = "https://github.com/seanmorris/smgen">
+					<img src = "<?=getEnv('BASE_URL');?>/github-icon.png">
+				</a>
+			</div>
+		</div>
+		<?=$heroHtml??'';?>
+	</div>
+</section>

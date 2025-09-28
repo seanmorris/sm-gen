@@ -47,6 +47,9 @@ case "$1" in
 		ORGANIZATION=${ORGANIZATION:-""}
 		TAGLINE=${TAGLINE:-""}
 
+		HEADER=${HEADER:-"templates/header.php"}
+		FOOTER=${FOOTER:-"templates/footer.php"}
+
 		PHP_FLAGS='-d display_errors=stderr -d include_path="'${SCRIPT_DIR}/helpers'"'
 
 		STYLES=${STYLES:-""}
@@ -168,10 +171,12 @@ case "$1" in
 			TMP_FILE=/tmp/$( uuid ).html
 
 			# Build the final template
-			PRODUCT_NAME=${PRODUCT_NAME}\
-			TAGLINE=${TAGLINE}\
-			ORGANIZATION=${ORGANIZATION}\
 			BASE_URL=${BASE_URL}\
+			PRODUCT_NAME=${PRODUCT_NAME}\
+			ORGANIZATION=${ORGANIZATION}\
+			TAGLINE=${TAGLINE}\
+			HEADER=${HEADER}\
+			FOOTER=${FOOTER}\
 			PAGES_DIR=${PAGES_DIR}\
 			JAVASCRIPTS=${JAVASCRIPTS}\
 			INLINE_JAVASCRIPTS=${INLINE_JAVASCRIPTS}\

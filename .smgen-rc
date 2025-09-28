@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BASE_URL=${BASE_URL:-"http://localhost:8083"}
+BASE_URL=${BASE_URL:-"http://localhost:8000"}
 
 STATIC_DIR=${STATIC_DIR:-"./static"}
 
@@ -18,3 +18,5 @@ END
 PRODUCT_NAME="SMGen"
 TAGLINE="Static Markup Generator"
 ORGANIZATION="Sean Morris"
+
+HEADER="templates/smgen-header.php"

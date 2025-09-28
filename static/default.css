@@ -91,6 +91,14 @@ footer .page-rule {
 	justify-content: flex-end;
 }
 
+div.header-fill {
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+}
+
 /* Nav bars*/
 
 nav ul {
