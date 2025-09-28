@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Automatically escalate privileges if not running as root
 if [ "$(id -u)" -ne 0 ]; then
-	echo "This installer must be run as root."
+	echo "This installer must be run under sudo."
 	exit 1
 fi
 
