@@ -25,6 +25,16 @@ You can also integrate this generator into any project directory: copy or symlin
 
 See it in action on the live demo: https://seanmorris.github.io/static-gen/
 
+## Install
+
+To install `smgen` (the static site generator) system-wide and set up an update path, run:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/seanmorris/static-gen/main/docs/install.sh | sudo bash
+```
+
+This command clones the repository into `/usr/share/smgen`, creates a `smgen` symlink in `/usr/local/bin`, and can be used to update `smgen` by re-running this script.
+
 ## Preview Locally
 
 Serve the generated site for preview:
