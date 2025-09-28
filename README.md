@@ -3,6 +3,8 @@
 
 Bash-driven static-site generator. Converts Markdown files into a fully templated HTML website using PHP, yq, and Pandoc.
 
+<img width = "100%" src = "https://seanmorris.github.io/smgen/banner-cropped.jpg" />
+
 ## Prerequisites
 
 - **Bash** (shell, version ≥ 4.0)
