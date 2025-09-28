@@ -8,7 +8,7 @@ $leftBarLink = $frontmatter['leftBarLink'] ?? TRUE;
 $leftBarShow = $frontmatter['leftBarShow'] ?? TRUE;
 
 ?><!DOCTYPE HTML>
-<html lang = "en">
+<html lang = "en" class = "theme-cosmic dark">
 <head>
 	$if(noprefix)$
 	<title>$if(pagetitle)$${pagetitle}$else$${title}$endif$</title>
@@ -39,6 +39,12 @@ $endif$
 	<meta name="title" content="$if(pagetitle)$${pagetitle}$else$${title}$endif$">
 	<link rel="icon" type="image/x-icon" href="<?=getenv('BASE_URL');?>/favicon.ico">
 	<link rel="sitemap" href="/sitemap.xml" />
+<?php if(file_exists('static/logo.svg')): ?>
+	<link rel="preload" href="/logo.svg" as="image" type="image/svg">
+<?php endif; ?>
+<?php if(file_exists('static/bg.svg')): ?>
+	<link rel="preload" href="/bg.svg" as="image" type="image/svg">
+<?php endif; ?>
 	<style>
 		$styles.html()$
 	</style>

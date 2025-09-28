@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang = "en">
+<html lang = "en" class = "theme-cosmic dark">
 <head>
 			<title>FAQ &amp; Troubleshooting</title>
 			<meta charset="utf-8" />
@@ -7,6 +7,8 @@
 	<meta name="title" content="FAQ &amp; Troubleshooting">
 	<link rel="icon" type="image/x-icon" href="http://localhost:8083/favicon.ico">
 	<link rel="sitemap" href="/sitemap.xml" />
+	<link rel="preload" href="/logo.svg" as="image" type="image/svg">
+	<link rel="preload" href="/bg.svg" as="image" type="image/svg">
 	<style>
 		code{white-space: pre-wrap;}
   span.smallcaps{font-variant: small-caps;}
@@ -78,7 +80,7 @@
   code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
   .display.math{display: block; text-align: center; margin: 0.5rem auto;}
 	</style>
-	<link rel="stylesheet" href="http://localhost:8083/style.css" />
+	<link rel="stylesheet" href="http://localhost:8083/default.css" />
 	<link rel="stylesheet" href="http://localhost:8083/cosmic.css" />
 	<style>
 	</style>
@@ -93,13 +95,12 @@
 								<span class = "col">
 					<span class = "logo-text">
 						SMGen					</span>
-					<span class = "tagline-text">Static Markup Generator</span>
-				</span>
+										<span class = "tagline-text">Static Markup Generator</span>
+									</span>
 			</a>
 		</nav>
 			</div>
 </section>
-<hr />
 	<section class = "below-fold">
 		<div class = "page-rule">
 							<nav class = "main"><ul><details open>
@@ -109,9 +110,6 @@
 				Basic Usage Example			</a>
 		</li></ul>		</details><li>
 			<a href = "http://localhost:8083/index.html" >
-				Introduction			</a>
-		</li><li>
-			<a href = "http://localhost:8083/getting-started.html" >
 				Getting Started			</a>
 		</li><li>
 			<a href = "http://localhost:8083/configuration.html" >
@@ -122,9 +120,6 @@
 		</li><li>
 			<a href = "http://localhost:8083/customization.html" >
 				Customization			</a>
-		</li><li>
-			<a href = "http://localhost:8083/advanced-usage.html" >
-				Advanced Usage			</a>
 		</li><li>
 			<a href = "http://localhost:8083/deployment.html" >
 				Deployment			</a>
@@ -192,6 +187,9 @@
 		</div>
 	</section>
 	<footer class="footer">
-	&copy; 2025 Sean Morris</footer>
+	<div class = "page-rule">
+		<span>&copy; 2025 Sean Morris</span>
+	</div>
+</footer>
 	</body>
 </html>

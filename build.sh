@@ -210,4 +210,12 @@ case "$1" in
 	serve)
 		php -S localhost:8000 -t docs/
 		;;
+	create-random-page)
+		PAGE_URL=https://jaspervdj.be/lorem-markdownum/markdown.txt?p=5
+		PAGE_FILE="pages/$(shuf -n 1 /usr/share/dict/words).md"
+		if [ -e "${PAGE_FILE}"} ]; then
+			echo "File exists: ${PAGE_FILE}"
+			exit 1
+		fi
+		curl ${PAGE_URL} -o ${PAGE_FILE}
 esac

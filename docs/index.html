@@ -1,13 +1,15 @@
 <!DOCTYPE HTML>
-<html lang = "en">
+<html lang = "en" class = "theme-cosmic dark">
 <head>
-			<title>Introduction</title>
+			<title>Getting Started</title>
 			<meta charset="utf-8" />
 	<meta name="viewport" content="width=800, user-scalable=yes" />
 	<meta name="author" content="Sean Morris" />
-	<meta name="title" content="Introduction">
+	<meta name="title" content="Getting Started">
 	<link rel="icon" type="image/x-icon" href="http://localhost:8083/favicon.ico">
 	<link rel="sitemap" href="/sitemap.xml" />
+	<link rel="preload" href="/logo.svg" as="image" type="image/svg">
+	<link rel="preload" href="/bg.svg" as="image" type="image/svg">
 	<style>
 		code{white-space: pre-wrap;}
   span.smallcaps{font-variant: small-caps;}
@@ -79,7 +81,7 @@
   code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
   .display.math{display: block; text-align: center; margin: 0.5rem auto;}
 	</style>
-	<link rel="stylesheet" href="http://localhost:8083/style.css" />
+	<link rel="stylesheet" href="http://localhost:8083/default.css" />
 	<link rel="stylesheet" href="http://localhost:8083/cosmic.css" />
 	<style>
 	</style>
@@ -94,13 +96,12 @@
 								<span class = "col">
 					<span class = "logo-text">
 						SMGen					</span>
-					<span class = "tagline-text">Static Markup Generator</span>
-				</span>
+										<span class = "tagline-text">Static Markup Generator</span>
+									</span>
 			</a>
 		</nav>
 			</div>
 </section>
-<hr />
 	<section class = "below-fold">
 		<div class = "page-rule">
 							<nav class = "main"><ul><details open>
@@ -110,9 +111,6 @@
 				Basic Usage Example			</a>
 		</li></ul>		</details><li>
 			<a href = "http://localhost:8083/index.html" class="active-link">
-				Introduction			</a>
-		</li><li>
-			<a href = "http://localhost:8083/getting-started.html" >
 				Getting Started			</a>
 		</li><li>
 			<a href = "http://localhost:8083/configuration.html" >
@@ -123,9 +121,6 @@
 		</li><li>
 			<a href = "http://localhost:8083/customization.html" >
 				Customization			</a>
-		</li><li>
-			<a href = "http://localhost:8083/advanced-usage.html" >
-				Advanced Usage			</a>
 		</li><li>
 			<a href = "http://localhost:8083/deployment.html" >
 				Deployment			</a>
@@ -173,18 +168,28 @@
         class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">PRODUCT_NAME</span><span class="op">=</span><span class="st">&quot;Your Product Name&quot;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="va">TAGLINE</span><span class="op">=</span><span class="st">&quot;Your Product Tagline&quot;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="va">ORGANIZATION</span><span class="op">=</span><span class="st">&quot;Your Tagline&quot;</span></span></code></pre></div>
-        <p>Create a page:</p>
+        <p>Add Markdown files under the <code>pages/</code> directory.
+        Each file may start with YAML front-matter:</p>
         <div class="sourceCode" id="cb4"><pre
-        class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="op">&lt;&lt;-END</span> <span class="op">&gt;</span> ./pages/index.md</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="st">    # Hello, SMGen!</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">END</span></span></code></pre></div>
-        <p>Then build the project &amp; serve it</p>
+        class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Home</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Your Name</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># Welcome to My Site</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>This is my first page content.</span></code></pre></div>
+        <p>Save it as <code>pages/index.md</code> (or any path under
+        <code>pages/</code>)</p>
+        <p>Build the project and serve it:</p>
         <div class="sourceCode" id="cb5"><pre
         class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">smgen</span> build</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">smgen</span> serve</span></code></pre></div>
         <p>Open a browser and go to <a
         href="http://localhost:8000/">http://localhost:8000/</a>, you
         should see the project running.</p>
+        <h2 id="templates">Templates</h2>
         <p>The following files were created by the <code>init</code>
         script, and can be modified for customization. You should commit
         them to some version control (git) as a backup before you modify
@@ -195,30 +200,13 @@
         <li>template/footer.php</li>
         </ul>
         <p>See <a
-        href="http://localhost:8083/advanced-usage.html">Advanced
-        Usage</a> for info on writing/customizing your own
+        href="customization.html#themes-css-and-js-injection">Customization#Themes,
+        CSS, and JS Injection</a> for info on writing/customizing your
+        own styles and javascript.</p>
+        <p>See <a
+        href="/customization.html#writing-your-own-templates">Customization#Writing
+        Your Own Templates</a> for info on creating/editing your own
         templates.</p>
-        <h2 id="purpose">Purpose</h2>
-        <p>The goal of this generator is to provide a simple, flexible
-        foundation for publishing documentation, blogs, and other
-        content sites without heavy dependencies.</p>
-        <h2 id="architecture">Architecture</h2>
-        <ul>
-        <li><strong>build.sh</strong>: Main build script that copies
-        static assets, renders pages, and assembles a sitemap.</li>
-        <li><strong>pages/</strong>: Markdown source files with optional
-        YAML front-matter.</li>
-        <li><strong>templates/</strong>: PHP + Pandoc templates that
-        wrap page content in site layout.</li>
-        <li><strong>helpers/</strong>: PHP scripts for navigation and
-        sitemap generation.</li>
-        <li><strong>static/</strong>: Static assets (CSS, JS, images)
-        that are copied verbatim to the output.</li>
-        <li><strong>docs/</strong>: Generated output directory ready for
-        deployment.</li>
-        </ul>
-        <p>Continue to <strong>Getting Started</strong> for steps to
-        install and build your first site.</p>
 				</article>
 								<nav class = "table-of-contents">
 					<span class = "wide-only">on this page:</span>
@@ -227,8 +215,7 @@
      <ul>
      <li><a href="#install">Install</a></li>
      <li><a href="#getting-started">Getting Started</a></li>
-     <li><a href="#purpose">Purpose</a></li>
-     <li><a href="#architecture">Architecture</a></li>
+     <li><a href="#templates">Templates</a></li>
      </ul></li>
      </ul>
 					<span class = "wide-only"><a href = "#">top</a></span>
@@ -237,6 +224,9 @@
 		</div>
 	</section>
 	<footer class="footer">
-	&copy; 2025 Sean Morris</footer>
+	<div class = "page-rule">
+		<span>&copy; 2025 Sean Morris</span>
+	</div>
+</footer>
 	</body>
 </html>

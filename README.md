@@ -62,8 +62,7 @@ Open <http://localhost:8000> in your browser to view the site.
 
 Full documentation is authored in Markdown under `pages/`:
 
-- `pages/index.md` — Introduction
-- `pages/getting-started.md` — Getting Started
+- `pages/index.md` — Introduction & Getting Started
 - `pages/configuration.md` — Configuration
 - `pages/project-structure.md` — Project Structure
 - `pages/customization.md` — Customization (CSS, JS, templates)

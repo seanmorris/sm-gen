@@ -1,24 +1,30 @@
 :root {
-	/* Core palette */
-	--bg-0: #0A0E20;   /* deep space navy */
-	--bg-1: #1F0740;   /* cosmic plum */
-	--bg-2: #020D1B;   /* near-black blue */
-
-	--fg-0: #EAF2FF;   /* primary text on dark */
-	--fg-1: #B9C7FF;   /* secondary text */
-	--muted: #8CA0B3;  /* subtle labels */
-
-	/* Accents (pick 1–2 as your primary/brand) */
+	/* Accents */
 	--acc-violet: #784CFF;  /* electric violet */
 	--acc-cyan:   #00D0FF;  /* neon cyan */
 	--acc-magenta:#FF5C92;  /* hot magenta */
 	--acc-gold:   #FFC857;  /* warm gold */
 	--acc-mint:   #61FFC5;  /* minty teal */
+}
+
+:root.theme-cosmic.dark {
+	/* Core palette */
+	--bg-0: #0A0E20;   /* deep space navy */
+	--bg-1: #1F0740;   /* cosmic plum */
+	--bg-2: #020D1B;   /* near-black blue */
+
+	--background: var(--bg-0) url('./bg.svg') no-repeat center / cover fixed;
+
+	--fg-0: #EAF2FF;   /* primary text on dark */
+	--fg-1: #B9C7FF;   /* secondary text */
+	--muted: #8CA0B3;  /* subtle labels */
 
 	/* UI surface tokens */
 	--surface-0: color-mix(in srgb, color-mix(in oklab, var(--acc-violet) 15%, black), transparent 30%);
 	--surface-1: color-mix(in srgb, color-mix(in oklab, var(--acc-magenta) 30%, black), transparent 40%);
 	--surface-2: color-mix(in srgb, color-mix(in oklab, var(--acc-gold) 20%, black), transparent 40%);
+	--surface-3: color-mix(in srgb, color-mix(in oklab, var(--acc-gold) 20%, #F3F6FF), transparent 25%);
+
 	--border: color-mix(in oklab, var(--fg-1) 15%, transparent);
 	--shadow: 0 10px 30px color-mix(in oklab, black 70%, transparent);
 	--ring: color-mix(in oklab, var(--acc-cyan) 60%, white 10%);
@@ -32,85 +38,30 @@
 	--danger:  #FF516D;
 }
 
-/* Light variant (optional) */
 :root.theme-cosmic.light {
 	--bg-0: #F7F8FF;
 	--bg-1: #ECEBFF;
 	--bg-2: #EAF7FF;
 
+	--background: var(--bg-0) url('./bg.svg') no-repeat center / cover fixed;
+
 	--fg-0: #1B1730;
 	--fg-1: #3C3860;
 	--muted: #6F7A92;
 
-	--surface-0: #FFFFFF;
-	--surface-1: #F3F6FF;
-	--surface-2: #EDEFFF;
+	--surface-0: color-mix(in srgb, color-mix(in oklab, var(--acc-violet) 10%, #F7F8FF), transparent 15%);
+	--surface-1: color-mix(in srgb, color-mix(in oklab, var(--acc-magenta) 30%, #F3F6FF), transparent 20%);
+	--surface-2: color-mix(in srgb, color-mix(in oklab, var(--acc-gold) 20%, #F3F6FF), transparent 25%);
+	--surface-3: color-mix(in srgb, color-mix(in oklab, var(--acc-gold) 20%, black), transparent 40%);
+
 	--border: color-mix(in oklab, #3C3860 18%, transparent);
 	--shadow: 0 8px 24px rgba(9, 14, 32, 0.15);
 	--ring: color-mix(in oklab, var(--acc-violet) 45%, black 5%);
 
 	--primary: #5D54FF;
 	--primary-contrast: #FFFFFF;
-	--link: #5D54FF;
+	--link: #3c34cc;
 	--success: #00B97A;
 	--warning: #C29600;
 	--danger:  #E1324A;
-}
-
-/* Example base UI wiring */
-body {
-	background: var(--bg-0) url('./bg.svg') no-repeat center / cover fixed;
-	color: var(--fg-0);
-}
-
-.surface, article, section.heading {
-	background: var(--surface-0);
-	border: 1px solid var(--border);
-	box-shadow: var(--shadow);
-}
-
-.surface-1, nav.main {
-	background: var(--surface-1);
-	border: 1px solid var(--border);
-	box-shadow: var(--shadow);
-}
-
-.surface-2, nav.table-of-contents {
-	background: var(--surface-2);
-	border: 1px solid var(--border);
-	box-shadow: var(--shadow);
-}
-
-a {
-	color: var(--link); text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-button, .btn {
-	background: var(--primary);
-	color: var(--primary-contrast);
-	border-radius: 10px;
-	padding: .6rem 1rem;
-	border: 0;
-	box-shadow: 0 0 0 0px transparent;
-	transition: box-shadow .2s ease, transform .06s ease;
-}
-
-button:focus, .btn:focus,
-button:hover, .btn:hover { box-shadow: 0 0 0 3px var(--ring); transform: translateY(-1px); }
-
-.input {
-	background: var(--surface-1);
-	border: 1px solid var(--border);
-	color: var(--fg-0);
-	border-radius: 8px;
-	padding: .5rem .75rem;
-	outline: none;
-}
-
-.input:focus {
-	box-shadow: 0 0 0 3px var(--ring); border-color: transparent;
 }

@@ -5,7 +5,7 @@ BASE_URL=${BASE_URL:-"http://localhost:8083"}
 STATIC_DIR=${STATIC_DIR:-"./static"}
 
 STYLES=$( cat <<-END
-	${BASE_URL}/style.css
+	${BASE_URL}/default.css
 	${BASE_URL}/cosmic.css
 END
 )

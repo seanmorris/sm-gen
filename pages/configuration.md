@@ -17,7 +17,7 @@ You can configure the generator via environment variables, `.smgen-rc`, and pre/
 - `PAGES_DIR` — source pages directory (default `./pages`)
 - Other variables: `PHP`, `PANDOC`, `YQ`, `BASE_URL`, `TITLE_PREFIX`, `HIGHLIGHT_STYLE`, etc.
 
-## `.smgen-rc` Overrides
+## .smgen-rc Overrides
 
 Create a `.smgen-rc` file at the root to override default variables (e.g., custom CSS or asset directory).
 

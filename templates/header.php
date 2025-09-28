@@ -9,11 +9,12 @@
 					<span class = "logo-text">
 						<?=getEnv('PRODUCT_NAME') ?: 'Product Name';?>
 					</span>
+					<?php if(getEnv('TAGLINE')): ?>
 					<span class = "tagline-text"><?=getEnv('TAGLINE') ?: 'Tagline';?></span>
+					<?php endif; ?>
 				</span>
 			</a>
 		</nav>
 		<?=$heroHtml??'';?>
 	</div>
 </section>
-<hr />

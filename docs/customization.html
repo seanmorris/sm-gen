@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang = "en">
+<html lang = "en" class = "theme-cosmic dark">
 <head>
 			<title>Customization</title>
 			<meta charset="utf-8" />
@@ -7,6 +7,8 @@
 	<meta name="title" content="Customization">
 	<link rel="icon" type="image/x-icon" href="http://localhost:8083/favicon.ico">
 	<link rel="sitemap" href="/sitemap.xml" />
+	<link rel="preload" href="/logo.svg" as="image" type="image/svg">
+	<link rel="preload" href="/bg.svg" as="image" type="image/svg">
 	<style>
 		code{white-space: pre-wrap;}
   span.smallcaps{font-variant: small-caps;}
@@ -78,7 +80,7 @@
   code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
   .display.math{display: block; text-align: center; margin: 0.5rem auto;}
 	</style>
-	<link rel="stylesheet" href="http://localhost:8083/style.css" />
+	<link rel="stylesheet" href="http://localhost:8083/default.css" />
 	<link rel="stylesheet" href="http://localhost:8083/cosmic.css" />
 	<style>
 	</style>
@@ -93,13 +95,12 @@
 								<span class = "col">
 					<span class = "logo-text">
 						SMGen					</span>
-					<span class = "tagline-text">Static Markup Generator</span>
-				</span>
+										<span class = "tagline-text">Static Markup Generator</span>
+									</span>
 			</a>
 		</nav>
 			</div>
 </section>
-<hr />
 	<section class = "below-fold">
 		<div class = "page-rule">
 							<nav class = "main"><ul><details open>
@@ -109,9 +110,6 @@
 				Basic Usage Example			</a>
 		</li></ul>		</details><li>
 			<a href = "http://localhost:8083/index.html" >
-				Introduction			</a>
-		</li><li>
-			<a href = "http://localhost:8083/getting-started.html" >
 				Getting Started			</a>
 		</li><li>
 			<a href = "http://localhost:8083/configuration.html" >
@@ -122,9 +120,6 @@
 		</li><li>
 			<a href = "http://localhost:8083/customization.html" class="active-link">
 				Customization			</a>
-		</li><li>
-			<a href = "http://localhost:8083/advanced-usage.html" >
-				Advanced Usage			</a>
 		</li><li>
 			<a href = "http://localhost:8083/deployment.html" >
 				Deployment			</a>
@@ -146,27 +141,15 @@
         <code>static/</code>:</p>
         <div class="sourceCode" id="cb1"><pre
         class="sourceCode css"><code class="sourceCode css"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* static/example.css */</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>body {</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">font-family</span>: <span class="st">&#39;Arial&#39;</span><span class="op">,</span> <span class="dv">sans-serif</span><span class="op">;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">background-color</span>: <span class="cn">#f9f9f9</span><span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">max-width</span>: <span class="dv">60</span><span class="dt">rem</span><span class="op">;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">margin</span>: <span class="bu">auto</span><span class="op">;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">.active-link</span> {</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">color</span>: <span class="cn">#d33</span><span class="op">;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-decoration</span>: <span class="dv">underline</span><span class="op">;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.active-link</span> {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">color</span>: <span class="cn">#d33</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-decoration</span>: <span class="dv">underline</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
         <div class="sourceCode" id="cb2"><pre
         class="sourceCode js"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// static/example.js</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">&#39;DOMContentLoaded&#39;</span><span class="op">,</span> <span class="kw">function</span>() {</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Example.js loaded&#39;</span>)<span class="op">;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">document</span><span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">&#39;a&#39;</span>)<span class="op">.</span><span class="fu">forEach</span>(<span class="kw">function</span>(el) {</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        el<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">&#39;click&#39;</span><span class="op">,</span> <span class="kw">function</span>() {</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Link clicked:&#39;</span><span class="op">,</span> el<span class="op">.</span><span class="at">href</span>)<span class="op">;</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        })<span class="op">;</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
         <p>Then inject them into your build via
         <code>.smgen-rc</code>:</p>
         <div class="sourceCode" id="cb3"><pre
@@ -202,6 +185,62 @@
         <code>&lt;head&gt;</code>, and <code>/inline.js</code> contents
         will be embedded inside a <code>&lt;script&gt;</code> tag before
         <code>&lt;/body&gt;</code>.</p>
+        <h2 id="writing-your-own-templates">Writing Your Own
+        Templates</h2>
+        <p>This project uses PHP+Pandoc templates to wrap your Markdown
+        content in HTML. Templates are a blend of Pandoc template
+        variables (e.g. <code>$body$</code>, <code>$title$</code>,
+        <code>$pagetitle$</code>, <code>$styles.html()$</code>,
+        <code>$for(css)$…</code>) and PHP code. To create a custom
+        template:</p>
+        <ol type="1">
+        <li><p>Copy the default <code>templates/page.php</code> to a new
+        file (e.g. <code>templates/my-page.php</code>).</p></li>
+        <li><p>Modify the HTML and Pandoc placeholders as
+        needed.</p></li>
+        <li><p>In your page’s YAML front-matter, set the
+        <code>template</code> field. For example:</p>
+        <div class="sourceCode" id="cb5"><pre
+        class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Custom Template Example</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">template:</span><span class="co"> templates/my-page.php</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># My Page Heading</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>This page uses the custom template specified above.</span></code></pre></div></li>
+        </ol>
+        <p>Pandoc will use your custom template when rendering that
+        page. You can also create extension-specific templates named
+        <code>&lt;ext&gt;-page.php</code> (or <code>.html</code>) in the
+        <code>templates/</code> directory and the build script will pick
+        them up automatically.</p>
+        <p>Below is a minimal example:</p>
+        <div class="sourceCode" id="cb6"><pre
+        class="sourceCode php"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">// templates/my-page.php</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">?&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;!</span><span class="cn">DOCTYPE</span> html<span class="op">&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>html<span class="op">&gt;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>head<span class="op">&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>title<span class="op">&gt;</span><span class="va">$if</span>(pagetitle)$${pagetitle}<span class="va">$else</span>$${title}<span class="va">$endif</span>$<span class="op">&lt;/</span>title<span class="op">&gt;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="va">$for</span>(css)$<span class="op">&lt;</span><span class="fu">link</span> rel<span class="op">=</span><span class="st">&quot;stylesheet&quot;</span> href<span class="op">=</span><span class="st">&quot;</span><span class="va">$css</span><span class="st">$&quot;</span> <span class="op">/&gt;</span><span class="va">$endfor</span>$</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="va">$styles</span><span class="op">.</span>html()$</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>head<span class="op">&gt;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>body<span class="op">&gt;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span><span class="ot">?</span>php <span class="kw">include</span> <span class="st">&#39;navbar.php&#39;</span><span class="ot">;</span> <span class="kw">?&gt;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="va">$body</span>$</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div>
+        <h2 id="front-matter-fields">Front-matter Fields</h2>
+        <p>Leverage custom fields in YAML front-matter to pass variables
+        into templates.</p>
+        <h2 id="custom-templates-per-extension">Custom Templates per
+        Extension</h2>
+        <p>Place extension-specific templates:</p>
+        <ul>
+        <li><code>templates/md-page.php</code></li>
+        <li><code>templates/html-template.html</code></li>
+        </ul>
         <h2 id="template-fallback-logic">Template Fallback Logic</h2>
         <p>The build script selects templates based on front-matter or
         file extension:</p>
@@ -230,23 +269,28 @@
         </ul>
         <h3 id="examples">Examples</h3>
         <p>Front-matter in an individual page (<code>foo.md</code>):</p>
-        <div class="sourceCode" id="cb5"><pre
-        class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;My FAQ&quot;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="dv">100</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">leftBarLink</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">leftBarShow</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+        <div class="sourceCode" id="cb7"><pre
+        class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;My FAQ&quot;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="dv">100</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">leftBarLink</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">leftBarShow</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
         <p>Directory-level settings
         (<code>pages/guides/.fm.yaml</code>):</p>
-        <div class="sourceCode" id="cb6"><pre
-        class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Guides &amp; Tutorials&quot;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="dv">50</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">leftBarLink</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div>
+        <div class="sourceCode" id="cb8"><pre
+        class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Guides &amp; Tutorials&quot;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="dv">50</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">leftBarLink</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div>
+        <h2 id="html-partial-includes">HTML Partial Includes</h2>
+        <p>Use PHP includes inside templates for reusable markup
+        snippets.</p>
         <h2 id="table-of-contents-settings">Table of Contents
         Settings</h2>
         <p>Control the TOC with front-matter <code>TOC</code>
         (true/false) or omit to let default TOC injection.</p>
+        <div class="sourceCode" id="cb9"><pre
+        class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TOC</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code></pre></div>
 				</article>
 								<nav class = "table-of-contents">
 					<span class = "wide-only">on this page:</span>
@@ -255,6 +299,11 @@
      <ul>
      <li><a href="#themes-css-and-js-injection">Themes, CSS, and JS
      Injection</a></li>
+     <li><a href="#writing-your-own-templates">Writing Your Own
+     Templates</a></li>
+     <li><a href="#front-matter-fields">Front-matter Fields</a></li>
+     <li><a href="#custom-templates-per-extension">Custom Templates per
+     Extension</a></li>
      <li><a href="#template-fallback-logic">Template Fallback
      Logic</a></li>
      <li><a href="#navigation-customization">Navigation
@@ -262,6 +311,7 @@
      <ul>
      <li><a href="#examples">Examples</a></li>
      </ul></li>
+     <li><a href="#html-partial-includes">HTML Partial Includes</a></li>
      <li><a href="#table-of-contents-settings">Table of Contents
      Settings</a></li>
      </ul></li>
@@ -272,6 +322,9 @@
 		</div>
 	</section>
 	<footer class="footer">
-	&copy; 2025 Sean Morris</footer>
+	<div class = "page-rule">
+		<span>&copy; 2025 Sean Morris</span>
+	</div>
+</footer>
 	</body>
 </html>

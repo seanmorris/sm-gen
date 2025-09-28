@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: Getting Started
 weight: 0
 author:
     - name: Sean Morris
@@ -43,15 +43,23 @@ TAGLINE="Your Product Tagline"
 ORGANIZATION="Your Tagline"
 ```
 
-Create a page:
+Add Markdown files under the `pages/` directory. Each file may start with YAML front-matter:
 
-```bash
-cat <<-END > ./pages/index.md
-    # Hello, SMGen!
-END
+```markdown
+---
+title: Home
+author:
+  - name: Your Name
+---
+
+# Welcome to My Site
+
+This is my first page content.
 ```
 
-Then build the project & serve it
+Save it as `pages/index.md` (or any path under `pages/`)
+
+Build the project and serve it:
 
 ```bash
 smgen build
@@ -60,25 +68,15 @@ smgen serve
 
 Open a browser and go to [http://localhost:8000/](http://localhost:8000/), you should see the project running.
 
+## Templates
+
 The following files were created by the `init` script, and can be modified for customization. You should commit them to some version control (git) as a backup before you modify them.
 
 * template/page.php
 * template/header.php
 * template/footer.php
 
-See [Advanced Usage](http://localhost:8083/advanced-usage.html) for info on writing/customizing your own templates.
+See [Customization#Themes, CSS, and JS Injection](customization.html#themes-css-and-js-injection) for info on writing/customizing your own styles and javascript.
 
-## Purpose
+See [Customization#Writing Your Own Templates](/customization.html#writing-your-own-templates) for info on creating/editing your own templates.
 
-The goal of this generator is to provide a simple, flexible foundation for publishing documentation, blogs, and other content sites without heavy dependencies.
-
-## Architecture
-
-- **build.sh**: Main build script that copies static assets, renders pages, and assembles a sitemap.
-- **pages/**: Markdown source files with optional YAML front-matter.
-- **templates/**: PHP + Pandoc templates that wrap page content in site layout.
-- **helpers/**: PHP scripts for navigation and sitemap generation.
-- **static/**: Static assets (CSS, JS, images) that are copied verbatim to the output.
-- **docs/**: Generated output directory ready for deployment.
-
-Continue to **Getting Started** for steps to install and build your first site.

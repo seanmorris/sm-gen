@@ -13,13 +13,6 @@ Use front-matter or `.smgen-rc` to add custom styles and scripts. For example, i
 
 ```css
 /* static/example.css */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9;
-    max-width: 60rem;
-    margin: auto;
-}
-
 .active-link {
     color: #d33;
     text-decoration: underline;
@@ -30,11 +23,6 @@ body {
 // static/example.js
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Example.js loaded');
-    document.querySelectorAll('a').forEach(function(el) {
-        el.addEventListener('click', function() {
-            console.log('Link clicked:', el.href);
-        });
-    });
 });
 ```
 
@@ -70,6 +58,57 @@ END
 
 With these set, the contents of `/inline.css` will be embedded inside a `<style>` tag in the `<head>`, and `/inline.js` contents will be embedded inside a `<script>` tag before `</body>`.
 
+## Writing Your Own Templates
+
+This project uses PHP+Pandoc templates to wrap your Markdown content in HTML. Templates are a blend of Pandoc template variables (e.g. `$body$`, `$title$`, `$pagetitle$`, `$styles.html()$`, `$for(css)$…`) and PHP code. To create a custom template:
+
+1. Copy the default `templates/page.php` to a new file (e.g. `templates/my-page.php`).
+2. Modify the HTML and Pandoc placeholders as needed.
+3. In your page’s YAML front-matter, set the `template` field. For example:
+
+   ```markdown
+   ---
+   title: Custom Template Example
+   template: templates/my-page.php
+   ---
+
+   # My Page Heading
+   This page uses the custom template specified above.
+   ```
+
+Pandoc will use your custom template when rendering that page. You can also create extension-specific templates named `<ext>-page.php` (or `.html`) in the `templates/` directory and the build script will pick them up automatically.
+
+Below is a minimal example:
+
+```php
+<?php
+// templates/my-page.php
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>$if(pagetitle)$${pagetitle}$else$${title}$endif$</title>
+  $for(css)$<link rel="stylesheet" href="$css$" />$endfor$
+  $styles.html()$
+</head>
+<body>
+  <?php include 'navbar.php'; ?>
+  $body$
+</body>
+</html>
+```
+
+## Front-matter Fields
+
+Leverage custom fields in YAML front-matter to pass variables into templates.
+
+## Custom Templates per Extension
+
+Place extension-specific templates:
+
+- `templates/md-page.php`
+- `templates/html-template.html`
+
 ## Template Fallback Logic
 
 The build script selects templates based on front-matter or file extension:
@@ -90,6 +129,7 @@ Use YAML front-matter fields in pages or directory-level `.fm.yaml` files to con
 ### Examples
 
 Front-matter in an individual page (`foo.md`):
+
 ```yaml
 ---
 title: "My FAQ"
@@ -100,12 +140,21 @@ leftBarShow: false
 ```
 
 Directory-level settings (`pages/guides/.fm.yaml`):
+
 ```yaml
 title: "Guides & Tutorials"
 weight: 50
 leftBarLink: true
 ```
 
+## HTML Partial Includes
+
+Use PHP includes inside templates for reusable markup snippets.
+
 ## Table of Contents Settings
 
 Control the TOC with front-matter `TOC` (true/false) or omit to let default TOC injection.
+
+```yaml
+TOC: false
+```
