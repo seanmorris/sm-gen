@@ -39,6 +39,8 @@ jobs:
         id: deploy
         with:
           publish_dir: ./docs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Show GitHub Pages URL
         run: |
