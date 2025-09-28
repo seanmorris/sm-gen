@@ -15,13 +15,9 @@ jobs:
     steps:
       - name: Get GitHub Pages URL
         id: get_pages_url
-        run: echo "BASE_URL=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.html_url')" >> $GITHUB_ENV
+        run: echo "BASE_URL=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.html_url | rtrimstr("/")')" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Use the pages domain in a step
-        run: |
-          echo "The deployed URL is: ${{ env.BASE_URL }}"
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -53,4 +49,4 @@ jobs:
 
       - name: Show GitHub Pages URL
         run: |
-          echo "GitHub Pages URL: ${{ steps.deploy.outputs.page_url }}"
+          echo "GitHub Pages URL: ${{ env.BASE_URL }}"

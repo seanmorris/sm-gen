@@ -1,6 +1,7 @@
-# Static Site Generator
+#SMGen
+*Static Site Generator*
 
-This repository contains a minimal, Bash-driven static-site generator. It converts Markdown files into a fully templated HTML website using PHP, yq, and Pandoc.
+Bash-driven static-site generator. Converts Markdown files into a fully templated HTML website using PHP, yq, and Pandoc.
 
 ## Prerequisites
 
@@ -8,22 +9,7 @@ This repository contains a minimal, Bash-driven static-site generator. It conver
 - **PHP** command-line
 - **yq** (YAML processor)
 - **Pandoc** (Markdown to HTML converter)
-
-## Quick Start
-
-Clone the repository and build your site:
-
-```bash
-git clone https://github.com/your/repo.git
-cd repo
-./build.sh
-```
-
-The `build.sh` script will source `.static-gen` (if present), copy static assets, render pages from `pages/`, and assemble a sitemap in the default `docs/` output directory.
-
-You can also integrate this generator into any project directory: copy or symlink `build.sh`, `templates/`, `static/`, `helpers/`, and optionally a `.static-gen` file into your content root, then invoke `./build.sh`. It will look for `pages/`, `templates/`, `static/`, and `.static-gen` in the current working directory.
-
-See it in action on the live demo: https://seanmorris.github.io/static-gen/
+- **uuid** (UUID generator)
 
 ## Install
 
