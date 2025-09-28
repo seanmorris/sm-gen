@@ -41,6 +41,7 @@ case "$1" in
 		PHP=${PHP:-"php"}
 		PANDOC=${PANDOC:-"pandoc"}
 		YQ=${YQ:-"yq"}
+		UUID=${UUID:-"uuid"}
 
 		BASE_URL=${BASE_URL:-""}
 		PRODUCT_NAME=${PRODUCT_NAME:-""}
@@ -84,6 +85,11 @@ case "$1" in
 
 		if ! command -v "${PANDOC}" >/dev/null 2>&1; then
 			echo "pandoc is required."
+			exit 1
+		fi
+
+		if ! command -v "${UUID}" >/dev/null 2>&1; then
+			echo "uuid is required."
 			exit 1
 		fi
 
@@ -168,7 +174,7 @@ case "$1" in
 				TOC_FLAG=--toc
 			fi
 
-			TMP_FILE=/tmp/$( uuid ).html
+			TMP_FILE=/tmp/$( ${UUID} ).html
 
 			# Build the final template
 			BASE_URL=${BASE_URL}\
@@ -213,9 +219,29 @@ case "$1" in
 	create-random-page)
 		PAGE_URL="https://jaspervdj.be/lorem-markdownum/markdown.txt?p=5"
 		PAGE_FILE="pages/$(shuf -n 1 /usr/share/dict/words).md"
-		if [ -e "${PAGE_FILE}"} ]; then
+		if [ -e "${PAGE_FILE}" ]; then
 			echo "File exists: ${PAGE_FILE}"
 			exit 1
 		fi
-		curl "${PAGE_URL}" -o ${PAGE_FILE}
+		curl "${PAGE_URL}" -o "${PAGE_FILE}"
+		;;
+
+	help|-h|--help|"")
+		echo "Usage: $(basename "$0") <command>"
+		echo
+		echo "Commands:"
+		echo "  init                Initialize a new site in current directory"
+		echo "  build               Build the site from Markdown to HTML"
+		echo "  serve               Serve the site locally (requires PHP)"
+		echo "  create-random-page  Create a random lorem markdown page"
+		echo "  help                Show this help message"
+		exit 0
+		;;
+
+	*)
+		echo "Unknown command: $1"
+		echo "Run '$(basename "$0") help' for usage."
+		exit 1
+		;;
+
 esac

@@ -143,59 +143,81 @@
         into a fully templated HTML website using PHP, yq, and
         Pandoc:</p>
         <ul>
-        <li><strong>Bash</strong> scripts to orchestrate the build
-        process.</li>
-        <li><strong>PHP</strong> for templating and helper scripts.</li>
-        <li><strong>yq</strong> to extract YAML front-matter.</li>
-        <li><strong>Pandoc</strong> to render Markdown to HTML.</li>
+        <li><strong>Bash</strong> (shell, version ≥ 4.0)</li>
+        <li><strong>PHP</strong> command-line</li>
+        <li><strong>yq</strong> (YAML processor)</li>
+        <li><strong>Pandoc</strong> (Markdown to HTML converter)</li>
+        <li><strong>uuid</strong> (UUID generator)</li>
         </ul>
+        <div class="sourceCode" id="cb1"><pre
+        class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apt</span> install php php-yaml bash pandoc uuid</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">YQ_VERSION</span><span class="op">=</span>v4.47.2</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="at">-qO</span> /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/<span class="va">${YQ_VERSION}</span>/yq_linux_amd64</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x /usr/local/bin/yq</span></code></pre></div>
         <h2 id="install">Install</h2>
         <p>To install <code>smgen</code> (the static site generator)
         system-wide and set up an update path, run:</p>
-        <div class="sourceCode" id="cb1"><pre
-        class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-fsSL</span> https://seanmorris.github.io/smgen/install.sh <span class="kw">|</span> <span class="fu">sudo</span> bash</span></code></pre></div>
+        <div class="sourceCode" id="cb2"><pre
+        class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-fsSL</span> https://seanmorris.github.io/smgen/install.sh <span class="kw">|</span> <span class="fu">sudo</span> bash</span></code></pre></div>
         <p>This command clones the repository into
         <code>/usr/share/smgen</code>, creates a <code>smgen</code>
         symlink in <code>/usr/local/bin</code>, and can be used to
         update <code>smgen</code> by re-running this script.</p>
+        <h2 id="syntax-highlighting">Syntax Highlighting</h2>
+        <p>You can set the syntax highlighting theme using the
+        <code>HIGHLIGHT_STYLE</code> variable in .smgen-rc:</p>
+        <div class="sourceCode" id="cb3"><pre
+        class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">HIGHLIGHT_STYLE</span><span class="op">=</span>zenburn</span></code></pre></div>
+        <p>The following options are available:</p>
+        <ul>
+        <li>pygments</li>
+        <li>tango</li>
+        <li>espresso</li>
+        <li>kate</li>
+        <li>monochrome</li>
+        <li>breezedark</li>
+        <li>haddock</li>
+        <li>zenburn</li>
+        </ul>
         <h2 id="getting-started">Getting Started</h2>
         <p>Create a directory for your project, &amp; run
         <code>smgen init</code> to set up the folder structure &amp;
         standard template.</p>
-        <div class="sourceCode" id="cb2"><pre
-        class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> my-project/</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> my-project/</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">smgen</span> init</span></code></pre></div>
+        <div class="sourceCode" id="cb4"><pre
+        class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> my-project/</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> my-project/</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">smgen</span> init</span></code></pre></div>
         <p>Then open <code>.smgen-rc</code> and configure your
         details:</p>
-        <div class="sourceCode" id="cb3"><pre
-        class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">PRODUCT_NAME</span><span class="op">=</span><span class="st">&quot;Your Product Name&quot;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="va">TAGLINE</span><span class="op">=</span><span class="st">&quot;Your Product Tagline&quot;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="va">ORGANIZATION</span><span class="op">=</span><span class="st">&quot;Your Tagline&quot;</span></span></code></pre></div>
+        <div class="sourceCode" id="cb5"><pre
+        class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="va">PRODUCT_NAME</span><span class="op">=</span><span class="st">&quot;Your Product Name&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="va">TAGLINE</span><span class="op">=</span><span class="st">&quot;Your Product Tagline&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="va">ORGANIZATION</span><span class="op">=</span><span class="st">&quot;Your Tagline&quot;</span></span></code></pre></div>
         <p>Add Markdown files under the <code>pages/</code> directory.
         Each file may start with YAML front-matter:</p>
-        <div class="sourceCode" id="cb4"><pre
-        class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Home</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Your Name</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># Welcome to My Site</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>This is my first page content.</span></code></pre></div>
+        <div class="sourceCode" id="cb6"><pre
+        class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Home</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Your Name</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># Welcome to My Site</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>This is my first page content.</span></code></pre></div>
         <p>Save it as <code>pages/index.md</code> (or any path under
         <code>pages/</code>)</p>
         <p>Build the project:</p>
-        <div class="sourceCode" id="cb5"><pre
-        class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">smgen</span> build</span></code></pre></div>
+        <div class="sourceCode" id="cb7"><pre
+        class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">smgen</span> build</span></code></pre></div>
         <p>And kick off the dev server:</p>
-        <div class="sourceCode" id="cb6"><pre
-        class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">smgen</span> serve</span></code></pre></div>
-        <p>Open a browser and go to <a
-        href="http://localhost:8000/">http://localhost:8000/</a>, you
-        should see the project running.</p>
+        <div class="sourceCode" id="cb8"><pre
+        class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">smgen</span> serve</span></code></pre></div>
+        <p>Open a browser and go to Open <a href="http://localhost:8000"
+        class="uri">http://localhost:8000</a> in your browser to view
+        the site., you should see the project running.</p>
         <h2 id="templates">Templates</h2>
         <p>The following files were created by the <code>init</code>
         script, and can be modified for customization. You should commit
@@ -221,6 +243,7 @@
      <li><a href="#smgen">SMGen</a>
      <ul>
      <li><a href="#install">Install</a></li>
+     <li><a href="#syntax-highlighting">Syntax Highlighting</a></li>
      <li><a href="#getting-started">Getting Started</a></li>
      <li><a href="#templates">Templates</a></li>
      </ul></li>

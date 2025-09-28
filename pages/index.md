@@ -10,10 +10,19 @@ author:
 
 Bash-driven static-site generator. Converts Markdown files into a fully templated HTML website using PHP, yq, and Pandoc:
 
-- **Bash** scripts to orchestrate the build process.
-- **PHP** for templating and helper scripts.
-- **yq** to extract YAML front-matter.
-- **Pandoc** to render Markdown to HTML.
+- **Bash** (shell, version ≥ 4.0)
+- **PHP** command-line
+- **yq** (YAML processor)
+- **Pandoc** (Markdown to HTML converter)
+- **uuid** (UUID generator)
+
+```bash
+apt install php php-yaml bash pandoc uuid
+
+YQ_VERSION=v4.47.2
+wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64
+chmod +x /usr/local/bin/yq
+```
 
 ## Install
 
@@ -24,6 +33,25 @@ curl -fsSL https://seanmorris.github.io/smgen/install.sh | sudo bash
 ```
 
 This command clones the repository into `/usr/share/smgen`, creates a `smgen` symlink in `/usr/local/bin`, and can be used to update `smgen` by re-running this script.
+
+## Syntax Highlighting
+
+You can set the syntax highlighting theme using the `HIGHLIGHT_STYLE` variable in .smgen-rc:
+
+```bash
+HIGHLIGHT_STYLE=zenburn
+```
+
+The following options are available:
+
+* pygments
+* tango
+* espresso
+* kate
+* monochrome
+* breezedark
+* haddock
+* zenburn
 
 ## Getting Started
 
@@ -72,7 +100,7 @@ And kick off the dev server:
 smgen serve
 ```
 
-Open a browser and go to [http://localhost:8000/](http://localhost:8000/), you should see the project running.
+Open a browser and go to Open <http://localhost:8000> in your browser to view the site., you should see the project running.
 
 ## Templates
 

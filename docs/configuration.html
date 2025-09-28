@@ -140,7 +140,7 @@
         <p>You can configure the generator via environment variables,
         <code>.smgen-rc</code>, and pre/post hooks.</p>
         <blockquote>
-        <p><strong>Note:</strong> <code>smgen.sh</code> looks for
+        <p><strong>Note:</strong> <code>smgen</code> looks for
         <code>pages/</code>, <code>templates/</code>,
         <code>static/</code>, and <code>.smgen-rc</code> in your current
         working directory (where you invoke the script). All paths and
@@ -148,32 +148,28 @@
         <code>.smgen-rc</code> file placed alongside the script.</p>
         </blockquote>
         <h2 id="environment-variables">Environment Variables</h2>
+        <h3 id="product-details">Product Details</h3>
         <ul>
-        <li><code>OUTPUT_DIR</code> — output directory (default
-        <code>./docs</code>)</li>
-        <li><code>TEMPLATE_DIR</code> — template files directory
-        (default <code>./templates</code>)</li>
-        <li><code>STATIC_DIR</code> — static assets directory (default
-        <code>./static</code>)</li>
-        <li><code>PAGES_DIR</code> — source pages directory (default
-        <code>./pages</code>)</li>
-        <li><code>PHP</code> — PHP executable (default
-        <code>php</code>)</li>
-        <li><code>PANDOC</code> — Pandoc executable (default
-        <code>pandoc</code>)</li>
-        <li><code>YQ</code> — <code>yq</code> executable (default
-        <code>yq</code>)</li>
         <li><code>BASE_URL</code> — base URL for generated site (default
         empty)</li>
         <li><code>PRODUCT_NAME</code> — product/site name (default
         empty)</li>
+        <li><code>TITLE_PREFIX</code> — prefix for page titles</li>
         <li><code>ORGANIZATION</code> — organization name (default
         empty)</li>
         <li><code>TAGLINE</code> — product tagline (default empty)</li>
+        <li><code>HIGHLIGHT_STYLE</code> — Pandoc syntax highlighting
+        theme (default <code>zenburn</code>)</li>
+        </ul>
+        <h3 id="page-styling">Page Styling</h3>
+        <ul>
         <li><code>STYLES</code> — newline-separated list of CSS files to
         include (via <code>&lt;link&gt;</code>)</li>
         <li><code>INLINE_STYLES</code> — newline-separated list of CSS
         files to inline in <code>&lt;style&gt;</code> tags</li>
+        </ul>
+        <h3 id="page-behavior">Page Behavior</h3>
+        <ul>
         <li><code>JAVASCRIPTS</code> — newline-separated list of JS
         files to include (via <code>&lt;script src&gt;</code>)</li>
         <li><code>INLINE_JAVASCRIPTS</code> — newline-separated list of
@@ -184,9 +180,28 @@
         <li><code>INLINE_BODY_JAVASCRIPTS</code> — newline-separated
         list of JS files to inline before
         <code>&lt;/body&gt;</code></li>
-        <li><code>TITLE_PREFIX</code> — prefix for page titles</li>
-        <li><code>HIGHLIGHT_STYLE</code> — Pandoc syntax highlighting
-        theme (default <code>zenburn</code>)</li>
+        </ul>
+        <h3 id="project-directories">Project Directories</h3>
+        <ul>
+        <li><code>OUTPUT_DIR</code> — output directory (default
+        <code>./docs</code>)</li>
+        <li><code>TEMPLATE_DIR</code> — template files directory
+        (default <code>./templates</code>)</li>
+        <li><code>STATIC_DIR</code> — static assets directory (default
+        <code>./static</code>)</li>
+        <li><code>PAGES_DIR</code> — source pages directory (default
+        <code>./pages</code>)</li>
+        </ul>
+        <h3 id="executable-locations">Executable Locations</h3>
+        <ul>
+        <li><code>PHP</code> — PHP executable (default
+        <code>php</code>)</li>
+        <li><code>PANDOC</code> — Pandoc executable (default
+        <code>pandoc</code>)</li>
+        <li><code>YQ</code> — <code>yq</code> executable (default
+        <code>yq</code>)</li>
+        <li><code>UUID</code> — <code>uuid</code> executable (default
+        <code>uuid</code>)</li>
         </ul>
         <h2 id="smgen-rc-overrides">.smgen-rc Overrides</h2>
         <p>Create a <code>.smgen-rc</code> file at the root to override
@@ -210,7 +225,14 @@
 					<ul>
      <li><a href="#configuration">Configuration</a>
      <ul>
-     <li><a href="#environment-variables">Environment Variables</a></li>
+     <li><a href="#environment-variables">Environment Variables</a>
+     <ul>
+     <li><a href="#product-details">Product Details</a></li>
+     <li><a href="#page-styling">Page Styling</a></li>
+     <li><a href="#page-behavior">Page Behavior</a></li>
+     <li><a href="#project-directories">Project Directories</a></li>
+     <li><a href="#executable-locations">Executable Locations</a></li>
+     </ul></li>
      <li><a href="#smgen-rc-overrides">.smgen-rc Overrides</a></li>
      <li><a href="#hooks">Hooks</a></li>
      </ul></li>
