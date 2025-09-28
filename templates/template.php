@@ -59,8 +59,14 @@ $endif$
 	<section class = "heading">
 		<div class = "page-rule">
 			<nav>
-				<a href = "./">
-					Home
+				<a class = "logo" href = "<?=getEnv('BASE_URL');?>">
+					<img src = "/logo.svg" class = "logo-image">
+					<span class = "col">
+						<span class = "logo-text">
+							SMGen
+						</span>
+						<span class = "tagline-text">Static Markup Generator</span>
+					</span>
 				</a>
 			</nav>
 			<?=$heroHtml??'';?>
