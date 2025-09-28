@@ -1,4 +1,4 @@
-#SMGen
+# SMGen
 *Static Site Generator*
 
 Bash-driven static-site generator. Converts Markdown files into a fully templated HTML website using PHP, yq, and Pandoc.
