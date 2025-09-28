@@ -21,16 +21,11 @@ case "$1" in
 		mkdir templates/
 
 		cp "${SCRIPT_DIR}/templates/page.php" "${SCRIPT_DIR}/templates/header.php" "${SCRIPT_DIR}/templates/footer.php" templates/
+		cp "${SCRIPT_DIR}/static/default.css" "${SCRIPT_DIR}/static/main.js" static/
+		cp "${SCRIPT_DIR}/.smgen-rc-default" ./.smgen-rc
 
-		cat <<-END > ./.smgen-rc
-			#!/usr/bin/env bash
-			BASE_URL=${BASE_URL:-"http://localhost:8000"}
-		END
-
-		cat <<-END > ./pages/index.md
-			# Hello, SMGen!
-		END
-
+		PAGE_URL="https://jaspervdj.be/lorem-markdownum/markdown.txt?p=5"
+		curl "${PAGE_URL}" -o ./pages/index.md
 		;;
 
 	build)
@@ -211,11 +206,11 @@ case "$1" in
 		php -S localhost:8000 -t docs/
 		;;
 	create-random-page)
-		PAGE_URL=https://jaspervdj.be/lorem-markdownum/markdown.txt?p=5
+		PAGE_URL="https://jaspervdj.be/lorem-markdownum/markdown.txt?p=5"
 		PAGE_FILE="pages/$(shuf -n 1 /usr/share/dict/words).md"
 		if [ -e "${PAGE_FILE}"} ]; then
 			echo "File exists: ${PAGE_FILE}"
 			exit 1
 		fi
-		curl ${PAGE_URL} -o ${PAGE_FILE}
+		curl "${PAGE_URL}" -o ${PAGE_FILE}
 esac
