@@ -23,11 +23,8 @@ jobs:
         run: |
           echo "The deployed URL is: ${{ env.BASE_URL }}"
 
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-          persist-credentials: false
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y pandoc php-cli uuid
@@ -41,6 +38,14 @@ jobs:
 
       - name: Build site
         run: ./build.sh
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './docs'
 
       - name: Deploy to GitHub Pages
         id: deployment
