@@ -29,8 +29,8 @@ case "$1" in
 		;;
 
 	build)
-		if [ -f before-build.sh ]; then
-			before-build.sh
+		if [ -f before-smgen.sh ]; then
+			before-smgen.sh
 		fi
 
 		OUTPUT_DIR=${OUTPUT_DIR:-"./docs"}
@@ -198,8 +198,8 @@ case "$1" in
 		echo -e "\e[37m  ${OUTPUT_DIR}/sitemap.xml...\e[0m"
 		"${PHP}" ${PHP_FLAGS} "${SCRIPT_DIR}/helpers/sitemap.php" "${BASE_URL}" > "${OUTPUT_DIR}/sitemap.xml"
 
-		if [ -f after-build.sh ]; then
-			after-build.sh
+		if [ -f after-smgen.sh ]; then
+			after-smgen.sh
 		fi
 		;;
 	serve)

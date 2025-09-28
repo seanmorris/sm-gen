@@ -7,7 +7,7 @@ weight: 2
 
 You can configure the generator via environment variables, `.smgen-rc`, and pre/post hooks.
 
-> **Note:** `build.sh` looks for `pages/`, `templates/`, `static/`, and `.smgen-rc` in your current working directory (where you invoke the script). All paths and hooks can be customized via environment variables or a `.smgen-rc` file placed alongside the script.
+> **Note:** `smgen.sh` looks for `pages/`, `templates/`, `static/`, and `.smgen-rc` in your current working directory (where you invoke the script). All paths and hooks can be customized via environment variables or a `.smgen-rc` file placed alongside the script.
 
 ## Environment Variables
 
@@ -46,5 +46,5 @@ END
 
 ## Hooks
 
-- `before-build.sh` — script to run before the main build.
-- `after-build.sh` — script to run after the build completes.
+- `before-smgen.sh` — script to run before the main build.
+- `after-smgen.sh` — script to run after the build completes.

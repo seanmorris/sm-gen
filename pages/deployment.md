@@ -50,7 +50,7 @@ jobs:
           chmod +x /usr/local/bin/yq
 
       - name: Build site
-        run: ./build.sh
+        run: ./smgen.sh
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

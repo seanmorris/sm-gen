@@ -29,5 +29,5 @@ Verify your `STYLES` or `JAVASCRIPTS` variables and correct paths in `.smgen-rc`
 
 ### Other Tips
 
-- Use `set -x` in `build.sh` to debug build steps.
+- Use `set -x` in `smgen.sh` to debug build steps.
 - Ensure `yq` version supports `--front-matter=extract`.

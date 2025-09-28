@@ -19,9 +19,9 @@ else
 	git clone "${REPO_URL}" "${INSTALL_DIR}"
 fi
 
-echo "Linking ${INSTALL_DIR}/build.sh to ${SYMLINK}"
-ln -sf "${INSTALL_DIR}/build.sh" "${SYMLINK}"
+echo "Linking ${INSTALL_DIR}/smgen.sh to ${SYMLINK}"
+ln -sf "${INSTALL_DIR}/smgen.sh" "${SYMLINK}"
 
-chmod +x "${INSTALL_DIR}/build.sh" "${SYMLINK}"
+chmod +x "${INSTALL_DIR}/smgen.sh" "${SYMLINK}"
 
 echo "Installation complete. Run 'smgen' to build your site."

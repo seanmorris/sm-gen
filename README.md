@@ -70,4 +70,4 @@ Full documentation is authored in Markdown under `pages/`:
 - `pages/faq.md` — FAQ & Troubleshooting
 - `pages/LICENSE.md` — License
 
-Run `./build.sh` to regenerate the HTML in `docs/`. You can customize behavior via `.smgen-rc`, environment variables, and pre/post hooks.
+Run `./smgen.sh` to regenerate the HTML in `docs/`. You can customize behavior via `.smgen-rc`, environment variables, and pre/post hooks.
