@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+BASE_URL=${BASE_URL:-"http://localhost:8000"}
+
+STYLES=$( cat <<-END
+	${BASE_URL}/default.css
+END
+)
+
+JAVASCRIPTS=$( cat <<-END
+	${BASE_URL}/main.js
+END
+)
