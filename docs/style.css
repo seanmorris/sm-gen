@@ -15,28 +15,43 @@ body {
 	overflow-y: scroll;
 }
 
+div.below-fold {
+	flex: 1;
+}
+
 article {
 	margin: 0 auto;
 	padding: 1rem;
-	flex-grow: 1;
 	max-width: 74rem;
+
+	flex: 1 1 0;
+    min-width: 0;
 }
 
 footer {
 	margin-top: auto;
 }
 
+.page-content {
+	display: flex;
+    flex-direction: row;
+    flex: 1 1 0;
+    min-width: 0;
+}
+
 .page-content, nav.table-of-contents {
 	margin-left: 1rem;
 }
 
-.page-rule {
-	padding-right: 0 1rem;
+div.sourceCode pre, div.sourceCode pre > code {
+    width: 100%;
+    display: block;
 }
 
 nav.main, nav.table-of-contents {
 	font-size: 0.8rem;
 	line-height: 1.2rem;
+	max-width: 14rem;
 }
 
 .page-rule, .page-content {
@@ -162,8 +177,7 @@ a.logo span {
 }
 
 div.sourceCode {
-	position:relative;
-	overflow-x: auto;
+	overflow: auto;
 }
 
 pre.sourceCode {
