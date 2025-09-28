@@ -162,8 +162,7 @@ a.logo span {
 }
 
 div.sourceCode {
-	position:relative;
-	overflow-x: auto;
+	overflow: auto;
 }
 
 pre.sourceCode {
