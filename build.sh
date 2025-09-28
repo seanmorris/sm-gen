@@ -2,8 +2,13 @@
 
 set -euo pipefail
 
-[ -f .static-gen ] && source .static-gen
-[ -f before-build.sh ] && before-build.sh
+if [ -f .static-gen ]; then
+	source .static-gen
+fi
+
+if [ -f before-build.sh ]; then
+	before-build.sh
+fi
 
 OUTPUT_DIR=${OUTPUT_DIR:-"./docs"}
 TEMPLATE_DIR=${TEMPLATE_DIR:-"./templates"}
@@ -62,13 +67,17 @@ echo -e "\e[33;4mBuilding pages...\e[0m"
 STYLE_ARGS=""
 INLINE_STYLE_ARGS=""
 
-[[ -n "${STYLES}" ]] && while IFS= read -r STYLE; do
-	STYLE_ARGS+="--css ${STYLE} "
-done <<< "${STYLES}"
+if [[ -n "${STYLES}" ]]; then
+	while IFS= read -r STYLE; do
+		STYLE_ARGS+="--css ${STYLE} "
+	done <<< "${STYLES}"
+fi
 
-[[ -n "${INLINE_STYLES}" ]] && while IFS= read -r INLINE_STYLE; do
-	INLINE_STYLE_ARGS+="-H ${INLINE_STYLE} "
-done <<< "${INLINE_STYLES}"
+if [[ -n "${INLINE_STYLES}" ]]; then
+	while IFS= read -r INLINE_STYLE; do
+		INLINE_STYLE_ARGS+="-H ${INLINE_STYLE} "
+	done <<< "${INLINE_STYLES}"
+fi
 
 find "${PAGES_DIR}" -type f -print0 | while IFS= read -r -d $'\0' PAGE_FILE; do {
 
@@ -159,4 +168,6 @@ echo -e "\e[33;4mAssembing sitemap...\e[0m"
 echo -e "\e[37m  ${OUTPUT_DIR}/sitemap.xml...\e[0m"
 "${PHP}" ${PHP_FLAGS} "${SCRIPT_DIR}/helpers/sitemap.php" "${BASE_URL}" > "${OUTPUT_DIR}/sitemap.xml"
 
-[ -f after-build.sh ] && after-build.sh
+if [ -f after-build.sh ]; then
+	after-build.sh
+fi
