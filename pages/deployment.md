@@ -9,13 +9,14 @@ weight: 6
 
 You can host the generated site by uploading the contents of `docs/` to any static-hosting provider (Netlify, S3, etc.).
 
-Make sure to set the BASE_URL correctly before building if the site exists in a subdirectory on your domain. You can either set it in `.smgen-rc` or use an ENV var on the cli:
+## GitHub Pages
+
+Make sure to set the BASE_URL correctly. This is ESPECIALLY important if the site exists in a subdirectory on your domain. You can either set it in `.smgen-rc` or use an ENV var on the cli:
 
 ```bash
-BASE_URL=example.com smgen build
+BASE_URL=example.com/subdir smgen build
 ```
 
-## GitHub Pages
 
 Github pages can be handled in two ways: you can simply build to the docs/ directory and commit that, or you can use a CI workflow that builds with the correct BASE_URL automatically.
 

@@ -107,7 +107,6 @@ div.header-fill {
 }
 
 /* Nav bars*/
-
 nav ul {
 	list-style: none;
 	padding-left: 1rem;
@@ -141,7 +140,8 @@ section.below-fold nav > ul {
 }
 
 section.below-fold nav li {
-	margin-top: 0.75em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 }
 
 article figure {
@@ -154,6 +154,7 @@ article figure img {
 }
 
 /* Logo Area */
+
 a.logo {
 	display: flex;
 	flex-direction: row;
@@ -194,6 +195,10 @@ a.logo span {
 
 /* Typography */
 
+h1 {
+	font-size: 1.5rem;
+}
+
 h1:first-child,
 h2:first-child,
 h3:first-child,
@@ -201,6 +206,15 @@ h4:first-child,
 h5:first-child,
 h6:first-child {
 	margin-top: 0;
+}
+
+h1:not(:first-child),
+h2:not(:first-child),
+h3:not(:first-child),
+h4:not(:first-child),
+h5:not(:first-child),
+h6:not(:first-child) {
+	margin-top: 1.75em;
 }
 
 hr {
@@ -277,6 +291,7 @@ a:hover {
 
 section.below-fold nav summary {
 	cursor: pointer;
+	user-select: none;
 }
 
 section.below-fold nav summary:hover {

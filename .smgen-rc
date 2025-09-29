@@ -19,5 +19,6 @@ END
 PRODUCT_NAME="SMGen"
 TAGLINE="Static Markup Generator"
 ORGANIZATION="Sean Morris"
+TITLE_PREFIX="SMGen"
 
 HEADER="templates/smgen-header.php"

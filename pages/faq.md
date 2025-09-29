@@ -9,9 +9,17 @@ weight: 7
 
 Ensure PHP CLI is installed and `php` is on your PATH.
 
+### Q: I get an error “pandoc is required.”?
+
+Ensure Pandoc is installed and `pandoc` is on your PATH.
+
 ### Q: I get yq: Error running jq: ParserError: did not find expected &lt;document start&gt;
 
 You've got `jq` installed, and its aliased to `yq`. You need the actual `yq` binary:
+
+### Q: I get an error “uuid is required.”?
+
+Ensure uuid is installed and `“uuid` is on your PATH.
 
 ```bash
 YQ_VERSION=v4.47.2

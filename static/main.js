@@ -37,6 +37,16 @@ document.addEventListener('click', event => {
 
 	while(target && target.getAttribute && !href)
 	{
+		const idPath = target.getAttribute('data-id-path');
+
+		if(idPath)
+		{
+			const isOpen = !target.hasAttribute('open');
+			localStorage.setItem('openMenu-' + idPath, JSON.stringify(isOpen));
+			console.log(idPath, isOpen);
+			return;
+		}
+
 		href = target.getAttribute('href');
 
 		if(href)
@@ -171,4 +181,17 @@ document.addEventListener('DOMContentLoaded', event => {
 		}
 	}
 
+	const summaries = document.querySelectorAll(`details[data-id-path]`);
+
+	for(const summary of summaries) {
+		const idPath = summary.getAttribute('data-id-path');
+		const isOpen = JSON.parse(localStorage.getItem('openMenu-' + idPath));
+		console.log(idPath, isOpen);
+		if (isOpen) {
+			summary.setAttribute('open', true);
+		}
+		else {
+			summary.removeAttribute('open');
+		}
+	}
 });

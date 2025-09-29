@@ -13,7 +13,7 @@ You can configure the generator via environment variables, `.smgen-rc`, and pre/
 
 ### Product Details
 
-- `BASE_URL` — base URL for generated site (default empty)
+- `BASE_URL` — base URL for generated site (NO TRAILING SLASH, default empty)
 - `PRODUCT_NAME` — product/site name (default empty)
 - `TITLE_PREFIX` — prefix for page titles
 - `ORGANIZATION` — organization name (default empty)

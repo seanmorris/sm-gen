@@ -15,9 +15,10 @@ Bash-driven static-site generator. Converts Markdown files into a fully template
 - **yq** (YAML processor)
 - **Pandoc** (Markdown to HTML converter)
 - **uuid** (UUID generator)
+- **inotify-tools** (Filesystem event watcher)
 
 ```bash
-apt install php php-yaml bash pandoc uuid
+apt install php php-yaml bash pandoc uuid inotify-tools
 
 YQ_VERSION=v4.47.2
 wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64

@@ -1,6 +1,6 @@
 <?php
 
-function makeNavBar($path, $rootPath = NULL)
+function makeNavBar($path, $rootPath = NULL, $idPath = '')
 {
 	$rootPath = $rootPath ?? $path;
 	$directories = [];
@@ -29,7 +29,18 @@ function makeNavBar($path, $rootPath = NULL)
 				$frontmatter = yaml_parse(`yq --front-matter=extract $pathname/.fm.yaml 2>/dev/null|| echo ""`) ?? [];
 			}
 
-			$directories[] = (object)[ 'filename' => $filename, 'pathname' => $pathname, 'frontmatter' => $frontmatter ];
+			if(!($frontmatter['leftBarLink'] ?? true))
+			{
+				continue;
+			}
+
+			$directories[] = (object)[
+				'type' => 'DIR',
+				'filename' => $filename,
+				'pathname' => $pathname,
+				'frontmatter' => $frontmatter
+			];
+
 			continue;
 		}
 
@@ -40,10 +51,19 @@ function makeNavBar($path, $rootPath = NULL)
 			continue;
 		}
 
-		$files[] = (object)[ 'filename' => $filename, 'pathname' => $pathname, 'frontmatter' => $frontmatter];
+		$frontmatter['weight'] = ($frontmatter['weight'] ?? 0) + 1000;
+
+		$files[] = (object)[
+			'type' => 'FILE',
+			'filename' => $filename,
+			'pathname' => $pathname,
+			'frontmatter' => $frontmatter
+		];
 	}
 
-	usort($directories, function($a, $b){
+	$entries = [...$directories, ...$files];
+
+	usort($entries, function($a, $b){
 		$wa = (float) ($a->frontmatter['weight'] ?? 0);
 		$wb = (float) ($b->frontmatter['weight'] ?? 0);
 
@@ -55,47 +75,39 @@ function makeNavBar($path, $rootPath = NULL)
 		return $wa - $wb;
 	});
 
-	usort($files, function($a, $b){
-		$wa = (float) ($a->frontmatter['weight'] ?? 0);
-		$wb = (float) ($b->frontmatter['weight'] ?? 0);
+	foreach($entries as $index => $entry)
+	{
+		$type = $entry->type;
+		$filename = $entry->filename;
+		$pathname = $entry->pathname;
+		$frontmatter = $entry->frontmatter;
 
-		if($wa === $wb)
+		if($type === 'DIR')
 		{
-			return strcmp($a->filename, $b->filename);
+			$title = $frontmatter['title'] ?? ucwords(trim(str_replace('-', ' ', basename($filename))));
+			$open = ($frontmatter['open'] ?? true) ? 'open' : '';
+			$idSubPath = $idPath . ($idPath ? '-' . $index : $index);
+
+			?><details <?=$open;?> data-id-path = "<?=$idSubPath;?>">
+				<summary><?=$title;?></summary>
+				<?=makeNavBar($pathname, $rootPath, $idSubPath);?>
+			</details><?php
 		}
+		else if($type === 'FILE')
+		{
+			$filename = $entry->filename;
+			$pathname = $entry->pathname;
+			$frontmatter = $entry->frontmatter;
 
-		return $wa - $wb;
-		return strcmp($a->filename, $b->filename);
-	});
+			$title = $frontmatter['title'] ?? ucwords(preg_replace(['/\.md$/', '/-/'], ['',  ' '], $filename));
+			$linkPath = preg_replace('/\.\w+$/', '.html', substr($pathname, strlen($rootPath)));
 
-	foreach($directories as $entry)
-	{
-		$filename = $entry->filename;
-		$pathname = $entry->pathname;
-		$frontmatter = $entry->frontmatter;
-
-		$title = $frontmatter['title'] ?? ucwords(trim(str_replace('-', ' ', basename($filename))));
-
-		?><details open>
-			<summary><?=$title;?></summary>
-			<?=makeNavBar($pathname, $rootPath);?>
-		</details><?php
-	}
-
-	foreach($files as $entry)
-	{
-		$filename = $entry->filename;
-		$pathname = $entry->pathname;
-		$frontmatter = $entry->frontmatter;
-
-		$title = $frontmatter['title'] ?? ucwords(preg_replace(['/\.md$/', '/-/'], ['',  ' '], $filename));
-		$linkPath = preg_replace('/\.\w+$/', '.html', substr($pathname, strlen($rootPath)));
-
-		?><li>
-			<a href = "<?=getenv('BASE_URL') . $linkPath;?>" <?= getenv('CURRENT_PAGE') === $linkPath ? 'class="active-link"' : ''; ?>>
-				<?=$title?>
-			</a>
-		</li><?php
+			?><li>
+				<a href = "<?=getenv('BASE_URL') . $linkPath;?>" <?= getenv('CURRENT_PAGE') === $linkPath ? 'class="active-link"' : ''; ?>>
+					<?=$title?>
+				</a>
+			</li><?php
+		}
 	}
 
 	?></ul><?php
