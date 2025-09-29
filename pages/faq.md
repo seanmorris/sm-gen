@@ -1,6 +1,6 @@
 ---
 title: FAQ & Troubleshooting
-weight: 7
+weight: 5
 ---
 
 # FAQ & Troubleshooting

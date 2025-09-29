@@ -1,6 +1,6 @@
 ---
 title: Customization
-weight: 4
+weight: 3
 ---
 
 # Customization

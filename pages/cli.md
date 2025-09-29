@@ -14,7 +14,7 @@ smgen <command>
 You can also get help via:
 
 ```bash
-smgen --help
+smgen help
 ```
 ## smgen init
 

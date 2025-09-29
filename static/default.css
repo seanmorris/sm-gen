@@ -43,6 +43,7 @@ body {
     flex-direction: row;
     flex: 1 1 0;
     min-width: 0;
+	align-items: flex-start;
 }
 
 .page-rule {
@@ -65,10 +66,6 @@ ul, ol {
 	margin-left: 1rem;
 }
 
-.page-content, article {
-	flex-grow: 1;
-}
-
 article {
 	margin: 0 auto;
 	padding: 1rem;
@@ -77,12 +74,13 @@ article {
     min-width: 0;
 }
 
-div.sourceCode {
-	padding: 1rem;
+code {
+	font-size: 1.125em;
 }
 
-code {
-	font-size: 1.2em;
+code:not(pre > code) {
+	padding: 0 0.5rem;
+	background-color: #00000060;
 }
 
 footer {
@@ -106,7 +104,80 @@ div.header-fill {
 	justify-content: flex-end;
 }
 
+/* Code Blocks */
+
+pre > code {
+	display: block;
+	border-radius: 5px;
+	padding: 1rem;
+	counter-set: line-number var(--startFrom, 0);
+}
+
+div.sourceCode {
+	border-radius: 5px;
+	margin-bottom: 2rem !important;
+
+}
+
+div.sourceCode pre > code {
+	padding: 1rem 0;
+}
+
+div.sourceCode:not([data-numbers="false"]) code > span::before {
+	display: inline-block;
+	counter-increment: line-number;
+	content: var(--icon, "") ' ' counter(line-number);
+	margin-right: 1rem;
+	opacity: 0.5;
+	text-align: right;
+	min-width: 2rem;
+	margin-left: -1rem;
+}
+
+div.sourceCode[data-numbers="false"] code > span {
+	padding-left: 1rem;
+}
+
+div.sourceCode pre, div.sourceCode pre > code {
+	width: 100%;
+	display: block;
+}
+
+code, pre {
+	font-family: 'Anonymous Pro', monospace;
+}
+
+code > span {
+	box-sizing: border-box;
+	padding: 0 1rem;
+	display: inline-block;
+	min-width: 100%;
+}
+
+code > span.highlight {
+	background-color: #234;
+}
+
+code > span.add {
+	background-color: #140;
+	--icon: '+';
+}
+
+code > span.remove {
+	background-color: #510;
+	--icon: '-';
+}
+
+code > span.add + span.remove {
+	counter-increment: line-number -1;
+}
+
+code > span:hover {
+	background-color: #404040;
+}
+
 /* Nav bars*/
+
 nav ul {
 	list-style: none;
 	padding-left: 1rem;
