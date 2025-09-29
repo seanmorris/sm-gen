@@ -199,8 +199,10 @@ case "$1" in
 			"${PHP}" ${PHP_FLAGS} "${TEMPLATE}" "${PAGE_FILE}" > "${TMP_FILE}"
 
 			# Build the HTML
+			BASE_URL=${BASE_URL}\
 			"${PANDOC}" --data-dir=. -s -f markdown -t html \
 				${HIGHLIGHT_STYLE} ${TOC_FLAG} ${TITLE_PREFIX} \
+				--lua-filter="${SCRIPT_DIR}/helpers/domain.lua" \
 				--template="${TMP_FILE}" \
 				${INLINE_STYLE_ARGS} \
 				${STYLE_ARGS} \
