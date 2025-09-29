@@ -11,7 +11,7 @@ TEMPLATE_DIR=${TEMPLATE_DIR:-"./templates"}
 STATIC_DIR=${STATIC_DIR:-"./static"}
 PAGES_DIR=${PAGES_DIR:-"./pages"}
 
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+SCRIPT_DIR=$( cd -- "$( dirname -- $(readlink -f "${BASH_SOURCE[0]}") )" &> /dev/null && pwd )
 
 case "$1" in
 	init|i)
