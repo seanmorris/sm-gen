@@ -43,7 +43,6 @@ document.addEventListener('click', event => {
 		{
 			const isOpen = !target.hasAttribute('open');
 			localStorage.setItem('openMenu-' + idPath, JSON.stringify(isOpen));
-			console.log(idPath, isOpen);
 			return;
 		}
 
@@ -183,10 +182,10 @@ document.addEventListener('DOMContentLoaded', event => {
 
 	const summaries = document.querySelectorAll(`details[data-id-path]`);
 
-	for(const summary of summaries) {
+	for(const summary of summaries)
+	{
 		const idPath = summary.getAttribute('data-id-path');
 		const isOpen = JSON.parse(localStorage.getItem('openMenu-' + idPath));
-		console.log(idPath, isOpen);
 		if (isOpen) {
 			summary.setAttribute('open', true);
 		}

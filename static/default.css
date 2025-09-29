@@ -307,8 +307,13 @@ article table td {
 	border-right: 1px solid #000;
 }
 
-article li, article ul, article ol {
-	margin-bottom: 0.5rem;
+article li {
+	margin: 0.25rem 0;
+}
+
+
+article ul, article ol {
+	margin: 1rem 0;
 }
 
 /* Effects */
