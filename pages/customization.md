@@ -7,6 +7,25 @@ weight: 4
 
 Customize your site appearance and behavior:
 
+## Syntax Highlighting
+
+You can set the syntax highlighting theme using the `HIGHLIGHT_STYLE` variable in .smgen-rc:
+
+```bash
+HIGHLIGHT_STYLE=zenburn
+```
+
+The following options are available:
+
+* pygments
+* tango
+* espresso
+* kate
+* monochrome
+* breezedark
+* haddock
+* zenburn
+
 ## Themes, CSS, and JS Injection
 
 Use front-matter or `.smgen-rc` to add custom styles and scripts. For example, if you have files under `static/`:

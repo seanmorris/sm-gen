@@ -16,11 +16,86 @@ You can also get help via:
 ```bash
 smgen --help
 ```
+## smgen init
 
-## Commands
+Initialize a new site in current directory. **This command will fail if run in a non-empty directory.**
 
-- **init** — Initialize a new site in current directory
-- **build** — Build the site from Markdown to HTML
-- **serve** — Serve the site locally (requires PHP)
-- **create-random-page** — Create a random lorem markdown page
-- **help**, **-h**, **--help** — Show this help message
+```bash
+smgen init
+```
+
+This command will create the following folders in the current directory:
+
+```bash
+docs/
+pages/
+static/
+templates/
+```
+
+It will also create the following files:
+
+```bash
+.smgen-rc
+static/main.js
+static/default.css
+templates/page.php
+templates/header.php
+templates/footer.php
+pages/index.md
+```
+
+The `pages/index.md` file will contain random lipsum markdown.
+
+## smgen build
+
+Build the site from Markdown to HTML.
+
+```bash
+smgen build
+smgen build <file>
+```
+
+## smgen watch
+
+Start a dev server & build pages & copy assets on filesystem changes.
+
+**Requires inotifytools.**
+
+```bash
+smgen watch
+```
+
+You can configure the port used using DEV_PORT in .smgen-rc:
+
+```bash
+# DEV_PORT=8000
+DEV_PORT=8080
+```
+
+## smgen serve
+
+Serve the site locally without running the file watcher.
+
+```bash
+smgen watch
+```
+
+`DEV_PORT` also applies here.
+
+
+## smgen create-random-page
+
+Create a random lorem ipsum markdown page.
+
+```bash
+smgen create-random-page
+```
+
+## smgen help
+
+Show the help message.
+
+```bash
+smgen help
+```

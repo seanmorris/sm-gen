@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-BASE_URL=${BASE_URL:-"http://localhost:8000"}
+
+DEV_PORT=8000
+BASE_URL=${BASE_URL:-"http://localhost:${DEV_PORT}"}
 
 STYLES=$( cat <<-END
 	${BASE_URL}/default.css

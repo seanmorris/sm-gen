@@ -6,10 +6,15 @@ if [ -f .smgen-rc ]; then
 	source .smgen-rc
 fi
 
+OUTPUT_DIR=${OUTPUT_DIR:-"./docs"}
+TEMPLATE_DIR=${TEMPLATE_DIR:-"./templates"}
+STATIC_DIR=${STATIC_DIR:-"./static"}
+PAGES_DIR=${PAGES_DIR:-"./pages"}
+
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 case "$1" in
-	init)
+	init|i)
 		if [ ! -z "$(ls -A ./)" ]; then
 			echo "Directory is not empty."
 			exit 1
@@ -28,15 +33,10 @@ case "$1" in
 		curl "${PAGE_URL}" -o ./pages/index.md
 		;;
 
-	build)
-		if [ -f before-smgen.sh ]; then
+	build|b)
+		if [ "$#" -eq 1 ] && [ -f before-smgen.sh ]; then
 			before-smgen.sh
 		fi
-
-		OUTPUT_DIR=${OUTPUT_DIR:-"./docs"}
-		TEMPLATE_DIR=${TEMPLATE_DIR:-"./templates"}
-		STATIC_DIR=${STATIC_DIR:-"./static"}
-		PAGES_DIR=${PAGES_DIR:-"./pages"}
 
 		PHP=${PHP:-"php"}
 		PANDOC=${PANDOC:-"pandoc"}
@@ -93,9 +93,9 @@ case "$1" in
 			exit 1
 		fi
 
-		if [ ! -z "$(ls -A ./)" ]; then
+		if [ "$#" -eq 1 ] && [ ! -z "$(ls -A ./)" ]; then
 			echo -e "\e[33;4mCopying static assets...\e[0m"
-			cp -rfv "${STATIC_DIR}/"* "${OUTPUT_DIR}/";
+			cp -prfv "${STATIC_DIR}/"* "${OUTPUT_DIR}/";
 		fi
 
 		echo -e "\e[33;4mBuilding pages...\e[0m"
@@ -115,7 +115,14 @@ case "$1" in
 			done <<< "${INLINE_STYLES}"
 		fi
 
-		find "${PAGES_DIR}" -type f -print0 | while IFS= read -r -d $'\0' PAGE_FILE; do {
+		{
+
+			if [ "$#" -gt 1 ]; then
+				find "${2}" -type f -print0
+			else
+				find "${PAGES_DIR}" -type f -print0
+			fi
+		} | while IFS= read -r -d $'\0' PAGE_FILE; do {
 
 			DIR=$( dirname "${PAGE_FILE}" );
 			BASE=$( basename "${PAGE_FILE}" );
@@ -205,17 +212,52 @@ case "$1" in
 
 		}; done;
 
-		echo -e "\e[33;4mAssembing sitemap...\e[0m"
-		echo -e "\e[37m  ${OUTPUT_DIR}/sitemap.xml...\e[0m"
-		"${PHP}" ${PHP_FLAGS} "${SCRIPT_DIR}/helpers/sitemap.php" "${BASE_URL}" > "${OUTPUT_DIR}/sitemap.xml"
+		if [ "$#" -eq 1 ]; then
+			echo -e "\e[33;4mAssembing sitemap...\e[0m"
+			echo -e "\e[37m  ${OUTPUT_DIR}/sitemap.xml...\e[0m"
+			"${PHP}" ${PHP_FLAGS} "${SCRIPT_DIR}/helpers/sitemap.php" "${BASE_URL}" > "${OUTPUT_DIR}/sitemap.xml"
 
-		if [ -f after-smgen.sh ]; then
-			after-smgen.sh
+			if [ -f after-smgen.sh ]; then
+				after-smgen.sh
+			fi
 		fi
+
 		;;
-	serve)
-		php -S localhost:8000 -t docs/
+
+	watch|w)
+		echo "ctrl+c to exit..."
+		sleep 1
+
+		EVENTS="create,modify,delete,move"
+
+		trap 'kill $(jobs -p)' EXIT
+
+		php -S localhost:${DEV_PORT} -t docs/ &
+		SERVER_PID=$!
+
+		"${BASH_SOURCE[0]}" build
+
+		inotifywait -m -r -e "$EVENTS" --format '%w%f %e' "${PAGES_DIR}" "${STATIC_DIR}" | while read -r FILEPATH EVENT
+		do
+
+			if [[ "${FILEPATH}" == "${PAGES_DIR}"* ]]; then
+				"${BASH_SOURCE[0]}" build ${FILEPATH}
+			fi
+
+			if [[ "${FILEPATH}" == "${STATIC_DIR}"* ]]; then
+				cp -prfv ${FILEPATH} ${OUTPUT_DIR}
+			fi
+		done;
+
+
+		wait ${SERVER_PID}
 		;;
+	serve|s)
+		echo "ctrl+c to exit..."
+		sleep 1
+		php -S localhost:${DEV_PORT} -t docs/
+		;;
+
 	create-random-page)
 		PAGE_URL="https://jaspervdj.be/lorem-markdownum/markdown.txt?p=5"
 		PAGE_FILE="pages/$(shuf -n 1 /usr/share/dict/words).md"

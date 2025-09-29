@@ -34,25 +34,6 @@ curl -fsSL https://seanmorris.github.io/smgen/install.sh | sudo bash
 
 This command clones the repository into `/usr/share/smgen`, creates a `smgen` symlink in `/usr/local/bin`, and can be used to update `smgen` by re-running this script.
 
-## Syntax Highlighting
-
-You can set the syntax highlighting theme using the `HIGHLIGHT_STYLE` variable in .smgen-rc:
-
-```bash
-HIGHLIGHT_STYLE=zenburn
-```
-
-The following options are available:
-
-* pygments
-* tango
-* espresso
-* kate
-* monochrome
-* breezedark
-* haddock
-* zenburn
-
 ## Getting Started
 
 Create a directory for your project, & run `smgen init` to set up the folder structure & standard template.
@@ -101,6 +82,12 @@ smgen serve
 ```
 
 Open a browser and go to Open <http://localhost:8000> in your browser to view the site., you should see the project running.
+
+You can also run `smgrn watch` to spin up the dev server and build changes automatically whenever the filesystem is updated:
+
+```bash
+smgen watch
+```
 
 ## Templates
 

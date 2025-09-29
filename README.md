@@ -57,7 +57,7 @@ The following options are available:
 Serve the generated site for preview:
 
 ```bash
-php -S localhost:8000 -t docs/
+smgen serve
 ```
 
 Open <http://localhost:8000> in your browser to view the site.

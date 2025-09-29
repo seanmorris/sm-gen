@@ -22,6 +22,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install SMGen
+        run: curl -fsSL https://seanmorris.github.io/smgen/install.sh | sudo bash
+
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y pandoc php-cli uuid
 
@@ -36,7 +39,7 @@ jobs:
         run: rm -rf ./docs/*
 
       - name: Build site
-        run: ./smgen.sh build
+        run: smgen build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

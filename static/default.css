@@ -35,6 +35,7 @@ body {
 	overflow-y: scroll;
 
 	font-family: NotoSans, Arial, Helvetica, sans-serif;
+	line-height: 1.4em;
 }
 
 .page-content {
@@ -80,6 +81,10 @@ div.sourceCode {
 	padding: 1rem;
 }
 
+code {
+	font-size: 1.2em;
+}
+
 footer {
 	color: var(--bg-0, white);
 	background: var(--fg-0, black);
@@ -119,7 +124,7 @@ nav.main {
 }
 
 section.below-fold nav {
-	font-size: 0.8rem;
+	font-size: 0.875rem;
 	line-height: 1.2rem;
 	max-width: 14rem;
 	min-width: 160px;
@@ -128,6 +133,24 @@ section.below-fold nav {
 	height: auto;
 	max-height: 100vh;
 	top: 10px;
+}
+
+section.below-fold nav > ul {
+	margin-bottom: 0.75em;
+
+}
+
+section.below-fold nav li {
+	margin-top: 0.75em;
+}
+
+article figure {
+	margin: 2rem 0;
+	width: 100%;
+}
+
+article figure img {
+	width: 100%;
 }
 
 /* Logo Area */
@@ -166,7 +189,7 @@ a.logo span {
 
 /* Active Link */
 .active-link {
-	font-weight: bold;
+	color: var(--fg-0, white);
 }
 
 /* Typography */
@@ -197,6 +220,10 @@ article table td {
 
 article table td {
 	border-right: 1px solid #000;
+}
+
+article li, article ul, article ol {
+	margin-bottom: 0.5rem;
 }
 
 /* Effects */
@@ -246,6 +273,14 @@ a {
 
 a:hover {
 	text-decoration: underline;
+}
+
+section.below-fold nav summary {
+	cursor: pointer;
+}
+
+section.below-fold nav summary:hover {
+	color: var(--muted, #80808080);
 }
 
 button, .btn {
