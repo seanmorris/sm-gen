@@ -117,7 +117,6 @@ document.addEventListener('mousedown', event => {
 });
 
 const loadSearcher = import('https://cdn.jsdelivr.net/npm/smgen-search/SearchReader.mjs');
-const loadIndex = fetch('/search.bin');
 
 document.addEventListener('DOMContentLoaded', async event => {
 
@@ -200,12 +199,23 @@ document.addEventListener('DOMContentLoaded', async event => {
 	const searchInput = document.querySelector('input#search-query');
 
 	const { SearchReader } = await loadSearcher;
-	const indexBuf = await (await loadIndex).arrayBuffer();
-	const reader = new SearchReader(indexBuf);
+
 
 	const resultsTag = document.querySelector('#search-results');
 
-	searchInput.addEventListener('input', event => {
+	const buffers = {};
+
+	searchInput.addEventListener('input', async event => {
+
+		const indexUrl = event.target.getAttribute('data-search-index');
+
+		if(!buffers[indexUrl])
+		{
+			buffers[indexUrl] = await (await fetch('/search.bin')).arrayBuffer();
+		}
+
+		const reader = new SearchReader(buffers[indexUrl]);
+
 		const results = reader.search(event.target.value, 0.5);
 
 		while(resultsTag.firstChild)

@@ -17,7 +17,7 @@
 		</nav>
 		<div class = "header-fill">
 			<div class = "search-wrapper">
-				<input id = "search-query" placeholder = "search" />
+				<input id = "search-query" placeholder = "search" data-search-index = "<?=getEnv('BASE_URL');?>/search.bin" />
 				<ul class="search-menu" id = "search-results"></ul>
 			</div>
 			<div class = "links">
