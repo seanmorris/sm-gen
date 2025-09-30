@@ -21,6 +21,7 @@ $leftBarShow = $frontmatter['leftBarShow'] ?? TRUE;
 	$endif$
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=800, user-scalable=yes" />
+	<meta name="smgen-base-url" content="<?=getEnv('BASE_URL');?>" />
 $for(author)$
 	<meta name="author" content="$author.name$" />
 $endfor$

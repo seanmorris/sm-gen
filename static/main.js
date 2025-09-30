@@ -246,10 +246,11 @@ document.addEventListener('DOMContentLoaded', async event => {
 			const li = document.createElement('li');
 			const a = document.createElement('a');
 
-			console.log(result);
+
+			const baseUrl = document.querySelector('meta[name="smgen-base-url"]').getAttribute('content');
 
 			a.innerText = result.title;
-			a.href = '/' + result.path + '.html';
+			a.href = baseUrl + '/' + result.path + '.html';
 
 			li.append(a);
 			resultsTag.append(li);
