@@ -116,9 +116,8 @@ document.addEventListener('mousedown', event => {
 	}
 });
 
-const loadSearcher = import('https://cdn.jsdelivr.net/npm/smgen-search/SearchReader.mjs');
-
 document.addEventListener('DOMContentLoaded', async event => {
+	const loadSearcher = import('https://cdn.jsdelivr.net/npm/smgen-search/SearchReader.mjs');
 
 	const button = document.getElementById('burgerButton');
 
