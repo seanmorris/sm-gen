@@ -116,7 +116,10 @@ document.addEventListener('mousedown', event => {
 	}
 });
 
-document.addEventListener('DOMContentLoaded', event => {
+const loadSearcher = import('https://cdn.jsdelivr.net/npm/smgen-search/SearchReader.mjs');
+const loadIndex = fetch('/search.bin');
+
+document.addEventListener('DOMContentLoaded', async event => {
 
 	const button = document.getElementById('burgerButton');
 
@@ -193,4 +196,53 @@ document.addEventListener('DOMContentLoaded', event => {
 			summary.removeAttribute('open');
 		}
 	}
+
+	const searchInput = document.querySelector('input#search-query');
+
+	const { SearchReader } = await loadSearcher;
+	const indexBuf = await (await loadIndex).arrayBuffer();
+	const reader = new SearchReader(indexBuf);
+
+	const resultsTag = document.querySelector('#search-results');
+
+	searchInput.addEventListener('input', event => {
+		const results = reader.search(event.target.value, 0.5);
+
+		while(resultsTag.firstChild)
+		{
+			resultsTag.firstChild.remove();
+		}
+
+		if(!event.target.value)
+		{
+			return;
+		}
+
+		if(!results.length)
+		{
+			const li = document.createElement('li');
+			const a = document.createElement('a');
+
+			a.innerText = 'No results.';
+
+			li.append(a);
+			resultsTag.append(li);
+
+			return;
+		}
+
+		for(const [result, score] of results)
+		{
+			const li = document.createElement('li');
+			const a = document.createElement('a');
+
+			console.log(result);
+
+			a.innerText = result.title;
+			a.href = '/' + result.path + '.html';
+
+			li.append(a);
+			resultsTag.append(li);
+		}
+	});
 });

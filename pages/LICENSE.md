@@ -1,5 +1,6 @@
 ---
 weight: 100000
+noSearch: true
 ---
 Apache License
 ==============

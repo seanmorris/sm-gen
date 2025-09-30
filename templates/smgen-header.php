@@ -16,6 +16,10 @@
 			</a>
 		</nav>
 		<div class = "header-fill">
+			<div class = "search-wrapper">
+				<input id = "search-query" placeholder = "search" />
+				<ul class="search-menu" id = "search-results"></ul>
+			</div>
 			<div class = "links">
 				<a title = "github" href = "https://github.com/seanmorris/smgen">
 					<img src = "<?=getEnv('BASE_URL');?>/github-icon.png">

@@ -180,7 +180,7 @@ code > span:hover {
 
 nav ul {
 	list-style: none;
-	padding-left: 1rem;
+	padding-left: 0.5em;
 }
 
 nav > ul {
@@ -334,7 +334,7 @@ body {
 	color: var(--fg-0);
 }
 
-.surface, article, section.heading > .page-rule {
+.surface, article, section.heading > .page-rule, section.heading .search-menu {
 	background: var(--surface-0);
 	border: 1px solid var(--border, black);
 	box-shadow: var(--shadow);
@@ -454,4 +454,52 @@ button:hover, .btn:hover { box-shadow: 0 0 0 3px var(--ring); transform: transla
 	--success: #00B97A;
 	--warning: #C29600;
 	--danger:  #E1324A;
+}
+
+/* Search */
+
+.search-wrapper {
+	position: relative;
+}
+
+.search-menu {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	box-sizing: border-box;
+	padding: 1rem;
+	padding-top: 2rem;
+	width: calc(200% - 2rem);
+	margin: 1rem;
+	margin-top: -1rem;
+	padding: 0;
+	list-style: none;
+	z-index: 90;
+}
+
+.search-menu:empty {
+	display: none;
+}
+
+.search-menu li a {
+	display: block;
+	padding: 1em;
+}
+
+.search-menu li:hover {
+	background: color-mix(in oklab, var(--fg-1) 15%, transparent);
+	color: var(--bg-0, black);
+}
+
+section.heading input {
+	position: relative;
+	z-index: 100;
+	border-radius: 1rem;
+	border: 1px solid var(--border);
+	padding: 0.5rem 1rem;
+	margin: auto 1rem;
+}
+
+section.heading input::placeholder {
+	opacity: 0.75;
 }
