@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', async event => {
 
 		if(!buffers[indexUrl])
 		{
-			buffers[indexUrl] = await (await fetch('/search.bin')).arrayBuffer();
+			buffers[indexUrl] = await (await fetch(indexUrl)).arrayBuffer();
 		}
 
 		const reader = new SearchReader(buffers[indexUrl]);
