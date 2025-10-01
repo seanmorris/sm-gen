@@ -39,6 +39,20 @@ Check that your YAML block is enclosed between `---` markers at the top of the f
 
 Verify your `STYLES` or `JAVASCRIPTS` variables and correct paths in `.smgen-rc`.
 
+### Q: smgen watch fails or is unavailable?
+
+The `smgen watch` command relies on the Linux `inotify-tools` package for filesystem events. On systems without `inotify-tools` support (e.g., macOS), the watcher is not available. You can still use `smgen serve` and manually rebuild with `smgen build`, or install `inotify-tools` on Linux (`apt install inotify-tools`, `dnf install inotify-tools`, `pacman -S inotify-tools`).
+
+### Q: How do I install the PHP YAML extension?
+
+Make sure the PHP YAML extension is installed so that SMGen can parse YAML front-matter. On most Linux distros install the `php-yaml` package (e.g., `apt install php-yaml`, `dnf install php-yaml`, `pacman -S php-yaml`). On macOS, use shivammathur’s taps:
+
+```bash
+brew tap shivammathur/php
+brew tap shivammathur/extensions
+brew install shivammathur/extensions/yaml@<php-version>
+```
+
 ### Other Tips
 
 - Use `set -x` in `smgen` to debug build steps.
