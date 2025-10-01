@@ -117,8 +117,6 @@ document.addEventListener('mousedown', event => {
 });
 
 document.addEventListener('DOMContentLoaded', async event => {
-	const loadSearcher = import('https://cdn.jsdelivr.net/npm/smgen-search/SearchReader.mjs');
-
 	const button = document.getElementById('burgerButton');
 
 	button && button.addEventListener('click', event => {
@@ -197,14 +195,13 @@ document.addEventListener('DOMContentLoaded', async event => {
 
 	const searchInput = document.querySelector('input#search-query');
 
+	const loadSearcher = import('https://cdn.jsdelivr.net/npm/smgen-search/SearchReader.mjs');
 	const { SearchReader } = await loadSearcher;
-
-
 	const resultsTag = document.querySelector('#search-results');
 
 	const buffers = {};
 
-	searchInput.addEventListener('input', async event => {
+	searchInput && searchInput.addEventListener('input', async event => {
 
 		const indexUrl = event.target.getAttribute('data-search-index');
 
