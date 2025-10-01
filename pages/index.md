@@ -90,6 +90,10 @@ You can also run `smgen watch` to spin up the dev server and build changes autom
 smgen watch
 ```
 
+## Search Integration
+
+Add full-text search to your site with the [smgen-search CLI](https://www.npmjs.com/package/smgen-search). See [Search Integration Example](examples/search.html) for detailed setup instructions.
+
 ## Templates
 
 The following files were created by the `init` script, and can be modified for customization. You should commit them to some version control (git) as a backup before you modify them.

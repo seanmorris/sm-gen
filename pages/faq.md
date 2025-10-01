@@ -53,6 +53,14 @@ brew tap shivammathur/extensions
 brew install shivammathur/extensions/yaml@<php-version>
 ```
 
+### Q: Why isn't my search updating?
+
+Run the following in the root of the project:
+
+```bash
+smgen-search build index ./pages static/search.bin
+```
+
 ### Other Tips
 
 - Use `set -x` in `smgen` to debug build steps.
