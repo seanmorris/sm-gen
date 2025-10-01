@@ -1,3 +1,6 @@
+---
+title: Mac OSX
+---
 # OSX Specific Stuff
 
 ## Installing php-yml on OSX:

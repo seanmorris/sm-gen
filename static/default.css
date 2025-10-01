@@ -1,14 +1,15 @@
-section.heading {
-	margin: 1rem;
+header {
+	margin: 1rem 0;
 }
 
-section.heading > .page-rule {
+header {
 	box-sizing: border-box;
 }
 
-section.heading > .page-rule, nav.main, nav.table-of-contents, article {
+header, nav.main, nav.table-of-contents, article {
 	padding: 1rem;
 }
+
 
 nav.main, nav.table-of-contents, article {
 	border: 1px solid #000;
@@ -394,11 +395,11 @@ body {
 	color: var(--fg-0);
 }
 
-section.heading, .surface, article, section.heading .search-menu {
+header, .surface, article, section.heading .search-menu {
 	background: var(--surface-0);
 }
 
-section.heading {
+header {
 	border: 1px solid var(--border, black);
 	box-shadow: var(--shadow);
 }
