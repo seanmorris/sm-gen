@@ -55,10 +55,16 @@ brew install shivammathur/extensions/yaml@<php-version>
 
 ### Q: Why isn't my search updating?
 
-Run the following in the root of the project:
+1) Ensure `smgen-search` is installed:
 
 ```bash
-smgen-search build index ./pages static/search.bin
+npm i -g smgen-search
+```
+
+2) Run the following in the root of the project:
+
+```bash
+smgen-search build-index ./pages static/search.bin
 ```
 
 ### Other Tips
