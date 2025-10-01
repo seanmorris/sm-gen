@@ -1,21 +1,21 @@
 ---
-title: Mac OSX
+title: macOS
 ---
-# OSX Specific Stuff
+# macOS Specific Stuff
 
-OSX uses `brew` for most installs, however PHP may require some work (see below)
+macOS uses `brew` for most installs; however, PHP may require some work (see below).
 
 ```bash
 brew install bash pandoc uuid
 
 YQ_VERSION=v4.47.2
-wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64
+wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_darwin_amd64
 chmod +x /usr/local/bin/yq
 ```
 
-## Installing php-yml on OSX:
+## Installing php-yaml on macOS
 
-Installing PHP can be tricky on non-linux systems. The default install provided by brew has no simple pathway to installing php-yml, so we can use [shivammathur's distibution](https://setup-php.com/) from <https://setup-php.com>.
+Installing PHP can be tricky on non-Linux systems. The default install provided by Homebrew does not include the yaml extension, so we can use [shivammathur's distribution](https://setup-php.com/) to install PHP with yaml support.
 
 Add the repositories to brew:
 
@@ -24,7 +24,7 @@ brew tap shivammathur/php
 brew tap shivammathur/extensions
 ```
 
-Install & override PHP with the newly installed version:
+Install and override PHP with the newly installed version:
 
 ```bash
 brew install shivammathur/php/php@8.4
@@ -49,6 +49,6 @@ php -m | grep yaml
 
 ## `smgen watch` is unavailable
 
-Unfortunately inotify-tools is not available under OSX, so the file watcher is currently unavailable.
+Unfortunately inotify-tools is not available on macOS, so the file watcher is currently unavailable.
 
-You can however manually call `smgen serve` and `smgen build` manually.
+You can, however, manually call `smgen serve` and `smgen build`.

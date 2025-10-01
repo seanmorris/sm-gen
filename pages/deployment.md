@@ -11,16 +11,15 @@ You can host the generated site by uploading the contents of `docs/` to any stat
 
 ## GitHub Pages
 
-Make sure to set the BASE_URL correctly. This is ESPECIALLY important if the site exists in a subdirectory on your domain. You can either set it in `.smgen-rc` or use an ENV var on the cli:
+Make sure to set the BASE_URL correctly. This is ESPECIALLY important if the site exists in a subdirectory on your domain. You can either set it in `.smgen-rc` or use an ENV var on the CLI:
 
 ```bash
 BASE_URL=example.com/subdir smgen build
 ```
 
+GitHub Pages can be handled in two ways: you can simply build to the `docs/` directory and commit that, or you can use a CI workflow that builds with the correct `BASE_URL` automatically.
 
-Github pages can be handled in two ways: you can simply build to the docs/ directory and commit that, or you can use a CI workflow that builds with the correct BASE_URL automatically.
-
-### serving from docs/
+### Serving from docs/
 
 Enable GitHub Pages deployment from your branch in repository settings
 
@@ -32,15 +31,15 @@ Select your branch, and the `/docs` folder. Make sure to use the `/docs` directo
 
 ### CI Integration
 
-You can also build the site completely within a workflow and publish the resulting artifact. This has the advantage of keeping the repository cleaner, and you can also autodetect your github pages BASE_URL, so there's no need to manage it manually.
+You can also build the site completely within a workflow and publish the resulting artifact. This has the advantage of keeping the repository cleaner, and you can also auto-detect your GitHub Pages `BASE_URL`, so there's no need to manage it manually.
 
-Although it's slightly more complicated, this is the recomended way to publish to github pages.
+Although it's slightly more complicated, this is the recommended way to publish to GitHub Pages.
 
-You'll need to configure github pages to accept deployments from actions.
+You'll need to configure GitHub Pages to accept deployments from Actions.
 
-**This is not needed if you intend to commit your `/docs` directory and serve that via github pages.**
+**This is not needed if you intend to commit your `/docs` directory and serve that via GitHub Pages.**
 
-![Select "Github Actions" in the dropdown"](/github-pages-actions.png)
+![Select "GitHub Actions" in the dropdown](/github-pages-actions.png)
 
 Once that's configured, you'll need a workflow that can deploy your site to pages. The example below uses `actions/deploy-pages@v4`. You can store it in `.github/workflows/build-and-deploy.yml` and  use it in your own project.
 

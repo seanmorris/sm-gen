@@ -2,7 +2,7 @@
 
 ## Debian
 
-Installing the dependencies on debian and friends is simple. All but `YQ` are available from the default repositories:
+Installing the dependencies on Debian and derivatives is simple. All but `yq` are available from the default repositories:
 
 ```bash
 apt install php php-yaml bash pandoc uuid inotify-tools

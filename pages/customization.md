@@ -15,7 +15,7 @@ You can set the syntax highlighting theme using the `HIGHLIGHT_STYLE` variable i
 HIGHLIGHT_STYLE=zenburn
 ```
 
-You can list the available syntax higlighters with `pandoc --list-highlight-styles`:
+You can list the available syntax highlighters with `pandoc --list-highlight-styles`:
 
 ```bash
 pandoc --list-highlight-styles

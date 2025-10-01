@@ -37,7 +37,7 @@ This command clones the repository into `/usr/share/smgen`, creates a `smgen` sy
 
 ## Getting Started
 
-Create a directory for your project, & run `smgen init` to set up the folder structure & standard template.
+Create a directory for your project and run `smgen init` to set up the folder structure and standard template.
 
 ```bash
 mkdir my-project/
@@ -82,9 +82,9 @@ And kick off the dev server:
 smgen serve
 ```
 
-Open a browser and go to Open <http://localhost:8000> in your browser to view the site., you should see the project running.
+Open <http://localhost:8000> in your browser to view the site and see the project running.
 
-You can also run `smgrn watch` to spin up the dev server and build changes automatically whenever the filesystem is updated:
+You can also run `smgen watch` to spin up the dev server and build changes automatically whenever the filesystem is updated:
 
 ```bash
 smgen watch
@@ -100,5 +100,5 @@ The following files were created by the `init` script, and can be modified for c
 
 See [Customization#Themes, CSS, and JS Injection](customization.html#themes-css-and-js-injection) for info on writing/customizing your own styles and javascript.
 
-See [Customization#Writing Your Own Templates](/customization.html#writing-your-own-templates) for info on creating/editing your own templates.
+See [Customization#Writing Your Own Templates](customization.html#writing-your-own-templates) for info on creating/editing your own templates.
 

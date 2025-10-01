@@ -15,21 +15,21 @@ Ensure Pandoc is installed and `pandoc` is on your PATH.
 
 ### Q: I get yq: Error running jq: ParserError: did not find expected &lt;document start&gt;
 
-You've got `jq` installed, and its aliased to `yq`. You need the actual `yq` binary:
-
-### Q: I get an error “uuid is required.”?
-
-Ensure uuid is installed and `“uuid` is on your PATH.
-
-### Q: I get strange YAML errors on pages with no frontmatter?
-
-There seems to be a bug somewhere in the stack when the markdown file uses `---` for horizontal rules (`<hr />` tags). You can work around this issue by using the equivalent `***` notation to acheive the same end-result.
+You've got `jq` installed, and it's aliased to `yq`. You need the actual `yq` binary:
 
 ```bash
 YQ_VERSION=v4.47.2
 wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64
 chmod +x /usr/local/bin/yq
 ```
+
+### Q: I get an error “uuid is required.”?
+
+Ensure `uuid` is installed and on your PATH.
+
+### Q: I get strange YAML errors on pages with no frontmatter?
+
+There seems to be a bug somewhere in the stack when the Markdown file uses `---` for horizontal rules (`<hr />` tags). You can work around this issue by using the equivalent `***` notation to achieve the same end result.
 
 ### Q: Front-matter isn’t being applied?
 

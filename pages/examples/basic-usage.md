@@ -4,7 +4,7 @@ title: Basic Usage Example
 
 # Basic Usage Example
 
-This example walks through a minimal setup of the static-site generator in a new project directory.
+This example walks through a minimal setup of the static site generator in a new project directory.
 
 ## Setup
 

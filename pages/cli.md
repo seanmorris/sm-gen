@@ -58,9 +58,9 @@ smgen build <file>
 
 ## smgen watch
 
-Start a dev server & build pages & copy assets on filesystem changes.
+Start a dev server, build pages, and copy assets on filesystem changes.
 
-**Requires inotifytools.**
+**Requires inotify-tools.**
 
 ```bash
 smgen watch
@@ -77,7 +77,7 @@ DEV_PORT=8080 # Default 8000
 Serve the site locally without running the file watcher.
 
 ```bash
-smgen watch
+smgen serve
 ```
 
 `DEV_PORT` also applies here.
