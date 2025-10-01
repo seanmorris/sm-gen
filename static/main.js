@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', async event => {
 			resultsTag.firstChild.remove();
 		}
 
-		if(!event.target.value)
+		if(event.target.value.length < 3)
 		{
 			return;
 		}
