@@ -28,7 +28,7 @@ noSearch: <boolean> # Whether this page should appear in search, defaults to TRU
 
 ## Markdown
 
-Markdown is a simply language to write. There is a good guide on [markdownguide.org](https://www.markdownguide.org/basic-syntax/) if you'd like to brush up.
+Markdown is a simple language to write. There is a good guide on [markdownguide.org](https://www.markdownguide.org/basic-syntax/) if you'd like to brush up.
 
 For reference, here is a small snippet from the beginning of the [FAQ page](faq.html):
 
