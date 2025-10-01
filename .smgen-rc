@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DEV_PORT=8080
+DEV_PORT=8000
 BASE_URL=${BASE_URL:-"http://localhost:${DEV_PORT}"}
 
 STATIC_DIR=${STATIC_DIR:-"./static"}
@@ -10,6 +10,7 @@ STYLES=$( cat <<-END
 	${BASE_URL}/cosmic.css
 END
 )
+
 
 JAVASCRIPTS=$( cat <<-END
 	${BASE_URL}/main.js

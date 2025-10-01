@@ -35,6 +35,11 @@ jobs:
         env:
           YQ_VERSION: v4.47.2
 
+      - name: Install smgen-search
+        run: npm i -g smgen-search
+        env:
+          YQ_VERSION: v4.47.2
+
       - name: Clear files
         run: rm -rf ./docs/*
 

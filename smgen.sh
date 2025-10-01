@@ -11,6 +11,9 @@ TEMPLATE_DIR=${TEMPLATE_DIR:-"./templates"}
 STATIC_DIR=${STATIC_DIR:-"./static"}
 PAGES_DIR=${PAGES_DIR:-"./pages"}
 
+DEV_PORT=${DEV_PORT:-"8000"}
+
+
 SCRIPT_DIR=$( cd -- "$( dirname -- $(readlink -f "${BASH_SOURCE[0]}") )" &> /dev/null && pwd )
 
 case "$1" in
@@ -42,6 +45,7 @@ case "$1" in
 		PANDOC=${PANDOC:-"pandoc"}
 		YQ=${YQ:-"yq"}
 		UUID=${UUID:-"uuid"}
+		SMG_SEARCH=${SMG_SEARCH:-"smgen-search"}
 
 		BASE_URL=${BASE_URL:-""}
 		PRODUCT_NAME=${PRODUCT_NAME:-""}
@@ -218,6 +222,11 @@ case "$1" in
 			echo -e "\e[33;4mAssembing sitemap...\e[0m"
 			echo -e "\e[37m  ${OUTPUT_DIR}/sitemap.xml...\e[0m"
 			"${PHP}" ${PHP_FLAGS} "${SCRIPT_DIR}/helpers/sitemap.php" "${BASE_URL}" > "${OUTPUT_DIR}/sitemap.xml"
+
+			if command -v "${SMG_SEARCH}" >/dev/null 2>&1; then
+				echo -e "\e[33;4mAssembing search index...\e[0m"
+				"${SMG_SEARCH}" build-index "${PAGES_DIR}" "${STATIC_DIR}/search.bin"
+			fi
 
 			if [ -f after-smgen.sh ]; then
 				after-smgen.sh

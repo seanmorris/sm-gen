@@ -7,8 +7,11 @@ section.heading > .page-rule {
 }
 
 section.heading > .page-rule, nav.main, nav.table-of-contents, article {
-	border: 1px solid #000;
 	padding: 1rem;
+}
+
+nav.main, nav.table-of-contents, article {
+	border: 1px solid #000;
 }
 
 /* Flex */
@@ -21,6 +24,10 @@ section.heading > .page-rule, nav.main, nav.table-of-contents, article {
 .row {
 	display: flex;
 	flex-direction: row;
+}
+
+.wide {
+	width: 100%;
 }
 
 /* Layout */
@@ -47,8 +54,6 @@ body {
 }
 
 .page-rule {
-	display: flex;
-	flex-direction: row;
 	margin: auto;
 	max-width: 96rem;
 	padding: 0 1rem;
@@ -80,7 +85,7 @@ code {
 
 code:not(pre > code) {
 	padding: 0 0.5rem;
-	background-color: #00000060;
+	background-color: color-mix(in srgb, var(--fg-0, black), transparent 75%);
 }
 
 footer {
@@ -188,6 +193,9 @@ nav > ul {
 	padding-left: 0;
 }
 
+pre.sourceCode.diff .va {
+	color: rgb(88, 201, 88);
+}
 
 nav.main {
 	white-space: nowrap;
@@ -201,8 +209,9 @@ section.below-fold nav {
 	position: sticky;
 	align-self: flex-start;
 	height: auto;
-	max-height: 100vh;
+	max-height: 100%;
 	top: 10px;
+	overflow-y: auto;
 }
 
 section.below-fold nav > ul {
@@ -298,13 +307,14 @@ article table {
 	border-spacing: 0.5rem;
 }
 
-article table th,
-article table td {
-	border-bottom: 1px solid #000;
+article table th {
+	border-bottom: 1px solid color-mix(in srgb, var(--fg-0, #000), transparent 50%);
+
 }
 
 article table td {
-	border-right: 1px solid #000;
+	border-bottom: 1px solid color-mix(in srgb, var(--fg-0, #000), transparent 50%);
+	border-right: 1px solid color-mix(in srgb, var(--fg-0, #000), transparent 50%);
 }
 
 article li {
@@ -327,6 +337,56 @@ article ul, article ol {
 	100% { opacity: 0.75; }
 }
 
+/* Search */
+
+.search-wrapper {
+	position: relative;
+}
+
+.search-menu {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	box-sizing: border-box;
+	padding: 1rem;
+	padding-top: 2rem;
+	width: calc(200% - 2rem);
+	margin: 1rem;
+	margin-top: -1rem;
+	padding: 0;
+	list-style: none;
+	z-index: 90;
+	border: 1px solid var(--border);
+}
+
+.search-menu:empty {
+	display: none;
+}
+
+.search-menu li a {
+	display: block;
+	padding: 1em;
+}
+
+.search-menu li:hover {
+	background: color-mix(in oklab, var(--fg-1) 15%, transparent);
+	color: var(--bg-0, black);
+}
+
+section.heading input {
+	position: relative;
+	z-index: 100;
+	border-radius: 1rem;
+	border: 1px solid var(--border);
+	padding: 0.5rem 1rem;
+	margin: auto 1rem;
+}
+
+section.heading input::placeholder {
+	opacity: 0.75;
+}
+
+
 /* Theme */
 
 body {
@@ -334,8 +394,11 @@ body {
 	color: var(--fg-0);
 }
 
-.surface, article, section.heading > .page-rule, section.heading .search-menu {
+section.heading, .surface, article, section.heading .search-menu {
 	background: var(--surface-0);
+}
+
+section.heading {
 	border: 1px solid var(--border, black);
 	box-shadow: var(--shadow);
 }
@@ -400,7 +463,7 @@ button:hover, .btn:hover { box-shadow: 0 0 0 3px var(--ring); transform: transla
 	box-shadow: 0 0 0 3px var(--ring); border-color: transparent;
 }
 
-:root.light {
+:root {
 	--bg-0: #FFF;
 	--bg-1: #FFF;
 	--bg-2: #FFF;
@@ -428,7 +491,7 @@ button:hover, .btn:hover { box-shadow: 0 0 0 3px var(--ring); transform: transla
 	--danger:  #E1324A;
 }
 
-:root {
+:root.dark {
 	--bg-0: #000;
 	--bg-1: #000;
 	--bg-2: #000;
@@ -450,56 +513,8 @@ button:hover, .btn:hover { box-shadow: 0 0 0 3px var(--ring); transform: transla
 
 	--primary: #5D54FF;
 	--primary-contrast: #000000;
-	--link: #3c34cc;
+	--link: rgb(76, 107, 248);
 	--success: #00B97A;
 	--warning: #C29600;
 	--danger:  #E1324A;
-}
-
-/* Search */
-
-.search-wrapper {
-	position: relative;
-}
-
-.search-menu {
-	position: absolute;
-	top: 100%;
-	right: 0;
-	box-sizing: border-box;
-	padding: 1rem;
-	padding-top: 2rem;
-	width: calc(200% - 2rem);
-	margin: 1rem;
-	margin-top: -1rem;
-	padding: 0;
-	list-style: none;
-	z-index: 90;
-}
-
-.search-menu:empty {
-	display: none;
-}
-
-.search-menu li a {
-	display: block;
-	padding: 1em;
-}
-
-.search-menu li:hover {
-	background: color-mix(in oklab, var(--fg-1) 15%, transparent);
-	color: var(--bg-0, black);
-}
-
-section.heading input {
-	position: relative;
-	z-index: 100;
-	border-radius: 1rem;
-	border: 1px solid var(--border);
-	padding: 0.5rem 1rem;
-	margin: auto 1rem;
-}
-
-section.heading input::placeholder {
-	opacity: 0.75;
 }

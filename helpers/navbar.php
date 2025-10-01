@@ -44,14 +44,22 @@ function makeNavBar($path, $rootPath = NULL, $idPath = '')
 			continue;
 		}
 
-		$frontmatter = yaml_parse(`yq --front-matter=extract $pathname 2>/dev/null || echo ""`) ?? [];
+		$file = fopen($pathname, 'r');
+		$first = fgets($file);
 
-		if(!($frontmatter['leftBarLink'] ?? true))
+		$frontmatter = [];
+
+		if($first === "---\n")
 		{
-			continue;
-		}
+			$frontmatter = yaml_parse(`yq --front-matter=extract $pathname 2>/dev/null || echo ""`) ?? [];
 
-		$frontmatter['weight'] = ($frontmatter['weight'] ?? 0) + 1000;
+			if(!($frontmatter['leftBarLink'] ?? true))
+			{
+				continue;
+			}
+
+			$frontmatter['weight'] = ($frontmatter['weight'] ?? 0) + 1000;
+		}
 
 		$files[] = (object)[
 			'type' => 'FILE',

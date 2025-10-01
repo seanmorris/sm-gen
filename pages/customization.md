@@ -15,16 +15,19 @@ You can set the syntax highlighting theme using the `HIGHLIGHT_STYLE` variable i
 HIGHLIGHT_STYLE=zenburn
 ```
 
-The following options are available:
+You can list the available syntax higlighters with `pandoc --list-highlight-styles`:
 
-* pygments
-* tango
-* espresso
-* kate
-* monochrome
-* breezedark
-* haddock
-* zenburn
+```bash
+pandoc --list-highlight-styles
+# pygments
+# tango
+# espresso
+# zenburn
+# kate
+# monochrome
+# breezedark
+# haddock
+```
 
 ## Themes, CSS, and JS Injection
 

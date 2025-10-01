@@ -69,8 +69,7 @@ smgen watch
 You can configure the port used using DEV_PORT in .smgen-rc:
 
 ```bash
-# DEV_PORT=8000
-DEV_PORT=8080
+DEV_PORT=8080 # Default 8000
 ```
 
 ## smgen serve

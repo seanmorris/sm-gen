@@ -67,7 +67,7 @@ $endif$
 <body>
 	<?php include $headerTemplate; ?>
 	<section class = "below-fold">
-		<div class = "page-rule">
+		<div class = "page-rule row">
 			<?php if($leftBarShow ?? true): ?>
 				<nav class = "main"><?php include 'navbar.php'; ?></nav>
 			<?php endif; ?>
