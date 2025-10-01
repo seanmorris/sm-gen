@@ -73,6 +73,9 @@ jobs:
       - name: Install SMGen
         run: curl -fsSL https://seanmorris.github.io/smgen/install.sh | sudo bash
 
+      - name: Install SMGen Search
+        run: npm i -g smgen-search
+
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y pandoc php-cli uuid
 
@@ -104,6 +107,4 @@ jobs:
       - name: Show GitHub Pages URL
         run: |
           echo "GitHub Pages URL: ${{ env.BASE_URL }}"
-
 ```
-
