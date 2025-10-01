@@ -57,9 +57,9 @@ function makeNavBar($path, $rootPath = NULL, $idPath = '')
 			{
 				continue;
 			}
-
-			$frontmatter['weight'] = ($frontmatter['weight'] ?? 0) + 1000;
 		}
+
+		$frontmatter['weight'] = ($frontmatter['weight'] ?? 0) + 1000;
 
 		$files[] = (object)[
 			'type' => 'FILE',
