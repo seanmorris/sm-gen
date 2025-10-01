@@ -65,6 +65,7 @@ npm i -g smgen-search
 
 ```bash
 smgen-search build-index ./pages static/search.bin
+smgen build
 ```
 
 ### Other Tips
