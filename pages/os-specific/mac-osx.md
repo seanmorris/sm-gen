@@ -3,6 +3,16 @@ title: Mac OSX
 ---
 # OSX Specific Stuff
 
+OSX uses `brew` for most installs, however PHP may require some work (see below)
+
+```bash
+brew install bash pandoc uuid
+
+YQ_VERSION=v4.47.2
+wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64
+chmod +x /usr/local/bin/yq
+```
+
 ## Installing php-yml on OSX:
 
 Installing PHP can be tricky on non-linux systems. The default install provided by brew has no simple pathway to installing php-yml, so we can use [shivammathur's distibution](https://setup-php.com/) from <https://setup-php.com>.

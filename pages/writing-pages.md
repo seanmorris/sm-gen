@@ -22,7 +22,7 @@ leftBarShow: <boolean> # Whether to show the left navbar on this page. Defaults 
 header: <filepath> # The header template to use, defaults to "templates/header.php"
 footer: <filepath> # The footer template to use, defaults to "templates/footer.php"
 
-noSearch: <boolean> # Whether this page should appear in search, defaults to TRUE
+noSearch: <boolean> # Suppress this page from search defaults to FALSE
 ---
 ```
 
