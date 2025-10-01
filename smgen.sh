@@ -97,11 +97,6 @@ case "$1" in
 			exit 1
 		fi
 
-		if [ "$#" -eq 1 ] && [ ! -z "$(ls -A ./)" ]; then
-			echo -e "\e[33;4mCopying static assets...\e[0m"
-			cp -prfv "${STATIC_DIR}/"* "${OUTPUT_DIR}/";
-		fi
-
 		echo -e "\e[33;4mBuilding pages...\e[0m"
 
 		STYLE_ARGS=""
@@ -219,6 +214,7 @@ case "$1" in
 		}; done;
 
 		if [ "$#" -eq 1 ]; then
+
 			echo -e "\e[33;4mAssembing sitemap...\e[0m"
 			echo -e "\e[37m  ${OUTPUT_DIR}/sitemap.xml...\e[0m"
 			"${PHP}" ${PHP_FLAGS} "${SCRIPT_DIR}/helpers/sitemap.php" "${BASE_URL}" > "${OUTPUT_DIR}/sitemap.xml"
@@ -226,6 +222,11 @@ case "$1" in
 			if command -v "${SMG_SEARCH}" >/dev/null 2>&1; then
 				echo -e "\e[33;4mAssembing search index...\e[0m"
 				"${SMG_SEARCH}" build-index "${PAGES_DIR}" "${STATIC_DIR}/search.bin"
+			fi
+
+			if [ "$#" -eq 1 ] && [ ! -z "$(ls -A ./)" ]; then
+				echo -e "\e[33;4mCopying static assets...\e[0m"
+				cp -prfv "${STATIC_DIR}/"* "${OUTPUT_DIR}/";
 			fi
 
 			if [ -f after-smgen.sh ]; then
