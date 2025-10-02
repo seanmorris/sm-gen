@@ -41,7 +41,7 @@ chmod +x /usr/local/bin/yq
 Install the equivalent packages using your distribution's package manager and install `yq` manually:
 
 ```bash
-# Replace <pkg-manager> with your distro's package manager (e.g., yum, zypper, apk).
+# Replace <pkg-manager> with your distro's package manager (e.g., apt, yum, zypper, apk).
 <pkg-manager> install php php-yaml bash pandoc uuid inotify-tools
 
 YQ_VERSION=v4.47.2

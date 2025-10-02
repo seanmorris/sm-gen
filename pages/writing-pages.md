@@ -38,11 +38,11 @@ weight: 5
 
 # FAQ & Troubleshooting
 
-### Q: I get an error “php is required.”?
+### Q: I get an error "php is required."?
 
 Ensure PHP CLI is installed and `php` is on your PATH.
 
-### Q: I get an error “pandoc is required.”?
+### Q: I get an error "pandoc is required."?
 
 Ensure Pandoc is installed and `pandoc` is on your PATH.
 ```

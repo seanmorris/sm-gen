@@ -8,7 +8,7 @@ author:
 # SMGen
 *Static Site Generator*
 
-Bash-driven static-site generator that follows the unix philosophy. Converts Markdown files into a fully templated HTML website using PHP, yq, and Pandoc:
+Bash-driven static-site generator that follows the Unix philosophy. Converts Markdown files into a fully templated HTML website using PHP, yq, and Pandoc:
 
 - **Bash** (shell, version ≥ 4.0)
 - **PHP** command-line

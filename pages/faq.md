@@ -5,11 +5,11 @@ weight: 5
 
 # FAQ & Troubleshooting
 
-### Q: I get an error “php is required.”?
+### Q: I get an error "php is required."?
 
 Ensure PHP CLI is installed and `php` is on your PATH.
 
-### Q: I get an error “pandoc is required.”?
+### Q: I get an error "pandoc is required."?
 
 Ensure Pandoc is installed and `pandoc` is on your PATH.
 
@@ -23,7 +23,7 @@ wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/${Y
 chmod +x /usr/local/bin/yq
 ```
 
-### Q: I get an error “uuid is required.”?
+### Q: I get an error "uuid is required."?
 
 Ensure `uuid` is installed and on your PATH.
 
@@ -31,7 +31,7 @@ Ensure `uuid` is installed and on your PATH.
 
 There seems to be a bug somewhere in the stack when the Markdown file uses `---` for horizontal rules (`<hr />` tags). You can work around this issue by using the equivalent `***` notation to achieve the same end result.
 
-### Q: Front-matter isn’t being applied?
+### Q: Front-matter isn't being applied?
 
 Check that your YAML block is enclosed between triple dash (`---`) markers at the top of the file.
 
@@ -47,7 +47,7 @@ The `smgen watch` command relies on the Linux `inotify-tools` package for filesy
 
 ### Q: How do I install the PHP YAML extension?
 
-Make sure the PHP YAML extension is installed so that SMGen can parse YAML front-matter. On most Linux distros install the `php-yaml` package (e.g., `apt install php-yaml`, `dnf install php-yaml`, `pacman -S php-yaml`). On macOS, use shivammathur’s taps:
+Make sure the PHP YAML extension is installed so that SMGen can parse YAML front-matter. On most Linux distros install the `php-yaml` package (e.g., `apt install php-yaml`, `dnf install php-yaml`, `pacman -S php-yaml`). On macOS, use shivammathur's taps:
 
 ```bash
 brew tap shivammathur/php

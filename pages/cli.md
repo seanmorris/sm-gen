@@ -82,6 +82,22 @@ smgen serve
 
 `DEV_PORT` also applies here.
 
+## smgen proofread
+
+Proofread your markdown to catch spelling errors.
+
+```bash
+smgen proofread
+smgen proofread <file>
+```
+
+Running `smgen proofread` without a parameter will list all the files with unknown/misspelled words in the `pages/` directory.
+
+Running `smgen proofread <file>` will list the unknown misspelled words from that file.
+
+From there you can correct and spelling errors and add new words to `./aspell.txt` in the root of the project,
+
+The dictionary file can be configured with the `ASPELL_DICT` variable.
 
 ## smgen create-random-page
 

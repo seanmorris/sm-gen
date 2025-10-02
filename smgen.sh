@@ -55,6 +55,7 @@ case "${1:-""}" in
 		UUID=${UUID:-"uuid"}
 		SMG_SEARCH=${SMG_SEARCH:-"smgen-search"}
 
+
 		BASE_URL=${BASE_URL:-""}
 		PRODUCT_NAME=${PRODUCT_NAME:-""}
 		ORGANIZATION=${ORGANIZATION:-""}
@@ -282,6 +283,20 @@ case "${1:-""}" in
 		php -S "localhost:${DEV_PORT}" -t docs/
 		;;
 
+	proofread|pr)
+		ASPELL=${ASPELL:-"aspell"}
+		ASPELL_DICT=${ASPELL_DICT:-"aspell.txt"}
+		ASPELL_FLAGS='-t --home-dir=./ --personal='"${ASPELL_DICT}"
+		if [ "$#" -gt 1 ]; then
+			cat "${2}" | ${ASPELL} ${ASPELL_FLAGS} list | sort | uniq
+		else
+			find ${PAGES_DIR} -type f -name "*.md" -print0 | while IFS= read -r -d $'\0' FILE; do
+			if ${ASPELL} ${ASPELL_FLAGS} list < "${FILE}" | grep -q .; then
+				echo "${FILE} needs proofreading."
+			fi
+			done
+		fi
+		;;
 	create-random-page)
 		PAGE_URL="https://jaspervdj.be/lorem-markdownum/markdown.txt?p=5"
 		PAGE_FILE="pages/$(shuf -n 1 /usr/share/dict/words).md"
@@ -299,6 +314,7 @@ case "${1:-""}" in
 		echo "  init                Initialize a new site in current directory"
 		echo "  build               Build the site from Markdown to HTML"
 		echo "  serve               Serve the site locally (requires PHP)"
+		echo "  proofread           Proofread one or all documents"
 		echo "  create-random-page  Create a random lorem markdown page"
 		echo "  help                Show this help message"
 		exit 0

@@ -60,7 +60,7 @@ With these set, the contents of `/inline.css` will be embedded inside a `<style>
 
 ### CSS Theming
 
-SMGen’s default stylesheet (`static/default.css`) defines a set of CSS custom properties
+SMGen's default stylesheet (`static/default.css`) defines a set of CSS custom properties
 (variables) for colors, spacing, and other design tokens in `:root` and `:root.dark`
 near the bottom of the file. You can override any of these values by loading a
 custom theme CSS after the default styles.
@@ -129,7 +129,7 @@ This project uses PHP+Pandoc templates to wrap your Markdown content in HTML. Te
 
 1. Copy the default `templates/page.php` to a new file (e.g. `templates/my-page.php`).
 2. Modify the HTML and Pandoc placeholders as needed.
-3. In your page’s YAML front-matter, set the `template` field. For example:
+3. In your page's YAML front-matter, set the `template` field. For example:
 
    ```markdown
    ---
@@ -189,7 +189,7 @@ Use YAML front-matter fields in pages or directory-level `.fm.yaml` files to con
 - `weight` — numeric weight for ordering pages and sections (lower values appear first).
 - `title` — override the link text for a page or section heading.
 - `leftBarLink` — set to `false` to omit a specific page or directory from the nav.
-- `leftBarShow` — set to `false` in a page’s front-matter to hide the entire sidebar on that page.
+- `leftBarShow` — set to `false` in a page's front-matter to hide the entire sidebar on that page.
 
 ### Examples
 
