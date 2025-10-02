@@ -383,7 +383,7 @@ section.heading input {
 	margin-left: 0.5rem;
 }
 
-input#search-query {
+input#search-query:placeholder-shown {
 	background-image: url(./search.svg);
 	background-repeat: no-repeat;
 	background-position: calc(100% - 0.75rem) center;
