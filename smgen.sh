@@ -3,7 +3,13 @@
 set -euo pipefail
 
 if [ -f .smgen-rc ]; then
-	source .smgen-rc
+	# shellcheck source=/dev/null
+	. .smgen-rc
+fi
+
+if [ -f .env ]; then
+	# shellcheck source=/dev/null
+	. .env
 fi
 
 OUTPUT_DIR=${OUTPUT_DIR:-"./docs"}
@@ -14,11 +20,11 @@ PAGES_DIR=${PAGES_DIR:-"./pages"}
 DEV_PORT=${DEV_PORT:-"8000"}
 
 
-SCRIPT_DIR=$( cd -- "$( dirname -- $(readlink -f "${BASH_SOURCE[0]}") )" &> /dev/null && pwd )
+SCRIPT_DIR=$( cd -- "$( dirname -- "$( readlink -f "${BASH_SOURCE[0]}" )" )" &> /dev/null && pwd )
 
-case "$1" in
+case "${1:-""}" in
 	init|i)
-		if [ ! -z "$(ls -A ./)" ]; then
+		if [ -n "$(ls -A ./)" ]; then
 			echo "Directory is not empty."
 			exit 1
 		fi;
@@ -128,7 +134,6 @@ case "$1" in
 			EXT="${BASE##*.}"
 			PAGE_NAME="${BASE%.*}"
 			DEST="${DIR#"${PAGES_DIR}"}/${PAGE_NAME}.html"
-			DEST_JSON="${DIR#"${PAGES_DIR}"}/${PAGE_NAME}.json"
 
 			# Skip directory-level frontmatter
 			if [ "${PAGE_NAME}.${EXT}" == ".fm.yaml" ]; then
@@ -209,7 +214,7 @@ case "$1" in
 				"${PAGE_FILE}"
 
 			# Cleanup
-			rm ${TMP_FILE}
+			rm "${TMP_FILE}"
 
 		}; done;
 
@@ -224,7 +229,7 @@ case "$1" in
 				"${SMG_SEARCH}" build-index "${PAGES_DIR}" "${STATIC_DIR}/search.bin"
 			fi
 
-			if [ "$#" -eq 1 ] && [ ! -z "$(ls -A ./)" ]; then
+			if [ "$#" -eq 1 ] && [ -n "$(ls -A ./)" ]; then
 				echo -e "\e[33;4mCopying static assets...\e[0m"
 				cp -prfv "${STATIC_DIR}/"* "${OUTPUT_DIR}/";
 			fi
@@ -240,24 +245,28 @@ case "$1" in
 		echo "ctrl+c to exit..."
 		sleep 1
 
-		EVENTS="create,modify,delete,move"
+		# EVENTS="create,modify,delete,move"
+		EVENTS="create,modify"
 
 		trap 'kill $(jobs -p)' EXIT
 
-		php -S localhost:${DEV_PORT} -t docs/ &
+		php -S "localhost:${DEV_PORT}" -t docs/ &
 		SERVER_PID=$!
 
 		"${BASH_SOURCE[0]}" build
 
-		inotifywait -m -r -e "$EVENTS" --format '%w%f %e' "${PAGES_DIR}" "${STATIC_DIR}" | while read -r FILEPATH EVENT
-		do
-
+		inotifywait -m -r -e "$EVENTS" --format '%w%f %e' "${PAGES_DIR}" "${STATIC_DIR}" \
+		| while read -r FILEPATH EVENT; do
 			if [[ "${FILEPATH}" == "${PAGES_DIR}"* ]]; then
-				"${BASH_SOURCE[0]}" build ${FILEPATH}
+				if [[ ${EVENT} == "CREATE" ]]; then
+					"${BASH_SOURCE[0]}" build
+				else
+					"${BASH_SOURCE[0]}" build "${FILEPATH}"
+				fi
 			fi
 
 			if [[ "${FILEPATH}" == "${STATIC_DIR}"* ]]; then
-				cp -prfv ${FILEPATH} ${OUTPUT_DIR}
+				cp -prfv "${FILEPATH}" "${OUTPUT_DIR}"
 			fi
 		done;
 
@@ -267,7 +276,7 @@ case "$1" in
 	serve|s)
 		echo "ctrl+c to exit..."
 		sleep 1
-		php -S localhost:${DEV_PORT} -t docs/
+		php -S "localhost:${DEV_PORT}" -t docs/
 		;;
 
 	create-random-page)
