@@ -1,4 +1,4 @@
-personal_ws-1.1 en 10
+personal_ws-1.1 en utf8
 addEventListener
 bg
 breezedark
@@ -123,3 +123,9 @@ ubuntu
 javascript
 symlink
 templated
+aspell
+SpellChecker
+txt
+unicode
+utf
+ws

@@ -290,11 +290,14 @@ case "${1:-""}" in
 		if [ "$#" -gt 1 ]; then
 			cat "${2}" | ${ASPELL} ${ASPELL_FLAGS} list | sort | uniq
 		else
-			find ${PAGES_DIR} -type f -name "*.md" -print0 | while IFS= read -r -d $'\0' FILE; do
-			if ${ASPELL} ${ASPELL_FLAGS} list < "${FILE}" | grep -q .; then
-				echo "${FILE} needs proofreading."
-			fi
-			done
+			CURRENT_CODE=0
+			while IFS= read -r -d $'\0' FILE; do
+				if ${ASPELL} ${ASPELL_FLAGS} list < "${FILE}" | grep -q .; then
+					CURRENT_CODE=1
+					echo "${FILE} needs proofreading."
+				fi
+			done < <( find ${PAGES_DIR} -type f -name "*.md" -print0 )
+			exit ${CURRENT_CODE}
 		fi
 		;;
 	create-random-page)

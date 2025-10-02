@@ -18,7 +18,7 @@ Bash-driven static-site generator that follows the Unix philosophy. Converts Mar
 - **Pandoc** (Markdown to HTML converter)
 - **uuid** (UUID generator)
 
-### Recomended
+### Recommended
 
 - **inotify-tools** (Filesystem event watcher)
 - **aspell** (SpellChecker)

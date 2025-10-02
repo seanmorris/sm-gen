@@ -70,6 +70,26 @@ smgen-search build-index ./pages static/search.bin
 smgen build
 ```
 
+### Q: The `smgen proofread` command throws an error
+
+#### Error: The file "./aspell.txt" is not in the proper format.
+
+Make sure your aspell dictionary  (`ASPELL_DICT`, default `./aspell.txt`) has a valid header on the first line:
+
+```bash
+personal_ws-1.1 en utf8
+```
+
+#### "The character '�' (U+A1) may not appear in the middle of a word." ?
+
+You've got unicode in your aspell dict without specifying it in the header.
+
+Make sure your aspell dictionary has `utf8` as the last element of the FIRST line:
+
+```bash
+personal_ws-1.1 en utf8
+```
+
 ### Other Tips
 
 - Use `set -x` in `smgen` to debug build steps.
