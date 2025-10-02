@@ -13,7 +13,7 @@ Bash-driven static-site generator that follows the Unix philosophy. Converts Mar
 ### Requirements
 
 - **Bash** (shell, version >= 4)
-- **PHP** (cli & php-yaml, version >= 8)
+- **PHP** (cli & php-yaml)
 - **yq** (YAML processor)
 - **Pandoc** (Markdown to HTML converter)
 - **uuid** (UUID generator)
