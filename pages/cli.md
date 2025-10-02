@@ -95,7 +95,9 @@ Running `smgen proofread` without a parameter will list all the files with unkno
 
 Running `smgen proofread <file>` will list the unknown misspelled words from that file.
 
-From there you can correct and spelling errors and add new words to your dictionary file: `./aspell.txt` in the root of the project,
+From there you can correct any spelling errors, and/or add new words to your dictionary file: `./aspell.txt` in the root of the project,
+
+Words that appear in the dictionary file will not be considered misspelled.
 
 The dictionary file can be configured with the `ASPELL_DICT` variable.
 
