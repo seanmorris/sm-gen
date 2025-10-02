@@ -8,7 +8,7 @@ $leftBarLink = $frontmatter['leftBarLink'] ?? TRUE;
 $leftBarShow = $frontmatter['leftBarShow'] ?? TRUE;
 
 ?><!DOCTYPE HTML>
-<html lang = "en">
+<html lang = "en" class = "theme-cosmic">
 <head>
 	$if(noprefix)$
 	<title>$if(pagetitle)$${pagetitle}$else$${title}$endif$</title>

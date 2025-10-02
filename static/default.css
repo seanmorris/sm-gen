@@ -380,7 +380,14 @@ section.heading input {
 	border-radius: 1rem;
 	border: 1px solid var(--border);
 	padding: 0.5rem 1rem;
-	margin: auto 1rem;
+	margin-left: 0.5rem;
+}
+
+input#search-query {
+	background-image: url(./search.svg);
+	background-repeat: no-repeat;
+	background-position: calc(100% - 0.75rem) center;
+	background-size: auto 50%;
 }
 
 section.heading input::placeholder {
@@ -434,8 +441,12 @@ section.below-fold nav summary {
 	user-select: none;
 }
 
+section.below-fold nav summary {
+	color: color-mix(in srgb, var(--fg-0, #000), var(--link) 33%);
+}
+
 section.below-fold nav summary:hover {
-	color: var(--muted, #80808080);
+	color: color-mix(in srgb, var(--bg-0, #FFF), var(--link) 75%);
 }
 
 button, .btn {
@@ -451,7 +462,7 @@ button, .btn {
 button:focus, .btn:focus,
 button:hover, .btn:hover { box-shadow: 0 0 0 3px var(--ring); transform: translateY(-1px); }
 
-.input {
+/* .input {
 	background: var(--surface-1);
 	border: 1px solid var(--border, black);
 	color: var(--fg-0);
@@ -462,7 +473,7 @@ button:hover, .btn:hover { box-shadow: 0 0 0 3px var(--ring); transform: transla
 
 .input:focus {
 	box-shadow: 0 0 0 3px var(--ring); border-color: transparent;
-}
+} */
 
 :root {
 	--bg-0: #FFF;
@@ -518,4 +529,51 @@ button:hover, .btn:hover { box-shadow: 0 0 0 3px var(--ring); transform: transla
 	--success: #00B97A;
 	--warning: #C29600;
 	--danger:  #E1324A;
+}
+
+
+
+
+.links {
+	display: flex;
+	flex-direction: row;
+	margin-right: 0.5rem;
+}
+
+.links a, .links button {
+	width: 1.85rem;
+	height: 1.85rem;
+	display: inline-block;
+	margin-left: 0.5rem;
+	opacity: 0.75;
+	margin-left: 1rem;
+}
+
+.links a.github-icon {
+	background: url(github.svg);
+	background-color: transparent;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+:root.dark .links a.github-icon {
+	filter: invert(1);
+}
+
+:root .links [data-toggle-theme-variant] {
+	cursor: pointer;
+	background-color: transparent;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+:root.dark .links [data-toggle-theme-variant] {
+	background-image: url(./sun.svg);
+	filter: invert(1);
+}
+
+:root.light .links [data-toggle-theme-variant] {
+	background-image: url(./moon.svg);
 }

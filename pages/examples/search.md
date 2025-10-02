@@ -22,29 +22,29 @@ npm install -g smgen-search
 
 ## 2. Configure the search index build
 
-Create a `before-smgen.sh` hook in your project root to generate a binary search index before each build:
+The `smgen build` command automatically generates a binary search index if the
+`smgen-search` CLI is available on your `PATH`. The index is written to
+`static/search.bin` and copied into your output directory on each build.
+
+If you installed `smgen-search` locally (for example, in `node_modules`), you can
+override the search command by setting the `SMG_SEARCH` variable in your
+`.smgen-rc` or `.env` file:
 
 ```bash
-#!/usr/bin/env bash
-smgen-search build-index pages static/search.bin
+# .smgen-rc or .env
+SMG_SEARCH=./node_modules/.bin/smgen-search
 ```
-
-Make the hook executable:
-
-```bash
-chmod +x before-smgen.sh
-```
-
-This will populate `static/search.bin`, which is automatically copied into your output directory on `smgen build`.
 
 ## 3. Enable the search UI
 
-The default templates include a search input in `templates/header.php` and client-side logic in `static/main.js` to load and query the index. By default, the header contains:
+The default templates include a search input in `templates/header.php` and client-side
+logic in `static/main.js` to load and query the index. By default, the header contains:
 
 ```php
 <input id="search-query"
        placeholder="search"
-       data-search-index="<?=getEnv('BASE_URL');?>/search.bin" />
+       data-search-index="<?=getEnv('BASE_URL');?>/search.bin"
+       data-search-results="#search-results" />
 <ul class="search-menu" id="search-results"></ul>
 ```
 
@@ -56,7 +56,7 @@ Below is a browser example showing how to fetch and use the binary index with `S
 
   (async function initSearch() {
     const input = document.querySelector('#search-query');
-    const resultsList = document.querySelector('#search-results');
+    const resultsList = document.querySelector(input.getAttribute('data-search-results'));
     const baseUrl = document
       .querySelector('meta[name="smgen-base-url"]')
       .getAttribute('content');

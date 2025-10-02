@@ -36,6 +36,8 @@ case "${1:-""}" in
 
 		cp "${SCRIPT_DIR}/templates/page.php" "${SCRIPT_DIR}/templates/header.php" "${SCRIPT_DIR}/templates/footer.php" templates/
 		cp "${SCRIPT_DIR}/static/default.css" "${SCRIPT_DIR}/static/main.js" static/
+		cp "${SCRIPT_DIR}/static/search.svg" "${SCRIPT_DIR}/static/github.svg" static/
+		cp "${SCRIPT_DIR}/static/sun.svg" "${SCRIPT_DIR}/static/moon.svg" static/
 		cp "${SCRIPT_DIR}/.smgen-rc-default" ./.smgen-rc
 
 		PAGE_URL="https://jaspervdj.be/lorem-markdownum/markdown.txt?p=5"

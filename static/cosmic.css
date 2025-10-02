@@ -1,4 +1,4 @@
-:root {
+:root.theme-cosmic {
 	/* Accents */
 	--acc-violet: #784CFF;  /* electric violet */
 	--acc-cyan:   #00D0FF;  /* neon cyan */
@@ -7,7 +7,7 @@
 	--acc-mint:   #61FFC5;  /* minty teal */
 }
 
-:root {
+:root.theme-cosmic.dark {
 	/* Core palette */
 	--bg-0: #0A0E20;   /* deep space navy */
 	--bg-1: #1F0740;   /* cosmic plum */
@@ -38,7 +38,7 @@
 	--danger:  #FF516D;
 }
 
-:root.light {
+:root.theme-cosmic.light {
 	--bg-0: #F7F8FF;
 	--bg-1: #ECEBFF;
 	--bg-2: #EAF7FF;

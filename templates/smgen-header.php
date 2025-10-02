@@ -23,9 +23,8 @@
 						<ul class="search-menu" id = "search-results"></ul>
 					</div>
 					<div class = "links">
-						<a title = "github" href = "https://github.com/seanmorris/smgen">
-							<img src = "<?=getEnv('BASE_URL');?>/github-icon.png">
-						</a>
+						<a class = "github-icon" title = "github" href = "https://github.com/seanmorris/smgen"></a>
+						<a data-toggle-theme-variant></a>
 					</div>
 				</div>
 			</div>

@@ -7,28 +7,6 @@ weight: 3
 
 Customize your site appearance and behavior:
 
-## Syntax Highlighting
-
-You can set the syntax highlighting theme using the `HIGHLIGHT_STYLE` variable in .smgen-rc:
-
-```bash
-HIGHLIGHT_STYLE=zenburn
-```
-
-You can list the available syntax highlighters with `pandoc --list-highlight-styles`:
-
-```bash
-pandoc --list-highlight-styles
-# pygments
-# tango
-# espresso
-# zenburn
-# kate
-# monochrome
-# breezedark
-# haddock
-```
-
 ## Themes, CSS, and JS Injection
 
 Use front-matter or `.smgen-rc` to add custom styles and scripts. For example, if you have files under `static/`:
@@ -79,6 +57,71 @@ END
 ```
 
 With these set, the contents of `/inline.css` will be embedded inside a `<style>` tag in the `<head>`, and `/inline.js` contents will be embedded inside a `<script>` tag before `</body>`.
+
+### CSS Theming
+
+SMGen’s default stylesheet (`static/default.css`) defines a set of CSS custom properties
+(variables) for colors, spacing, and other design tokens in `:root` and `:root.dark`
+near the bottom of the file. You can override any of these values by loading a
+custom theme CSS after the default styles.
+
+1. Create a theme file (e.g. `static/theme.css`) and redefine variables:
+
+```css
+:root {
+  /* Brand colors */
+  --primary: #b20;
+  --primary-contrast: #fff;
+
+  /* Text and background */
+  --bg-0: #fff;
+  --fg-0: #333;
+
+  /* Links and accents */
+  --link: #b20;
+}
+
+:root.dark {
+  /* Dark mode overrides */
+  --bg-0: #222;
+  --fg-0: #ddd;
+  --link: #e55;
+}
+```
+
+2. Include your theme file after the default stylesheet in `.smgen-rc` (or front‑matter):
+
+```bash
+STYLES=$(cat <<-END
+  /default.css
+  /theme.css
+END
+)
+```
+
+Inject that snippet via `INLINE_JAVASCRIPTS` or place it directly in your `templates/header.php`.
+
+### Syntax Highlighting
+
+You can set the syntax highlighting theme using the `HIGHLIGHT_STYLE` variable in .smgen-rc:
+
+```bash
+HIGHLIGHT_STYLE=zenburn
+```
+
+You can list the available syntax highlighters with `pandoc --list-highlight-styles`:
+
+```bash
+pandoc --list-highlight-styles
+# pygments
+# tango
+# espresso
+# zenburn
+# kate
+# monochrome
+# breezedark
+# haddock
+```
 
 ## Writing Your Own Templates
 
