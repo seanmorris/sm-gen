@@ -33,7 +33,9 @@ There seems to be a bug somewhere in the stack when the Markdown file uses `---`
 
 ### Q: Front-matter isn’t being applied?
 
-Check that your YAML block is enclosed between `---` markers at the top of the file.
+Check that your YAML block is enclosed between triple dash (`---`) markers at the top of the file.
+
+Ensure there are no characters before or after the `---` on those lines, and that the first line in the file is `---`.
 
 ### Q: Custom CSS/JS not loading?
 
