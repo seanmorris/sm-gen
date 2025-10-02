@@ -10,12 +10,18 @@ author:
 
 Bash-driven static-site generator that follows the Unix philosophy. Converts Markdown files into a fully templated HTML website using PHP, yq, and Pandoc:
 
-- **Bash** (shell, version ≥ 4.0)
-- **PHP** command-line
+### Requirements
+
+- **Bash** (shell, version >= 4)
+- **PHP** (cli & php-yaml, version >= 8)
 - **yq** (YAML processor)
 - **Pandoc** (Markdown to HTML converter)
 - **uuid** (UUID generator)
+
+### Recomended
+
 - **inotify-tools** (Filesystem event watcher)
+- **aspell** (SpellChecker)
 
 ```bash
 apt install php php-yaml bash pandoc uuid inotify-tools
