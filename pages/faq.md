@@ -80,7 +80,7 @@ Make sure your aspell dictionary  (`ASPELL_DICT`, default `./aspell.txt`) has a 
 personal_ws-1.1 en utf8
 ```
 
-#### "The character '�' (U+A1) may not appear in the middle of a word." ?
+#### "The character '�' (U+XX) may not appear in the middle of a word." ?
 
 You've got unicode in your aspell dict without specifying it in the header.
 
