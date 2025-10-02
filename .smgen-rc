@@ -2,11 +2,13 @@
 
 DEV_PORT=8000
 BASE_URL=${BASE_URL:-"http://localhost:${DEV_PORT}"}
+DEFAULT_THEME=theme-cosmic
 
 STATIC_DIR=${STATIC_DIR:-"./static"}
 
 STYLES=$( cat <<-END
 	${BASE_URL}/default.css
+	${BASE_URL}/techno.css
 	${BASE_URL}/cosmic.css
 END
 )

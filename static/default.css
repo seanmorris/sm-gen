@@ -85,7 +85,7 @@ code {
 }
 
 code:not(pre > code) {
-	padding: 0 0.5rem;
+	padding: 0 0.35rem;
 	background-color: color-mix(in srgb, var(--fg-0, black), transparent 75%);
 }
 
@@ -537,7 +537,6 @@ button:hover, .btn:hover { box-shadow: 0 0 0 3px var(--ring); transform: transla
 .links {
 	display: flex;
 	flex-direction: row;
-	margin-right: 0.5rem;
 }
 
 .links a, .links button {
@@ -545,7 +544,7 @@ button:hover, .btn:hover { box-shadow: 0 0 0 3px var(--ring); transform: transla
 	height: 1.85rem;
 	display: inline-block;
 	margin-left: 0.5rem;
-	opacity: 0.75;
+	opacity: 0.65;
 	margin-left: 1rem;
 }
 
@@ -554,7 +553,7 @@ button:hover, .btn:hover { box-shadow: 0 0 0 3px var(--ring); transform: transla
 	background-color: transparent;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: 85%;
 }
 
 :root.dark .links a.github-icon {
@@ -576,4 +575,9 @@ button:hover, .btn:hover { box-shadow: 0 0 0 3px var(--ring); transform: transla
 
 :root.light .links [data-toggle-theme-variant] {
 	background-image: url(./moon.svg);
+	background-size: 85%;
+}
+
+footer .col {
+	text-align: right;
 }

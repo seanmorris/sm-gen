@@ -8,7 +8,7 @@ $leftBarLink = $frontmatter['leftBarLink'] ?? TRUE;
 $leftBarShow = $frontmatter['leftBarShow'] ?? TRUE;
 
 ?><!DOCTYPE HTML>
-<html lang = "en" class = "theme-cosmic">
+<html lang = "en" class = "<?=getenv('DEFAULT_THEME')??'theme-default';?>">
 <head>
 	$if(noprefix)$
 	<title>$if(pagetitle)$${pagetitle}$else$${title}$endif$</title>
@@ -39,7 +39,7 @@ $if(canonical)$
 $endif$
 	<meta name="title" content="$if(pagetitle)$${pagetitle}$else$${title}$endif$">
 	<link rel="icon" type="image/png" href="<?=getenv('BASE_URL');?>/icon-16.png">
-	<link rel="sitemap" href="/sitemap.xml" />
+	<link rel="sitemap" href="<?=getenv('BASE_URL');?>/sitemap.xml" />
 <?php if(file_exists('static/logo.svg')): ?>
 	<link rel="preload" href="<?=getenv('BASE_URL');?>/logo.svg" as="image" type="image/svg">
 <?php endif; ?>

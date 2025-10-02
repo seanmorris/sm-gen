@@ -1,0 +1,69 @@
+:root.theme-techno {
+	/* Accents (PCB-ish) */
+	--acc-lime:   #9CFF7A;   /* bright lime */
+	--acc-teal:   #00D2A0;   /* mint-teal (trace) */
+	--acc-cyan:   #00D0FF;   /* cyan (alt trace) */
+	--acc-amber:  #FFC857;   /* amber highlights */
+	--acc-ivory:  #E6FFF6;   /* pale solder-mask shine */
+}
+
+:root.theme-techno {
+	/* Core palette (dark solder mask) */
+	--bg-0: #06100C;   /* pcb green-black */
+	--bg-1: #0E2219;   /* deep moss */
+	--bg-2: #122C22;   /* dark teal-green */
+
+	/* Use the generated SVG */
+	--background: var(--bg-0) url('./techno.png');
+	/* Text */
+	--fg-0: #E8FFF7;   /* primary text */
+	--fg-1: #BDE7D8;   /* secondary */
+	--muted: #85A79D;  /* labels */
+
+	/* Surfaces (subtle tint from PCB accents) */
+	--surface-0: color-mix(in srgb, color-mix(in oklab, var(--acc-teal)  16%, #000), transparent 20%);
+	--surface-1: color-mix(in srgb, color-mix(in oklab, var(--acc-cyan)  24%, #000), transparent 28%);
+	--surface-2: color-mix(in srgb, color-mix(in oklab, var(--acc-amber) 18%, #000), transparent 30%);
+	--surface-3: color-mix(in srgb, color-mix(in oklab, var(--acc-ivory) 10%, #F3F6FF), transparent 15%);
+
+	--border: color-mix(in oklab, var(--fg-1) 15%, transparent);
+	--shadow: 0 10px 30px color-mix(in oklab, black 70%, transparent);
+	--ring:   color-mix(in oklab, var(--acc-cyan) 55%, white 10%);
+
+	/* Semantic */
+	--primary: var(--acc-teal);
+	--primary-contrast: #041610;
+	--link: #00f0bc;;
+	--success: #38E0A2;
+	--warning: #FFC857;
+	--danger:  #FF4F6A;
+}
+
+:root.theme-techno.light {
+	/* Light solder mask variant */
+	--bg-0: #F5FFF9;
+	--bg-1: #E9FFF5;
+	--bg-2: #E6FAF2;
+
+	--background: var(--bg-0) url('./techno.png');
+
+	--fg-0: #142620;
+	--fg-1: #2E4A40;
+	--muted: #657F76;
+
+	--surface-0: color-mix(in srgb, color-mix(in oklab, var(--acc-teal)  10%, #F5FFF9), transparent 10%);
+	--surface-1: color-mix(in srgb, color-mix(in oklab, var(--acc-cyan)  18%, #F3F6FF), transparent 10%);
+	--surface-2: color-mix(in srgb, color-mix(in oklab, var(--acc-amber) 16%, #F3F6FF), transparent 14%);
+	--surface-3: color-mix(in srgb, color-mix(in oklab, var(--acc-ivory) 12%, #000),     transparent 30%);
+
+	--border: color-mix(in oklab, #2E4A40 18%, transparent);
+	--shadow: 0 8px 24px rgba(9, 14, 32, 0.12);
+	--ring:   color-mix(in oklab, var(--acc-cyan) 45%, black 5%);
+
+	--primary: #00C7A1;
+	--primary-contrast: #FFFFFF;
+	--link: #0b755e;
+	--success: #00B97A;
+	--warning: #C29600;
+	--danger:  #E1324A;
+}
