@@ -87,6 +87,7 @@ code {
 code:not(pre > code) {
 	padding: 0 0.35rem;
 	background-color: color-mix(in srgb, var(--fg-0, black), transparent 75%);
+	white-space: nowrap;
 }
 
 footer {

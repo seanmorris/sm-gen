@@ -68,24 +68,35 @@ custom theme CSS after the default styles.
 1. Create a theme file (e.g. `static/theme.css`) and redefine variables:
 
 ```css
-:root {
-  /* Brand colors */
-  --primary: #b20;
-  --primary-contrast: #fff;
+:root.theme-cosmic {
+	/* Core palette */
+	--bg-0: #0A0E20;   /* deep space navy */
+	--bg-1: #1F0740;   /* cosmic plum */
+	--bg-2: #020D1B;   /* near-black blue */
 
-  /* Text and background */
-  --bg-0: #fff;
-  --fg-0: #333;
+	--background: var(--bg-0) url('./bg.jpg') no-repeat center / cover fixed;
 
-  /* Links and accents */
-  --link: #b20;
-}
+	--fg-0: #EAF2FF;   /* primary text on dark */
+	--fg-1: #B9C7FF;   /* secondary text */
+	--muted: #8CA0B3;  /* subtle labels */
 
-:root.dark {
-  /* Dark mode overrides */
-  --bg-0: #222;
-  --fg-0: #ddd;
-  --link: #e55;
+	/* UI surface tokens */
+	--surface-0: color-mix(in srgb, color-mix(in oklab, var(--acc-violet)  15%, #000000), transparent 30%);
+	--surface-1: color-mix(in srgb, color-mix(in oklab, var(--acc-magenta) 30%, #000000), transparent 40%);
+	--surface-2: color-mix(in srgb, color-mix(in oklab, var(--acc-gold)    20%, #000000), transparent 40%);
+	--surface-3: color-mix(in srgb, color-mix(in oklab, var(--acc-gold)    20%, #F3F6FF), transparent 25%);
+
+	--border: color-mix(in oklab, var(--fg-1) 15%, transparent);
+	--shadow: 0 10px 30px color-mix(in oklab, black 70%, transparent);
+	--ring: color-mix(in oklab, var(--acc-cyan) 60%, white 10%);
+
+	/* Semantic */
+	--primary: var(--acc-cyan);
+	--primary-contrast: #041018;
+	--link: var(--acc-gold);
+	--success: #43E6A2;
+	--warning: var(--acc-gold);
+	--danger:  #FF516D;
 }
 ```
 
